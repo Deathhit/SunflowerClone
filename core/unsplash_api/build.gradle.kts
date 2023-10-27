@@ -1,5 +1,7 @@
 plugins {
     id("com.android.library")
+    id("dagger.hilt.android.plugin")
+    id("kotlin-kapt")
     id("org.jetbrains.kotlin.android")
 }
 
@@ -39,6 +41,13 @@ dependencies {
     val coroutineVersion = "1.7.3"
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion")
     androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion")
+
+    //Hilt
+    val hiltVersion = "2.48.1"
+    kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
+    implementation("com.google.dagger:hilt-android:$hiltVersion")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:$hiltVersion")
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:$hiltVersion")
 
     //Retrofit
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
