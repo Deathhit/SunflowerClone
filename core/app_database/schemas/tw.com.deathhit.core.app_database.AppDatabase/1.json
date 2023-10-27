@@ -1,0 +1,237 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "277be4de2ca106292ed0f2fa2f527602",
+    "entities": [
+      {
+        "tableName": "GardenPlantingEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`garden_planting_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `plant_date` INTEGER NOT NULL, `plant_id` TEXT NOT NULL, FOREIGN KEY(`plant_id`) REFERENCES `PlantEntity`(`plant_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "gardenPlantingId",
+            "columnName": "garden_planting_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "plantDate",
+            "columnName": "plant_date",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "plantId",
+            "columnName": "plant_id",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "garden_planting_id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_GardenPlantingEntity_plant_id",
+            "unique": false,
+            "columnNames": [
+              "plant_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_GardenPlantingEntity_plant_id` ON `${TABLE_NAME}` (`plant_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "PlantEntity",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "plant_id"
+            ],
+            "referencedColumns": [
+              "plant_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "PhotoEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`author_id` TEXT NOT NULL, `author_name` TEXT NOT NULL, `image_url` TEXT NOT NULL, `photo_id` TEXT NOT NULL, `plant_id` TEXT NOT NULL, PRIMARY KEY(`photo_id`), FOREIGN KEY(`plant_id`) REFERENCES `PlantEntity`(`plant_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "authorId",
+            "columnName": "author_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "authorName",
+            "columnName": "author_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imageUrl",
+            "columnName": "image_url",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "photoId",
+            "columnName": "photo_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "plantId",
+            "columnName": "plant_id",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "photo_id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_PhotoEntity_plant_id",
+            "unique": false,
+            "columnNames": [
+              "plant_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_PhotoEntity_plant_id` ON `${TABLE_NAME}` (`plant_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "PlantEntity",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "plant_id"
+            ],
+            "referencedColumns": [
+              "plant_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "PhotoRemoteKeysEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`next_key` INTEGER, `photo_id` TEXT NOT NULL, `previous_key` INTEGER, PRIMARY KEY(`photo_id`), FOREIGN KEY(`photo_id`) REFERENCES `PhotoEntity`(`photo_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "nextKey",
+            "columnName": "next_key",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "photoId",
+            "columnName": "photo_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "previousKey",
+            "columnName": "previous_key",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "photo_id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "PhotoEntity",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "photo_id"
+            ],
+            "referencedColumns": [
+              "photo_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "PlantEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`description` TEXT NOT NULL, `grow_zone_number` INTEGER NOT NULL, `image_url` TEXT NOT NULL, `plant_id` TEXT NOT NULL, `plant_name` TEXT NOT NULL, `watering_interval_days` INTEGER NOT NULL, PRIMARY KEY(`plant_id`))",
+        "fields": [
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "growZoneNumber",
+            "columnName": "grow_zone_number",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imageUrl",
+            "columnName": "image_url",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "plantId",
+            "columnName": "plant_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "plantName",
+            "columnName": "plant_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "wateringIntervalDays",
+            "columnName": "watering_interval_days",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "plant_id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [
+      {
+        "viewName": "GardenPlantingItemView",
+        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT PlantEntity.description AS description, GardenPlantingEntity.garden_planting_id AS garden_planting_id, PlantEntity.grow_zone_number AS grow_zone_number, PlantEntity.image_url AS image_url, GardenPlantingEntity.plant_date AS plant_date, GardenPlantingEntity.plant_id AS plant_id, PlantEntity.plant_name AS plant_name, PlantEntity.watering_interval_days AS watering_interval_days FROM GardenPlantingEntity LEFT JOIN PlantEntity ON PlantEntity.plant_id = GardenPlantingEntity.plant_id"
+      },
+      {
+        "viewName": "PlantItemView",
+        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT PlantEntity.description AS description, PlantEntity.grow_zone_number AS grow_zone_number, PlantEntity.image_url AS image_url, GardenPlantingEntity.plant_date AS plant_date, PlantEntity.plant_id AS plant_id, PlantEntity.plant_name AS plant_name, PlantEntity.watering_interval_days AS watering_interval_days FROM PlantEntity LEFT JOIN GardenPlantingEntity ON GardenPlantingEntity.plant_id = PlantEntity.plant_id"
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '277be4de2ca106292ed0f2fa2f527602')"
+    ]
+  }
+}
