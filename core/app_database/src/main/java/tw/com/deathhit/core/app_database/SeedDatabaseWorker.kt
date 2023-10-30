@@ -42,7 +42,7 @@ internal class SeedDatabaseWorker @AssistedInject constructor(
     }
 
     companion object {
-        private const val UNIQUE_WORK_NAME = "book_data_upload_bdda548fc3084f8097df36fb9735565e"
+        private const val UNIQUE_WORK_NAME = "seed_database_bdda548fc3084f8097df36fb9735565e"
 
         internal fun Context.scheduleSeedingDatabase() {
             val workManager = WorkManager.getInstance(this)
