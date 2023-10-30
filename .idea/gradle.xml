@@ -16,6 +16,8 @@
             <option value="$PROJECT_DIR$/core/app_database" />
             <option value="$PROJECT_DIR$/core/app_ui" />
             <option value="$PROJECT_DIR$/core/unsplash_api" />
+            <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/data/plant" />
             <option value="$PROJECT_DIR$/domain" />
           </set>
         </option>
