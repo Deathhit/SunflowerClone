@@ -1,5 +1,8 @@
 package tw.com.deathhit.core.app_database.json
 
+import androidx.annotation.Keep
+
+@Keep
 data class PlantJson(
     val plantId: String,
     val name: String,

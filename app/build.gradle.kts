@@ -44,8 +44,17 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:app_database"))
     implementation(project(":core:app_ui"))
+    implementation(project(":core:unsplash_api"))
+    implementation(project(":data:garden_planting"))
+    implementation(project(":data:photo"))
+    implementation(project(":data:plant"))
     implementation(project(":domain"))
+
+    //Coroutine
+    val coroutineVersion = "1.7.3"
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion")
 
     //Hilt
     val hiltVersion = "2.48.1"
