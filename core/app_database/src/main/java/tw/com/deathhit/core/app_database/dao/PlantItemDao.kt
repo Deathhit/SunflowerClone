@@ -9,7 +9,7 @@ import tw.com.deathhit.core.app_database.view.PlantItemView
 @Dao
 interface PlantItemDao {
     @Query("SELECT * FROM PlantItemView WHERE :plantId = ${Column.PLANT_ID}")
-    suspend fun getEntity(plantId: String): PlantItemView
+    suspend fun getEntity(plantId: String): PlantItemView?
 
     @Query("SELECT * FROM PlantItemView")
     fun getEntitiesPagingSource(): PagingSource<Int, PlantItemView>

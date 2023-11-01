@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "tw.com.deathhit.data.plant"
+    namespace = "tw.com.deathhit.data.garden_planting"
     compileSdk = 34
 
     defaultConfig {

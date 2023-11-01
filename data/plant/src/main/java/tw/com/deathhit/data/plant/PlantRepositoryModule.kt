@@ -1,11 +1,18 @@
 package tw.com.deathhit.data.plant
 
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import tw.com.deathhit.core.app_database.AppDatabase
+import tw.com.deathhit.domain.PlantRepository
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object PlantRepositoryModule {
-    //todo
+    @Provides
+    @Singleton
+    internal fun providePlantRepository(appDatabase: AppDatabase): PlantRepository =
+        PlantRepositoryImp(appDatabase = appDatabase)
 }
