@@ -13,5 +13,6 @@ internal object Column {
     const val PLANT_ID = "plant_id"
     const val PLANT_NAME = "plant_name"
     const val PREVIOUS_KEY = "previous_key"
+    const val REMOTE_ORDER = "remote_order"
     const val WATERING_INTERVAL_DAYS = "watering_interval_days"
 }

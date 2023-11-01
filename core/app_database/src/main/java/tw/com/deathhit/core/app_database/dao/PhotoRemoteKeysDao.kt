@@ -8,9 +8,6 @@ import tw.com.deathhit.core.app_database.entity.PhotoRemoteKeysEntity
 
 @Dao
 interface PhotoRemoteKeysDao {
-    @Query("DELETE FROM PhotoRemoteKeysEntity")
-    suspend fun clearTable()
-
     @Query("SELECT * FROM PhotoRemoteKeysEntity WHERE :photoId = ${Column.PHOTO_ID}")
     suspend fun get(photoId: String): PhotoRemoteKeysEntity?
 

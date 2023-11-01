@@ -7,8 +7,8 @@ internal class UnsplashServiceImp(
     private val unsplashAppName: String,
     private val unsplashRetrofitService: UnsplashRetrofitService
 ) : UnsplashService {
-    override fun getAttributionUrl(username: String): String =
-        "https://unsplash.com/$username?utm_source=$unsplashAppName&utm_medium=referral"
+    override fun getAttributionUrl(authorId: String): String =
+        "https://unsplash.com/$authorId?utm_source=$unsplashAppName&utm_medium=referral"
 
     override suspend fun searchPhotos(
         page: Int,
@@ -21,7 +21,7 @@ internal class UnsplashServiceImp(
     ).results.map {
         Photo(
             authorName = it.user.name,
-            authorUserName = it.user.username,
+            authorId = it.user.username,
             photoId = it.id,
             url = it.urls.small
         )
