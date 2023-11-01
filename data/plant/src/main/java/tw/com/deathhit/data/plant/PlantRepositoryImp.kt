@@ -10,15 +10,14 @@ import tw.com.deathhit.core.app_database.AppDatabase
 import tw.com.deathhit.domain.PlantRepository
 import tw.com.deathhit.domain.model.PlantDO
 
-internal class PlantRepositoryImp(appDatabase: AppDatabase) : PlantRepository {
+class PlantRepositoryImp(appDatabase: AppDatabase) : PlantRepository {
     private val plantItemDao = appDatabase.plantItemDao()
 
     override suspend fun getPlant(plantId: String): PlantDO? =
         plantItemDao.getEntity(plantId = plantId)?.toPlantDO()
 
     override fun getPlantPagingDataFlow(): Flow<PagingData<PlantDO>> = Pager(
-        config = PagingConfig(pageSize = 25),
-        initialKey = null
+        config = PagingConfig(pageSize = 25)
     ) {
         plantItemDao.getEntitiesPagingSource()
     }.flow.map { pagingData -> pagingData.map { it.toPlantDO() } }

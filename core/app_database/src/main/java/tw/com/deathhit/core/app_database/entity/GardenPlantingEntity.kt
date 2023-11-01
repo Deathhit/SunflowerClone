@@ -19,6 +19,6 @@ import tw.com.deathhit.core.app_database.Column
 data class GardenPlantingEntity(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = Column.GARDEN_PLANTING_ID) val gardenPlantingId: Int = 0,
-    @ColumnInfo(name = Column.PLANT_DATE) val plantDate: Long = 0L,
+    @ColumnInfo(name = Column.PLANT_DATE) val plantDate: Long = System.currentTimeMillis(),
     @ColumnInfo(name = Column.PLANT_ID) val plantId: String
 )
