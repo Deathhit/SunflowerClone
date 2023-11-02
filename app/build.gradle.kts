@@ -51,6 +51,11 @@ dependencies {
     implementation(project(":data:photo"))
     implementation(project(":data:plant"))
     implementation(project(":domain"))
+    implementation(project(":feature:gallery"))
+    implementation(project(":feature:garden_planting_list"))
+    implementation(project(":feature:navigation"))
+    implementation(project(":feature:plant_details"))
+    implementation(project(":feature:plant_list"))
 
     //Coroutine
     val coroutineVersion = "1.7.3"

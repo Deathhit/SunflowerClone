@@ -61,9 +61,6 @@ dependencies {
     //Recycler View
     api ("androidx.recyclerview:recyclerview:1.3.2")
 
-    //Splash Screen
-    api("androidx.core:core-splashscreen:1.0.1")
-
     //View Pager 2
     api("androidx.viewpager2:viewpager2:1.1.0-beta02")
 
