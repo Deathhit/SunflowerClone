@@ -11,6 +11,6 @@ interface PlantItemDao {
     @Query("SELECT * FROM PlantItemView WHERE :plantId = ${Column.PLANT_ID}")
     suspend fun getEntity(plantId: String): PlantItemView?
 
-    @Query("SELECT * FROM PlantItemView")
+    @Query("SELECT * FROM PlantItemView ORDER BY ${Column.PLANT_NAME} ASC")
     fun getEntitiesPagingSource(): PagingSource<Int, PlantItemView>
 }
