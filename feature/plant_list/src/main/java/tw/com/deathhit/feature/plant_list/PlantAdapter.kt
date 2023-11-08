@@ -6,6 +6,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.load.DecodeFormat
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import tw.com.deathhit.domain.model.PlantDO
 import tw.com.deathhit.feature.plant_list.databinding.ItemPlantBinding
 import tw.com.deathhit.feature.plant_list.view_holder.PlantViewHolder
@@ -41,6 +42,7 @@ class PlantAdapter(
 
     private fun bindImageUrl(holder: PlantViewHolder, item: PlantDO) {
         glideRequestManager.load(item.imageUrl).format(DecodeFormat.PREFER_RGB_565)
+            .transition(DrawableTransitionOptions.withCrossFade())
             .into(holder.binding.imageViewPlant)
     }
 
