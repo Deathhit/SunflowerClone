@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import tw.com.deathhit.feature.garden_planting_list.GardenPlantingListFragment
 import tw.com.deathhit.feature.plant_list.PlantListFragment
 import tw.com.deathhit.sunflower_clone.databinding.ActivityMainBinding
 import tw.com.deathhit.sunflower_clone.model.MainScreen
@@ -90,6 +91,6 @@ class MainActivity : AppCompatActivity() {
         private const val TAG = "MainActivity"
         private const val TAG_MAIN = "$TAG.TAG_MAIN"
 
-        private fun MainScreen.toFragment(): Fragment = PlantListFragment.create()   //todo assign real fragment
+        private fun MainScreen.toFragment(): Fragment = GardenPlantingListFragment.create()   //todo assign real fragment
     }
 }
