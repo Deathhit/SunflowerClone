@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="navigation_tab_my_garden">MY GARDEN</string>
+    <string name="navigation_tab_plant_list">PLANT LIST</string>
+</resources>

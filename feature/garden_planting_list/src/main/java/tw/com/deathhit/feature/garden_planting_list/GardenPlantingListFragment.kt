@@ -90,7 +90,7 @@ class GardenPlantingListFragment : Fragment() {
         fun create() = GardenPlantingListFragment()
     }
 
-    sealed interface Callback {
+    interface Callback {
         fun onGoToPlantDetailsScreen(plantId: String)
     }
 }

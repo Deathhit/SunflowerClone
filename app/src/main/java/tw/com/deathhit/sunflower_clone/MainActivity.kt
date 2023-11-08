@@ -1,8 +1,8 @@
 package tw.com.deathhit.sunflower_clone
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.lifecycle.Lifecycle
@@ -13,8 +13,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import tw.com.deathhit.feature.garden_planting_list.GardenPlantingListFragment
-import tw.com.deathhit.feature.plant_list.PlantListFragment
+import tw.com.deathhit.feature.navigation.NavigationFragment
 import tw.com.deathhit.sunflower_clone.databinding.ActivityMainBinding
 import tw.com.deathhit.sunflower_clone.model.MainScreen
 
@@ -25,6 +24,8 @@ class MainActivity : AppCompatActivity() {
     private val viewModel: MainActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        configureFragmentCallbacks()
+
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater).apply {
             setContentView(root)
@@ -60,6 +61,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun configureFragmentCallbacks() {
+        supportFragmentManager.addFragmentOnAttachListener { _, fragment ->
+            when (fragment) {
+                is NavigationFragment -> fragment.callback = object : NavigationFragment.Callback {
+                    override fun onGoToPlantDetailsScreen(plantId: String) {
+                        viewModel.goToPlantDetailsScreen(plantId)
+                    }
+                }
+            }
+        }
+    }
+
     private fun goToInitialScreen(screen: MainScreen) {
         supportFragmentManager.commit {
             val containerId = binding.containerMain.id
@@ -91,6 +104,7 @@ class MainActivity : AppCompatActivity() {
         private const val TAG = "MainActivity"
         private const val TAG_MAIN = "$TAG.TAG_MAIN"
 
-        private fun MainScreen.toFragment(): Fragment = GardenPlantingListFragment.create()   //todo assign real fragment
+        private fun MainScreen.toFragment(): Fragment =
+            NavigationFragment.create()  //todo assign real fragment
     }
 }
