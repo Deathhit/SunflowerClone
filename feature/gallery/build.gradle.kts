@@ -44,6 +44,11 @@ dependencies {
     implementation(project(":core:app_ui"))
     implementation(project(":domain"))
 
+    //Glide
+    val glideVersion = "4.16.0"
+    kapt("com.github.bumptech.glide:compiler:$glideVersion")
+    implementation("com.github.bumptech.glide:glide:$glideVersion")
+
     //Hilt
     val hiltVersion = "2.48.1"
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")

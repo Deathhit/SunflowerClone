@@ -49,7 +49,7 @@ dependencies {
     api ("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion")
 
     //Fragment KTX
-    api ("androidx.fragment:fragment-ktx:1.6.1")
+    api ("androidx.fragment:fragment-ktx:1.6.2")
 
     //Material
     api ("com.google.android.material:material:1.10.0")

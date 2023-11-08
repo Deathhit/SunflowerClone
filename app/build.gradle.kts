@@ -69,8 +69,8 @@ dependencies {
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:$hiltVersion")
 
     //Hilt-Work Manager
-    kapt("androidx.hilt:hilt-compiler:1.0.0")
-    implementation("androidx.hilt:hilt-work:1.0.0")
+    kapt("androidx.hilt:hilt-compiler:1.1.0")
+    implementation("androidx.hilt:hilt-work:1.1.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

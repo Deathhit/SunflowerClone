@@ -56,8 +56,8 @@ dependencies {
     implementation("com.google.dagger:hilt-android:$hiltVersion")
 
     //Hilt-Work Manager
-    kapt("androidx.hilt:hilt-compiler:1.0.0")
-    implementation("androidx.hilt:hilt-work:1.0.0")
+    kapt("androidx.hilt:hilt-compiler:1.1.0")
+    implementation("androidx.hilt:hilt-work:1.1.0")
 
     //Paging
     val pagingVersion = "3.2.1"
