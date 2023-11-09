@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                     .collectLatest { actions ->
                         actions.forEach { action ->
                             when (action) {
-                                MainActivityViewModel.State.Action.GoBack -> onBackPressed()
+                                MainActivityViewModel.State.Action.GoBack -> onBackPressedDispatcher.onBackPressed()
 
                                 is MainActivityViewModel.State.Action.GoToInitialScreen -> goToInitialScreen(
                                     screen = action.screen
