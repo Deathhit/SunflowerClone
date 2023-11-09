@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import tw.com.deathhit.feature.navigation.NavigationFragment
+import tw.com.deathhit.feature.plant_details.PlantDetailsFragment
 import tw.com.deathhit.sunflower_clone.databinding.ActivityMainBinding
 import tw.com.deathhit.sunflower_clone.model.MainScreen
 
@@ -45,6 +46,8 @@ class MainActivity : AppCompatActivity() {
                     .collectLatest { actions ->
                         actions.forEach { action ->
                             when (action) {
+                                MainActivityViewModel.State.Action.GoBack -> onBackPressed()
+
                                 is MainActivityViewModel.State.Action.GoToInitialScreen -> goToInitialScreen(
                                     screen = action.screen
                                 )
@@ -66,9 +69,20 @@ class MainActivity : AppCompatActivity() {
             when (fragment) {
                 is NavigationFragment -> fragment.callback = object : NavigationFragment.Callback {
                     override fun onGoToPlantDetailsScreen(plantId: String) {
-                        viewModel.goToPlantDetailsScreen(plantId)
+                        viewModel.goToPlantDetailsScreen(plantId = plantId)
                     }
                 }
+
+                is PlantDetailsFragment -> fragment.callback =
+                    object : PlantDetailsFragment.Callback {
+                        override fun onGoBack() {
+                            viewModel.goBack()
+                        }
+
+                        override fun onGoToGalleryScreen(plantId: String) {
+                            viewModel.goToGallery(plantId = plantId)
+                        }
+                    }
             }
         }
     }
@@ -104,7 +118,10 @@ class MainActivity : AppCompatActivity() {
         private const val TAG = "MainActivity"
         private const val TAG_MAIN = "$TAG.TAG_MAIN"
 
-        private fun MainScreen.toFragment(): Fragment =
-            NavigationFragment.create()  //todo assign real fragment
+        private fun MainScreen.toFragment(): Fragment = when (this) {
+            is MainScreen.Gallery -> TODO()
+            MainScreen.Navigation -> NavigationFragment.create()
+            is MainScreen.PlantDetails -> PlantDetailsFragment.create(plantId = plantId)
+        }
     }
 }

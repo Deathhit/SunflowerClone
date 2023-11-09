@@ -5,6 +5,6 @@ import kotlinx.coroutines.flow.Flow
 import tw.com.deathhit.domain.model.PlantDO
 
 interface PlantRepository {
-    suspend fun getPlant(plantId: String): PlantDO?
+    fun getPlantFlow(plantId: String): Flow<PlantDO?>
     fun getPlantPagingDataFlow(): Flow<PagingData<PlantDO>>
 }

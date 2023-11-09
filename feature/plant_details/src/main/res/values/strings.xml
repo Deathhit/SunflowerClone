@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="plant_details_add_plant_to_garden">Add plant to garden</string>
+    <string name="plant_details_added_plant_to_garden">Added plant to garden</string>
+    <string name="plant_details_every_x_days">every %d days</string>
+    <string name="plant_details_go_to_gallery_screen">Navigate to gallery screen</string>
+    <string name="plant_details_image_description">Image of plant</string>
+    <string name="plant_details_share">Share</string>
+    <string name="plant_details_share_message_x">Check out the %s plant in the Android Sunflower app</string>
+    <string name="plant_details_watering_needs">Watering needs</string>
+</resources>

@@ -13,6 +13,12 @@ class MainActivityViewModel @Inject constructor() : ViewModel() {
     private val _stateFlow = MutableStateFlow(State(actions = emptyList()))
     val stateFlow = _stateFlow.asStateFlow()
 
+    fun goBack() {
+        _stateFlow.update { state ->
+            state.copy(actions = state.actions + State.Action.GoBack)
+        }
+    }
+
     fun goToGallery(plantId: String) {
         _stateFlow.update { state ->
             state.copy(
@@ -53,6 +59,7 @@ class MainActivityViewModel @Inject constructor() : ViewModel() {
 
     data class State(val actions: List<Action>) {
         sealed interface Action {
+            data object GoBack : Action
             data class GoToInitialScreen(val screen: MainScreen) : Action
             data class GoToScreen(val screen: MainScreen) : Action
         }

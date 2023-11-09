@@ -13,8 +13,8 @@ import tw.com.deathhit.domain.model.PlantDO
 class PlantRepositoryImp(appDatabase: AppDatabase) : PlantRepository {
     private val plantItemDao = appDatabase.plantItemDao()
 
-    override suspend fun getPlant(plantId: String): PlantDO? =
-        plantItemDao.getEntity(plantId = plantId)?.toPlantDO()
+    override fun getPlantFlow(plantId: String): Flow<PlantDO?> =
+        plantItemDao.getEntityFlow(plantId = plantId).map { it?.toPlantDO() }
 
     override fun getPlantPagingDataFlow(): Flow<PagingData<PlantDO>> = Pager(
         config = PagingConfig(pageSize = 25)

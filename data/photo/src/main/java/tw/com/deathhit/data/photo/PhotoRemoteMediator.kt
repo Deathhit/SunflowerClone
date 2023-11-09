@@ -5,6 +5,7 @@ import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
+import kotlinx.coroutines.flow.first
 import tw.com.deathhit.core.app_database.AppDatabase
 import tw.com.deathhit.core.app_database.entity.PhotoRemoteKeysEntity
 import tw.com.deathhit.core.app_database.view.PhotoItemView
@@ -25,7 +26,7 @@ internal class PhotoRemoteMediator(
     private lateinit var query: String
 
     override suspend fun initialize(): InitializeAction {
-        query = plantRepository.getPlant(plantId)?.plantName ?: ""
+        query = plantRepository.getPlantFlow(plantId).first()?.plantName ?: ""
 
         return super.initialize()
     }
