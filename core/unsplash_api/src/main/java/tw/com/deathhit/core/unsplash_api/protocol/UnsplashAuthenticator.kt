@@ -9,6 +9,6 @@ internal class UnsplashAuthenticator(private val onGetApiKeyCallback: () -> Stri
     Authenticator {
     override fun authenticate(route: Route?, response: Response): Request? =
         response.request().newBuilder()
-            .addHeader("Authorization:Client-ID", onGetApiKeyCallback())
+            .addHeader("Authorization", "Client-ID " + onGetApiKeyCallback())
             .build()
 }
