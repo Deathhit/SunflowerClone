@@ -88,7 +88,7 @@ internal class PhotoRemoteMediator(
 
     private suspend fun getRemoteItems(page: Int, pageSize: Int): List<PhotoRemoteItems> =
         unsplashService.searchPhotos(page = page, perPage = pageSize, query = query)
-            .toPhotoRemoteItems(plantId = plantId)
+            .toPhotoRemoteItem(page = page, pageSize = pageSize, plantId = plantId)
 
     private suspend fun getRemoteKeysClosestToCurrentPosition(
         state: PagingState<Int, PhotoItemView>

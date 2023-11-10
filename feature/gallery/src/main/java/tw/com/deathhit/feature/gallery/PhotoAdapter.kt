@@ -60,7 +60,7 @@ class PhotoAdapter(
                 oldItem: PhotoDO,
                 newItem: PhotoDO
             ): Boolean =
-                oldItem.plantId == newItem.plantId
+                oldItem.photoId == newItem.photoId
 
             override fun areContentsTheSame(
                 oldItem: PhotoDO,

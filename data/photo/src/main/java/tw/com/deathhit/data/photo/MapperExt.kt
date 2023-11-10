@@ -6,20 +6,30 @@ import tw.com.deathhit.core.app_database.view.PhotoItemView
 import tw.com.deathhit.core.unsplash_api.model.Photo
 import tw.com.deathhit.domain.model.PhotoDO
 
-internal fun List<Photo>.toPhotoRemoteItems(plantId: String) = mapIndexed { index, photo ->
-    PhotoRemoteItems(
-        photoEntity = PhotoEntity(
-            authorId = photo.authorId,
-            authorName = photo.authorName,
-            imageUrl = photo.url,
-            photoId = photo.photoId,
-            plantId = plantId
-        ),
-        photoRemoteOrderEntity = PhotoRemoteOrderEntity(
-            photoId = photo.photoId,
-            remoteOrder = index
-        )
-    )
+internal fun List<Photo>.toPhotoRemoteItem(
+    page: Int,
+    pageSize: Int,
+    plantId: String
+): List<PhotoRemoteItems> {
+    val offset = (page - 1) * pageSize
+
+    return mapIndexed { index, photo ->
+        with(photo) {
+            PhotoRemoteItems(
+                photoEntity = PhotoEntity(
+                    authorId = authorId,
+                    authorName = authorName,
+                    imageUrl = url,
+                    photoId = photoId,
+                    plantId = plantId
+                ),
+                photoRemoteOrderEntity = PhotoRemoteOrderEntity(
+                    photoId = photoId,
+                    remoteOrder = index + offset
+                )
+            )
+        }
+    }
 }
 
 internal fun PhotoItemView.toPhotoDO(attributionUrl: String) = PhotoDO(
