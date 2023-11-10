@@ -121,8 +121,8 @@ class GalleryFragment : Fragment() {
     }
 
     companion object {
-        fun create(plantId: String) = GalleryFragment().apply {
-            arguments = GalleryViewModel.createArgs(plantId = plantId)
+        fun create(plantName: String) = GalleryFragment().apply {
+            arguments = GalleryViewModel.createArgs(plantName = plantName)
         }
     }
 

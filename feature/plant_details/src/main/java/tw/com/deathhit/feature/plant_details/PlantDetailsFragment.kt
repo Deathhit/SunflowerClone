@@ -107,7 +107,7 @@ class PlantDetailsFragment : Fragment() {
                                     when (action) {
                                         is PlantDetailsViewModel.State.Action.GoBack -> callback?.onGoBack()
                                         is PlantDetailsViewModel.State.Action.GoToGalleryScreen -> callback?.onGoToGalleryScreen(
-                                            plantId = action.plantId
+                                            plantName = action.plantName
                                         )
 
                                         is PlantDetailsViewModel.State.Action.SharePlant -> sharePlant(
@@ -170,6 +170,6 @@ class PlantDetailsFragment : Fragment() {
 
     interface Callback {
         fun onGoBack()
-        fun onGoToGalleryScreen(plantId: String)
+        fun onGoToGalleryScreen(plantName: String)
     }
 }

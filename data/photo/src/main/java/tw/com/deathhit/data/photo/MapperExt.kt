@@ -9,7 +9,7 @@ import tw.com.deathhit.domain.model.PhotoDO
 internal fun List<Photo>.toPhotoRemoteItem(
     page: Int,
     pageSize: Int,
-    plantId: String
+    plantName: String
 ): List<PhotoRemoteItems> {
     val offset = (page - 1) * pageSize
 
@@ -21,7 +21,7 @@ internal fun List<Photo>.toPhotoRemoteItem(
                     authorName = authorName,
                     imageUrl = url,
                     photoId = photoId,
-                    plantId = plantId
+                    plantName = plantName
                 ),
                 photoRemoteOrderEntity = PhotoRemoteOrderEntity(
                     photoId = photoId,
@@ -38,5 +38,5 @@ internal fun PhotoItemView.toPhotoDO(attributionUrl: String) = PhotoDO(
     authorName = authorName,
     imageUrl = imageUrl,
     photoId = photoId,
-    plantId = plantId
+    plantId = plantName
 )

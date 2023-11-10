@@ -5,31 +5,20 @@ import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
-import kotlinx.coroutines.flow.first
 import tw.com.deathhit.core.app_database.AppDatabase
 import tw.com.deathhit.core.app_database.entity.PhotoRemoteKeysEntity
 import tw.com.deathhit.core.app_database.view.PhotoItemView
 import tw.com.deathhit.core.unsplash_api.UnsplashService
-import tw.com.deathhit.domain.PlantRepository
 
 @OptIn(ExperimentalPagingApi::class)
-internal class PhotoRemoteMediator(
+class PhotoRemoteMediator(
     private val appDatabase: AppDatabase,
-    private val plantId: String,
-    private val plantRepository: PlantRepository,
+    private val plantName: String,
     private val unsplashService: UnsplashService
 ) : RemoteMediator<Int, PhotoItemView>() {
     private val photoDao = appDatabase.photoDao()
     private val photoRemoteKeysDao = appDatabase.photoRemoteKeysDao()
     private val photoRemoteOrderDao = appDatabase.photoRemoteOrderDao()
-
-    private lateinit var query: String
-
-    override suspend fun initialize(): InitializeAction {
-        query = plantRepository.getPlantFlow(plantId).first()?.plantName ?: ""
-
-        return super.initialize()
-    }
 
     override suspend fun load(
         loadType: LoadType,
@@ -87,8 +76,8 @@ internal class PhotoRemoteMediator(
     }
 
     private suspend fun getRemoteItems(page: Int, pageSize: Int): List<PhotoRemoteItems> =
-        unsplashService.searchPhotos(page = page, perPage = pageSize, query = query)
-            .toPhotoRemoteItem(page = page, pageSize = pageSize, plantId = plantId)
+        unsplashService.searchPhotos(page = page, perPage = pageSize, query = plantName)
+            .toPhotoRemoteItem(page = page, pageSize = pageSize, plantName = plantName)
 
     private suspend fun getRemoteKeysClosestToCurrentPosition(
         state: PagingState<Int, PhotoItemView>
@@ -125,7 +114,7 @@ internal class PhotoRemoteMediator(
 
         appDatabase.withTransaction {
             if (loadType == LoadType.REFRESH)
-                photoDao.deleteByPlantId(plantId = plantId)
+                photoDao.clearByPlantName(plantName = plantName)
 
             //Upsert the master entities.
             photoDao.upsert(entities = itemList.map { it.photoEntity })

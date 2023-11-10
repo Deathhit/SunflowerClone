@@ -25,7 +25,7 @@ class GalleryViewModel @Inject constructor(
         MutableStateFlow(
             State(
                 actions = emptyList(),
-                plantId = savedStateHandle[KEY_PLANT_ID]!!
+                plantName = savedStateHandle[KEY_PLANT_NAME]!!
             )
         )
     val stateFlow = _stateFlow.asStateFlow()
@@ -52,25 +52,25 @@ class GalleryViewModel @Inject constructor(
 
     fun saveState() {
         with(stateFlow.value) {
-            savedStateHandle[KEY_PLANT_ID] = plantId
+            savedStateHandle[KEY_PLANT_NAME] = plantName
         }
     }
 
     private fun createPhotoPagingDataFlow() =
-        stateFlow.map { it.plantId }.flatMapLatest { plantId ->
+        stateFlow.map { it.plantName }.flatMapLatest { plantId ->
             photoRepository.getPhotoPagingDataFlow(plantId)
         }
 
     companion object {
         private const val TAG = "GalleryViewModel"
-        private const val KEY_PLANT_ID = "$TAG.KEY_PLANT_ID"
+        private const val KEY_PLANT_NAME = "$TAG.KEY_PLANT_NAME"
 
-        internal fun createArgs(plantId: String) = Bundle().apply {
-            putString(KEY_PLANT_ID, plantId)
+        internal fun createArgs(plantName: String) = Bundle().apply {
+            putString(KEY_PLANT_NAME, plantName)
         }
     }
 
-    data class State(val actions: List<Action>, val plantId: String) {
+    data class State(val actions: List<Action>, val plantName: String) {
         sealed interface Action {
             data object GoBack : Action
             data class OpenWebLink(val url: String) : Action

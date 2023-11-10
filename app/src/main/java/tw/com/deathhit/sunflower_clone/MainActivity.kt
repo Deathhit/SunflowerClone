@@ -86,8 +86,8 @@ class MainActivity : AppCompatActivity() {
                             viewModel.goBack()
                         }
 
-                        override fun onGoToGalleryScreen(plantId: String) {
-                            viewModel.goToGallery(plantId = plantId)
+                        override fun onGoToGalleryScreen(plantName: String) {
+                            viewModel.goToGallery(plantId = plantName)
                         }
                     }
             }
@@ -126,7 +126,7 @@ class MainActivity : AppCompatActivity() {
         private const val TAG_MAIN = "$TAG.TAG_MAIN"
 
         private fun MainScreen.toFragment(): Fragment = when (this) {
-            is MainScreen.Gallery -> GalleryFragment.create(plantId = plantId)
+            is MainScreen.Gallery -> GalleryFragment.create(plantName = plantId)
             MainScreen.Navigation -> NavigationFragment.create()
             is MainScreen.PlantDetails -> PlantDetailsFragment.create(plantId = plantId)
         }

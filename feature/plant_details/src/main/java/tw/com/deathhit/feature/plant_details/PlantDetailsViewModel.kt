@@ -55,8 +55,12 @@ class PlantDetailsViewModel @Inject constructor(
     }
 
     fun goToGalleryScreen() {
-        _stateFlow.update { state ->
-            state.copy(actions = state.actions + State.Action.GoToGalleryScreen(plantId = state.plantId))
+        viewModelScope.launch {
+            val plant = createPlantFlow().first() ?: return@launch
+
+            _stateFlow.update { state ->
+                state.copy(actions = state.actions + State.Action.GoToGalleryScreen(plantName = plant.plantName))
+            }
         }
     }
 
@@ -98,7 +102,7 @@ class PlantDetailsViewModel @Inject constructor(
     data class State(val actions: List<Action>, val plantId: String) {
         sealed interface Action {
             data object GoBack : Action
-            data class GoToGalleryScreen(val plantId: String) : Action
+            data class GoToGalleryScreen(val plantName: String) : Action
             data class SharePlant(val plantName: String) : Action
             data class Toast(val type: ToastType) : Action
         }

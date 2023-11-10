@@ -7,7 +7,6 @@ import dagger.hilt.components.SingletonComponent
 import tw.com.deathhit.core.app_database.AppDatabase
 import tw.com.deathhit.core.unsplash_api.UnsplashService
 import tw.com.deathhit.domain.PhotoRepository
-import tw.com.deathhit.domain.PlantRepository
 import javax.inject.Singleton
 
 @Module
@@ -17,12 +16,10 @@ object PhotoRepositoryModule {
     @Singleton
     internal fun providePhotoRepository(
         appDatabase: AppDatabase,
-        plantRepository: PlantRepository,
         unsplashService: UnsplashService
     ): PhotoRepository =
         PhotoRepositoryImp(
             appDatabase = appDatabase,
-            plantRepository = plantRepository,
             unsplashService = unsplashService
         )
 }
