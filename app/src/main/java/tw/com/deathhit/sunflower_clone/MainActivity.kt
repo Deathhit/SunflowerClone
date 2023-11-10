@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import tw.com.deathhit.feature.gallery.GalleryFragment
 import tw.com.deathhit.feature.navigation.NavigationFragment
 import tw.com.deathhit.feature.plant_details.PlantDetailsFragment
 import tw.com.deathhit.sunflower_clone.databinding.ActivityMainBinding
@@ -67,6 +68,12 @@ class MainActivity : AppCompatActivity() {
     private fun configureFragmentCallbacks() {
         supportFragmentManager.addFragmentOnAttachListener { _, fragment ->
             when (fragment) {
+                is GalleryFragment -> fragment.callback = object : GalleryFragment.Callback {
+                    override fun onGoBack() {
+                        viewModel.goBack()
+                    }
+                }
+
                 is NavigationFragment -> fragment.callback = object : NavigationFragment.Callback {
                     override fun onGoToPlantDetailsScreen(plantId: String) {
                         viewModel.goToPlantDetailsScreen(plantId = plantId)
@@ -119,7 +126,7 @@ class MainActivity : AppCompatActivity() {
         private const val TAG_MAIN = "$TAG.TAG_MAIN"
 
         private fun MainScreen.toFragment(): Fragment = when (this) {
-            is MainScreen.Gallery -> TODO()
+            is MainScreen.Gallery -> GalleryFragment.create(plantId = plantId)
             MainScreen.Navigation -> NavigationFragment.create()
             is MainScreen.PlantDetails -> PlantDetailsFragment.create(plantId = plantId)
         }
