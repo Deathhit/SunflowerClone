@@ -26,16 +26,17 @@ internal class SeedDatabaseWorker @AssistedInject constructor(
 ) : CoroutineWorker(appContext, workerParams) {
     override suspend fun doWork(): Result = withContext(Dispatchers.IO) {
         try {
-            applicationContext.openPlantsFile().use { inputStream ->
-                JsonReader(inputStream.reader()).use { jsonReader ->
-                    val plantType = object : TypeToken<List<PlantJson>>() {}.type
-                    val plantList: List<PlantJson> = Gson().fromJson(jsonReader, plantType)
+            applicationContext.assets.open("plants_9eabcfec0e4b4af18f213dad403f3e47.json")
+                .use { inputStream ->
+                    JsonReader(inputStream.reader()).use { jsonReader ->
+                        val plantType = object : TypeToken<List<PlantJson>>() {}.type
+                        val plantList: List<PlantJson> = Gson().fromJson(jsonReader, plantType)
 
-                    appDatabase.plantDao().upsert(plantList.map { it.toPlantEntity() })
+                        appDatabase.plantDao().upsert(plantList.map { it.toPlantEntity() })
 
-                    Result.success()
+                        Result.success()
+                    }
                 }
-            }
         } catch (ex: Exception) {
             Result.failure()
         }
