@@ -131,7 +131,7 @@ class PlantDetailsFragment : Fragment() {
                     viewModel.plantFlow.filterNotNull().distinctUntilChanged()
                         .collectLatest { plant ->
                             with(binding) {
-                                fab.isVisible = plant.plantDate == null
+                                fab.isVisible = !plant.isPlanted
                                 imageViewPlant.let {
                                     Glide.with(it).load(plant.imageUrl).into(it)
                                 }

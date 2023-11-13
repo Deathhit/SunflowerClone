@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "ac424a9d6d24c9763f9a05be5e152dbb",
+    "identityHash": "9a982d56ad023a9d2298034080c00738",
     "entities": [
       {
         "tableName": "GardenPlantingEntity",
@@ -60,7 +60,7 @@
       },
       {
         "tableName": "PhotoEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`author_id` TEXT NOT NULL, `author_name` TEXT NOT NULL, `image_url` TEXT NOT NULL, `photo_id` TEXT NOT NULL, `plant_id` TEXT NOT NULL, PRIMARY KEY(`photo_id`), FOREIGN KEY(`plant_id`) REFERENCES `PlantEntity`(`plant_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`author_id` TEXT NOT NULL, `author_name` TEXT NOT NULL, `image_url` TEXT NOT NULL, `photo_id` TEXT NOT NULL, `plant_name` TEXT NOT NULL, PRIMARY KEY(`photo_id`))",
         "fields": [
           {
             "fieldPath": "authorId",
@@ -87,8 +87,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "plantId",
-            "columnName": "plant_id",
+            "fieldPath": "plantName",
+            "columnName": "plant_name",
             "affinity": "TEXT",
             "notNull": true
           }
@@ -99,30 +99,8 @@
             "photo_id"
           ]
         },
-        "indices": [
-          {
-            "name": "index_PhotoEntity_plant_id",
-            "unique": false,
-            "columnNames": [
-              "plant_id"
-            ],
-            "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_PhotoEntity_plant_id` ON `${TABLE_NAME}` (`plant_id`)"
-          }
-        ],
-        "foreignKeys": [
-          {
-            "table": "PlantEntity",
-            "onDelete": "CASCADE",
-            "onUpdate": "NO ACTION",
-            "columns": [
-              "plant_id"
-            ],
-            "referencedColumns": [
-              "plant_id"
-            ]
-          }
-        ]
+        "indices": [],
+        "foreignKeys": []
       },
       {
         "tableName": "PhotoRemoteKeysEntity",
@@ -264,7 +242,7 @@
       },
       {
         "viewName": "PhotoItemView",
-        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT PhotoEntity.author_id AS author_id, PhotoEntity.author_name AS author_name, PhotoEntity.image_url AS image_url, PhotoEntity.photo_id AS photo_id, PhotoEntity.plant_id AS plant_id, PhotoRemoteOrderEntity.remote_order AS remote_order FROM PhotoEntity LEFT JOIN PhotoRemoteOrderEntity ON PhotoRemoteOrderEntity.photo_id = PhotoEntity.photo_id"
+        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT PhotoEntity.author_id AS author_id, PhotoEntity.author_name AS author_name, PhotoEntity.image_url AS image_url, PhotoEntity.photo_id AS photo_id, PhotoEntity.plant_name AS plant_name, PhotoRemoteOrderEntity.remote_order AS remote_order FROM PhotoEntity LEFT JOIN PhotoRemoteOrderEntity ON PhotoRemoteOrderEntity.photo_id = PhotoEntity.photo_id"
       },
       {
         "viewName": "PlantItemView",
@@ -273,7 +251,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ac424a9d6d24c9763f9a05be5e152dbb')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9a982d56ad023a9d2298034080c00738')"
     ]
   }
 }

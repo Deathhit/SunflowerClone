@@ -11,6 +11,9 @@
 #-keep class com.google.gson.stream.** { *; }
 
 # Application classes that will be serialized/deserialized over Gson
+-keep class tw.com.deathhit.core.unsplash_api.protocol.model.** {
+    *;
+}
 -keep class tw.com.deathhit.core.unsplash_api.protocol.response.** {
     *;
 }

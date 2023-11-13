@@ -8,4 +8,6 @@ data class PlantDO(
     val plantId: String,
     val plantName: String,
     val wateringIntervalDays: Int
-)
+) {
+    val isPlanted = plantDate != null
+}
