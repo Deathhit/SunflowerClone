@@ -3,10 +3,11 @@ package tw.com.deathhit.data.photo
 import tw.com.deathhit.core.app_database.entity.PhotoEntity
 import tw.com.deathhit.core.app_database.entity.PhotoRemoteOrderEntity
 import tw.com.deathhit.core.app_database.view.PhotoItemView
-import tw.com.deathhit.core.unsplash_api.model.Photo
+import tw.com.deathhit.core.unsplash_api.model.PhotoDto
+import tw.com.deathhit.data.photo.model.PhotoRemoteItems
 import tw.com.deathhit.domain.model.PhotoDO
 
-internal fun List<Photo>.toPhotoRemoteItem(
+internal fun List<PhotoDto>.toPhotoRemoteItemsList(
     page: Int,
     pageSize: Int,
     plantName: String
@@ -38,5 +39,5 @@ internal fun PhotoItemView.toPhotoDO(attributionUrl: String) = PhotoDO(
     authorName = authorName,
     imageUrl = imageUrl,
     photoId = photoId,
-    plantId = plantName
+    plantName = plantName
 )

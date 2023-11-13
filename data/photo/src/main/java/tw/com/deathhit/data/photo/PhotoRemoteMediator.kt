@@ -9,6 +9,7 @@ import tw.com.deathhit.core.app_database.AppDatabase
 import tw.com.deathhit.core.app_database.entity.PhotoRemoteKeysEntity
 import tw.com.deathhit.core.app_database.view.PhotoItemView
 import tw.com.deathhit.core.unsplash_api.UnsplashService
+import tw.com.deathhit.data.photo.model.PhotoRemoteItems
 
 @OptIn(ExperimentalPagingApi::class)
 class PhotoRemoteMediator(
@@ -77,7 +78,7 @@ class PhotoRemoteMediator(
 
     private suspend fun getRemoteItems(page: Int, pageSize: Int): List<PhotoRemoteItems> =
         unsplashService.searchPhotos(page = page, perPage = pageSize, query = plantName)
-            .toPhotoRemoteItem(page = page, pageSize = pageSize, plantName = plantName)
+            .toPhotoRemoteItemsList(page = page, pageSize = pageSize, plantName = plantName)
 
     private suspend fun getRemoteKeysClosestToCurrentPosition(
         state: PagingState<Int, PhotoItemView>

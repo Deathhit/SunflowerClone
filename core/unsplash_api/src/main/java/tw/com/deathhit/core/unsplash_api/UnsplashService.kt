@@ -1,6 +1,6 @@
 package tw.com.deathhit.core.unsplash_api
 
-import tw.com.deathhit.core.unsplash_api.model.Photo
+import tw.com.deathhit.core.unsplash_api.model.PhotoDto
 
 interface UnsplashService {
     fun getAttributionUrl(authorId: String): String
@@ -8,5 +8,5 @@ interface UnsplashService {
         page: Int,
         perPage: Int,
         query: String
-    ): List<Photo>
+    ): List<PhotoDto>
 }

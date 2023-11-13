@@ -1,4 +1,4 @@
-package tw.com.deathhit.data.photo
+package tw.com.deathhit.data.photo.model
 
 import tw.com.deathhit.core.app_database.entity.PhotoEntity
 import tw.com.deathhit.core.app_database.entity.PhotoRemoteOrderEntity

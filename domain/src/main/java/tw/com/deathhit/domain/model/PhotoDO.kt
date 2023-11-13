@@ -6,5 +6,5 @@ data class PhotoDO(
     val authorName: String,
     val imageUrl: String,
     val photoId: String,
-    val plantId: String
+    val plantName: String
 )

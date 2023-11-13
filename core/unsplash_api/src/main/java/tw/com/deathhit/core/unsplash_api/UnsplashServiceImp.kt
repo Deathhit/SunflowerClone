@@ -1,6 +1,6 @@
 package tw.com.deathhit.core.unsplash_api
 
-import tw.com.deathhit.core.unsplash_api.model.Photo
+import tw.com.deathhit.core.unsplash_api.model.PhotoDto
 import tw.com.deathhit.core.unsplash_api.protocol.UnsplashRetrofitService
 
 internal class UnsplashServiceImp(
@@ -14,12 +14,12 @@ internal class UnsplashServiceImp(
         page: Int,
         perPage: Int,
         query: String
-    ): List<Photo> = unsplashRetrofitService.searchPhotos(
+    ): List<PhotoDto> = unsplashRetrofitService.searchPhotos(
         page = page,
         perPage = perPage,
         query = query
     ).results.map {
-        Photo(
+        PhotoDto(
             authorName = it.user.name,
             authorId = it.user.username,
             photoId = it.id,
