@@ -32,7 +32,7 @@
 
         <meta-data
             android:name="tw.com.deathhit.core.unsplash_api.app_name"
-            android:value="Sunflower Clone" />
+            android:value="@string/app_name" />
 
         <meta-data
             android:name="tw.com.deathhit.core.unsplash_api.server_url"
