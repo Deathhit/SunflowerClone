@@ -1,13 +1,11 @@
 package tw.com.deathhit.feature.plant_details
 
 import android.content.Context
-import androidx.test.filters.SmallTest
 import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Before
 import org.junit.Test
 import tw.com.deathhit.feature.plant_details.sealed.ToastType
 
-@SmallTest
 class AndroidMapperExtTest {
     private lateinit var context: Context
 

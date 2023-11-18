@@ -12,7 +12,7 @@ android {
     defaultConfig {
         minSdk = 24
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "tw.com.deathhit.core.app_database.config.CustomTestRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -47,6 +47,9 @@ dependencies {
     val coroutineVersion = "1.7.3"
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion")
 
+    //Coroutine-Test
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion")
+
     //Gson
     implementation("com.google.code.gson:gson:2.10.1")
 
@@ -55,6 +58,10 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
     implementation("com.google.dagger:hilt-android:$hiltVersion")
 
+    //Hilt-Test
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:$hiltVersion")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:$hiltVersion")
+
     //Hilt-Work Manager
     kapt("androidx.hilt:hilt-compiler:1.1.0")
     implementation("androidx.hilt:hilt-work:1.1.0")
@@ -62,6 +69,9 @@ dependencies {
     //Paging
     val pagingVersion = "3.2.1"
     api("androidx.paging:paging-runtime-ktx:$pagingVersion")
+
+    //Paging-Test
+    androidTestImplementation("androidx.paging:paging-testing:$pagingVersion")
 
     //Room
     val roomVersion = "2.6.0"

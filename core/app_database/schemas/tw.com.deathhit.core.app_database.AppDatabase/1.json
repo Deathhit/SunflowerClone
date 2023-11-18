@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "9a982d56ad023a9d2298034080c00738",
+    "identityHash": "51c72b1fdfc8a0d2a9a7e640144db079",
     "entities": [
       {
         "tableName": "GardenPlantingEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`garden_planting_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `plant_date` INTEGER NOT NULL, `plant_id` TEXT NOT NULL, FOREIGN KEY(`plant_id`) REFERENCES `PlantEntity`(`plant_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`garden_planting_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `plant_date` INTEGER NOT NULL, `plant_id` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "gardenPlantingId",
@@ -44,19 +44,7 @@
             "createSql": "CREATE INDEX IF NOT EXISTS `index_GardenPlantingEntity_plant_id` ON `${TABLE_NAME}` (`plant_id`)"
           }
         ],
-        "foreignKeys": [
-          {
-            "table": "PlantEntity",
-            "onDelete": "CASCADE",
-            "onUpdate": "NO ACTION",
-            "columns": [
-              "plant_id"
-            ],
-            "referencedColumns": [
-              "plant_id"
-            ]
-          }
-        ]
+        "foreignKeys": []
       },
       {
         "tableName": "PhotoEntity",
@@ -251,7 +239,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9a982d56ad023a9d2298034080c00738')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '51c72b1fdfc8a0d2a9a7e640144db079')"
     ]
   }
 }
