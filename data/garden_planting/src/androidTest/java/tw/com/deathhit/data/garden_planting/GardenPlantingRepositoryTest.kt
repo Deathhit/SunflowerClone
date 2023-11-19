@@ -35,7 +35,7 @@ class GardenPlantingRepositoryTest {
     fun getGardenPlantingPagingDataFlow() = runTest {
         //Given
         val gardenPlantingRepository = GardenPlantingRepositoryImp(appDatabase = appDatabase)
-        val plantEntities = generatePlantEntities().sortedBy { it.plantName }
+        val plantEntities = generatePlantEntities().sortedBy { it.plantId }
 
         val gardenPlantingEntities = plantEntities.map {
             GardenPlantingEntity(
@@ -51,7 +51,7 @@ class GardenPlantingRepositoryTest {
         val gardenPlantings = gardenPlantingRepository.getGardenPlantingPagingDataFlow()
         val gardenPlantingsSnapshot = gardenPlantings.asSnapshot {
             scrollTo(gardenPlantingEntities.size)
-        }
+        }.sortedBy { it.plantId }
 
         //Then
         gardenPlantingsSnapshot.forEachIndexed { index, gardenPlanting ->
