@@ -20,6 +20,7 @@ This example shows how to build an Android project based on the app architecture
 Please see the links below to understand this topic better.
 
 [Guide to app architecture](https://developer.android.com/topic/architecture)
+
 [Guide to Android app modularization](https://developer.android.com/topic/modularization)
 
 ## Requirements
