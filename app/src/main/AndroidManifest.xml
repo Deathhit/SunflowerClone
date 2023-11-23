@@ -27,15 +27,15 @@
 
         <!--Unsplash Api-->
         <meta-data
-            android:name="tw.com.deathhit.core.unsplash_api.access_key"
+            android:name="tw.com.deathhit.sunflower_clone.UNSPLASH_ACCESS_KEY"
             android:value="[YOUR UNSPLASH ACCESS KEY]" />
 
         <meta-data
-            android:name="tw.com.deathhit.core.unsplash_api.app_name"
+            android:name="tw.com.deathhit.sunflower_clone.UNSPLASH_APP_NAME"
             android:value="@string/app_name" />
 
         <meta-data
-            android:name="tw.com.deathhit.core.unsplash_api.server_url"
+            android:name="tw.com.deathhit.sunflower_clone.UNSPLASH_SERVER_URL"
             android:value="https://api.unsplash.com/" />
 
         <!--Initialization Provider-->

@@ -51,7 +51,7 @@ abstract class AppDatabase : RoomDatabase() {
     companion object {
         private const val FILE_NAME = "app_database_3f86b669755d4f27a1613b339bd87def"
 
-        internal fun Context.buildDatabase() = Room.databaseBuilder(
+        fun Context.buildAppDatabase() = Room.databaseBuilder(
             this,
             AppDatabase::class.java,
             FILE_NAME

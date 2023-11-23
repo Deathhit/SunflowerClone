@@ -1,4 +1,4 @@
-package tw.com.deathhit.data.photo
+package tw.com.deathhit.sunflower_clone.di.data
 
 import dagger.Module
 import dagger.Provides
@@ -6,6 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import tw.com.deathhit.core.app_database.AppDatabase
 import tw.com.deathhit.core.unsplash_api.UnsplashService
+import tw.com.deathhit.data.photo.PhotoRepositoryImp
 import tw.com.deathhit.domain.PhotoRepository
 import javax.inject.Singleton
 

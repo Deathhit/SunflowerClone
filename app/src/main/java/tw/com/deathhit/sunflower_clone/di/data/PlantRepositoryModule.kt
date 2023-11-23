@@ -1,10 +1,11 @@
-package tw.com.deathhit.data.plant
+package tw.com.deathhit.sunflower_clone.di.data
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import tw.com.deathhit.core.app_database.AppDatabase
+import tw.com.deathhit.data.plant.PlantRepositoryImp
 import tw.com.deathhit.domain.PlantRepository
 import javax.inject.Singleton
 
