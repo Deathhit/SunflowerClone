@@ -33,7 +33,7 @@ screen. You will need to obtain a free developer API key to make the gallery scr
 
 Once you have your API key, you can add it by replacing the metadata in the manifest in your application module.
 
-<img src="screenshots/Screenshot_Unsplash_API_Key.png"/>
+<img src="docs/screenshots/Screenshot_Unsplash_API_Key.png"/>
 
 ## Third Party Content
 
