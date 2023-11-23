@@ -6,15 +6,15 @@ A sample project to demonstrate the practices of the Android app architecture il
 
 ## Screenshots
 
-<img src="images/screenshots/Screenshot_1.png" width=411 height=731/>
-<img src="images/screenshots/Screenshot_2.png" width=411 height=731/>
-<img src="images/screenshots/Screenshot_3.png" width=411 height=731/>
-<img src="images/screenshots/Screenshot_4.png" width=411 height=731/>
+<img src="docs/screenshots/Screenshot_1.png" width=411 height=731/>
+<img src="docs/screenshots/Screenshot_2.png" width=411 height=731/>
+<img src="docs/screenshots/Screenshot_3.png" width=411 height=731/>
+<img src="docs/screenshots/Screenshot_4.png" width=411 height=731/>
 
 ## Features
 
-<img src="images/diagrams/Android App Architecture Overview.png"/>
-<img src="images/diagrams/Sunflower Clone Dependency Graph.png"/>
+<img src="docs/diagrams/Android App Architecture Overview.png"/>
+<img src="docs/diagrams/Sunflower Clone Dependency Graph.png"/>
 
 This example shows how to build an Android project based on the app architecture.
 Please see the links below to understand this topic better.
