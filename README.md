@@ -6,15 +6,15 @@ A sample project to demonstrate the practices of the Android app architecture il
 
 ## Screenshots
 
-<img src="screenshots/Screenshot_1.png" width=411 height=731/>
-<img src="screenshots/Screenshot_2.png" width=411 height=731/>
-<img src="screenshots/Screenshot_3.png" width=411 height=731/>
-<img src="screenshots/Screenshot_4.png" width=411 height=731/>
+<img src="images/screenshots/Screenshot_1.png" width=411 height=731/>
+<img src="images/screenshots/Screenshot_2.png" width=411 height=731/>
+<img src="images/screenshots/Screenshot_3.png" width=411 height=731/>
+<img src="images/screenshots/Screenshot_4.png" width=411 height=731/>
 
 ## Features
 
-<img src="diagrams/Android App Architecture Overview.png"/>
-<img src="diagrams/Sunflower Clone Dependency Graph.png"/>
+<img src="images/diagrams/Android App Architecture Overview.png"/>
+<img src="images/diagrams/Sunflower Clone Dependency Graph.png"/>
 
 This example shows how to build an Android project based on the app architecture.
 Please see the links below to understand this topic better.
@@ -37,6 +37,6 @@ Once you have your API key, you can add it by replacing the metadata in the mani
 
 ## Third Party Content
 
-Select text used for describing the plants (in `plants.json`) are used from Wikipedia via CC BY-SA 3.0 US (license in `ASSETS_LICENSE`).
+Select text used for describing the plants (in `plants_9eabcfec0e4b4af18f213dad403f3e47.json`) are used from Wikipedia via CC BY-SA 3.0 US (license in `ASSETS_LICENSE`).
 
 "[seed](https://thenounproject.com/search/?q=seed&i=1585971)" by [Aisyah](https://thenounproject.com/aisyahalmasyira/) is licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/us/legalcode)
