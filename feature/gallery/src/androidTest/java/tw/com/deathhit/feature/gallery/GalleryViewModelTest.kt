@@ -2,38 +2,28 @@ package tw.com.deathhit.feature.gallery
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.paging.testing.asSnapshot
-import dagger.hilt.android.testing.HiltAndroidRule
-import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
-import tw.com.deathhit.domain.PhotoRepository
+import tw.com.deathhit.feature.gallery.config.TestPhotoRepository
 import tw.com.deathhit.feature.gallery.config.generatePlantName
 import tw.com.deathhit.feature.gallery.config.generateUrl
-import javax.inject.Inject
 
 @OptIn(ExperimentalCoroutinesApi::class)
-@HiltAndroidTest
 class GalleryViewModelTest {
-    @get:Rule
-    var hiltRule = HiltAndroidRule(this)
-
-    @Inject
-    lateinit var photoRepository: PhotoRepository
+    private val photoRepository = TestPhotoRepository()
 
     private lateinit var plantName: String
+
     private lateinit var viewModel: GalleryViewModel
 
     @Before
     fun setup() {
         Dispatchers.setMain(StandardTestDispatcher())
-
-        hiltRule.inject()
 
         plantName = generatePlantName()
 

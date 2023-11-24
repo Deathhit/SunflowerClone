@@ -1,36 +1,25 @@
 package tw.com.deathhit.feature.garden_planting_list
 
 import androidx.paging.testing.asSnapshot
-import dagger.hilt.android.testing.HiltAndroidRule
-import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
-import tw.com.deathhit.domain.GardenPlantingRepository
+import tw.com.deathhit.feature.garden_planting_list.config.TestGardenPlantingRepository
 import tw.com.deathhit.feature.garden_planting_list.config.generatePlantId
-import javax.inject.Inject
 
 @OptIn(ExperimentalCoroutinesApi::class)
-@HiltAndroidTest
 class GardenPlantingListViewModelTest {
-    @get:Rule
-    var hiltRule = HiltAndroidRule(this)
-
-    @Inject
-    lateinit var gardenPlantingRepository: GardenPlantingRepository
+    private val gardenPlantingRepository = TestGardenPlantingRepository()
 
     private lateinit var viewModel: GardenPlantingListViewModel
 
     @Before
     fun setup() {
         Dispatchers.setMain(StandardTestDispatcher())
-
-        hiltRule.inject()
 
         viewModel = GardenPlantingListViewModel(
             gardenPlantingRepository = gardenPlantingRepository
