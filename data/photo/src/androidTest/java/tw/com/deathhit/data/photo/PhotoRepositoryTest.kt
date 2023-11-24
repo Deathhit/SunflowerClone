@@ -1,37 +1,33 @@
 package tw.com.deathhit.data.photo
 
+import android.content.Context
 import androidx.paging.testing.asSnapshot
-import dagger.hilt.android.testing.HiltAndroidRule
-import dagger.hilt.android.testing.HiltAndroidTest
+import androidx.test.core.app.ApplicationProvider
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import tw.com.deathhit.core.app_database.AppDatabase
 import tw.com.deathhit.core.app_database.entity.PhotoRemoteOrderEntity
 import tw.com.deathhit.core.unsplash_api.model.PhotoDto
 import tw.com.deathhit.data.photo.config.TestUnsplashService
+import tw.com.deathhit.data.photo.config.buildAppDatabase
 import tw.com.deathhit.data.photo.config.generatePhotoEntities
 import tw.com.deathhit.data.photo.config.generatePlantName
-import javax.inject.Inject
 
 @OptIn(ExperimentalCoroutinesApi::class)
-@HiltAndroidTest
 class PhotoRepositoryTest {
-    @get:Rule
-    var hiltRule = HiltAndroidRule(this)
-
-    @Inject
-    internal lateinit var appDatabase: AppDatabase
+    private lateinit var appDatabase: AppDatabase
 
     private val photoDao get() = appDatabase.photoDao()
     private val photoRemoteOrderDao get() = appDatabase.photoRemoteOrderDao()
 
     @Before
     fun setup() {
-        hiltRule.inject()
+        val context = ApplicationProvider.getApplicationContext<Context>()
+
+        appDatabase = buildAppDatabase(context)
     }
 
     @Test

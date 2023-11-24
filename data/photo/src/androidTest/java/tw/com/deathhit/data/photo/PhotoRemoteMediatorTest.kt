@@ -1,36 +1,32 @@
 package tw.com.deathhit.data.photo
 
+import android.content.Context
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingConfig
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
-import dagger.hilt.android.testing.HiltAndroidRule
-import dagger.hilt.android.testing.HiltAndroidTest
+import androidx.test.core.app.ApplicationProvider
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import tw.com.deathhit.core.app_database.AppDatabase
 import tw.com.deathhit.core.app_database.view.PhotoItemView
 import tw.com.deathhit.core.unsplash_api.model.PhotoDto
 import tw.com.deathhit.data.photo.config.TestUnsplashService
+import tw.com.deathhit.data.photo.config.buildAppDatabase
 import tw.com.deathhit.data.photo.config.generatePhotoDtoList
-import javax.inject.Inject
 
 @OptIn(ExperimentalPagingApi::class)
-@HiltAndroidTest
 class PhotoRemoteMediatorTest {
-    @get:Rule
-    var hiltRule = HiltAndroidRule(this)
-
-    @Inject
-    internal lateinit var appDatabase: AppDatabase
+    private lateinit var appDatabase: AppDatabase
 
     @Before
     fun setup() {
-        hiltRule.inject()
+        val context = ApplicationProvider.getApplicationContext<Context>()
+
+        appDatabase = buildAppDatabase(context)
     }
 
     @Test
