@@ -6,10 +6,13 @@ import tw.com.deathhit.domain.GardenPlantingRepository
 import tw.com.deathhit.domain.model.GardenPlantingDO
 
 class TestGardenPlantingRepository : GardenPlantingRepository {
+    val plantIds = mutableListOf<String>()
+
     override suspend fun addGardenPlanting(plantId: String) {
-        //todo
+        plantIds.add(plantId)
     }
 
-    override fun getGardenPlantingPagingDataFlow(): Flow<PagingData<GardenPlantingDO>> =
-        TODO()
+    override fun getGardenPlantingPagingDataFlow(): Flow<PagingData<GardenPlantingDO>> {
+        throw UnsupportedOperationException()
+    }
 }
