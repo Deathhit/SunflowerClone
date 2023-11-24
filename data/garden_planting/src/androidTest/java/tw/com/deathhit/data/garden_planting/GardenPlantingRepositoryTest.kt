@@ -1,34 +1,30 @@
 package tw.com.deathhit.data.garden_planting
 
+import android.content.Context
 import androidx.paging.testing.asSnapshot
-import dagger.hilt.android.testing.HiltAndroidRule
-import dagger.hilt.android.testing.HiltAndroidTest
+import androidx.test.core.app.ApplicationProvider
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import tw.com.deathhit.core.app_database.AppDatabase
 import tw.com.deathhit.core.app_database.entity.GardenPlantingEntity
+import tw.com.deathhit.data.garden_planting.config.buildAppDatabase
 import tw.com.deathhit.data.garden_planting.config.generatePlantEntities
-import javax.inject.Inject
 
 @OptIn(ExperimentalCoroutinesApi::class)
-@HiltAndroidTest
 class GardenPlantingRepositoryTest {
-    @get:Rule
-    var hiltRule = HiltAndroidRule(this)
-
-    @Inject
-    internal lateinit var appDatabase: AppDatabase
+    private lateinit var appDatabase: AppDatabase
 
     private val gardenPlantingDao get() = appDatabase.gardenPlantingDao()
     private val plantDao get() = appDatabase.plantDao()
 
     @Before
     fun setup() {
-        hiltRule.inject()
+        val context = ApplicationProvider.getApplicationContext<Context>()
+
+        appDatabase = buildAppDatabase(context)
     }
 
     @Test
