@@ -1,30 +1,21 @@
 package tw.com.deathhit.feature.navigation
 
-import dagger.hilt.android.testing.HiltAndroidRule
-import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import tw.com.deathhit.feature.navigation.config.generatePlantId
 
 @OptIn(ExperimentalCoroutinesApi::class)
-@HiltAndroidTest
 class NavigationViewModelTest {
-    @get:Rule
-    var hiltRule = HiltAndroidRule(this)
-
     private lateinit var viewModel: NavigationViewModel
 
     @Before
     fun setup() {
         Dispatchers.setMain(StandardTestDispatcher())
-
-        hiltRule.inject()
 
         viewModel = NavigationViewModel()
     }
