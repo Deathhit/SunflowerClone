@@ -1,31 +1,25 @@
 package tw.com.deathhit.core.app_database
 
+import android.content.Context
 import androidx.paging.PagingConfig
 import androidx.paging.PagingSource
 import androidx.paging.testing.TestPager
-import dagger.hilt.android.testing.HiltAndroidRule
-import dagger.hilt.android.testing.HiltAndroidTest
+import androidx.test.core.app.ApplicationProvider
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
+import tw.com.deathhit.core.app_database.config.buildAppDatabase
 import tw.com.deathhit.core.app_database.config.generatePhotoEntities
 import tw.com.deathhit.core.app_database.config.generatePlantName
 import tw.com.deathhit.core.app_database.entity.PhotoEntity
 import tw.com.deathhit.core.app_database.entity.PhotoRemoteOrderEntity
 import tw.com.deathhit.core.app_database.view.PhotoItemView
-import javax.inject.Inject
 
 @OptIn(ExperimentalCoroutinesApi::class)
-@HiltAndroidTest
 class PhotoItemDaoTest {
-    @get:Rule
-    var hiltRule = HiltAndroidRule(this)
-
-    @Inject
-    internal lateinit var appDatabase: AppDatabase
+    private lateinit var appDatabase: AppDatabase
 
     private val photoDao get() = appDatabase.photoDao()
     private val photoItemDao get() = appDatabase.photoItemDao()
@@ -33,7 +27,9 @@ class PhotoItemDaoTest {
 
     @Before
     fun setup() {
-        hiltRule.inject()
+        val context = ApplicationProvider.getApplicationContext<Context>()
+
+        appDatabase = buildAppDatabase(context)
     }
 
     @Test

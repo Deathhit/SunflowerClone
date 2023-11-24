@@ -1,11 +1,7 @@
 package tw.com.deathhit.core.app_database
 
-import android.content.Context
 import androidx.room.Database
-import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
-import tw.com.deathhit.core.app_database.SeedDatabaseWorker.Companion.scheduleSeedingDatabase
 import tw.com.deathhit.core.app_database.dao.GardenPlantingDao
 import tw.com.deathhit.core.app_database.dao.GardenPlantingItemDao
 import tw.com.deathhit.core.app_database.dao.PhotoDao
@@ -47,21 +43,4 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun photoRemoteOrderDao(): PhotoRemoteOrderDao
     abstract fun plantDao(): PlantDao
     abstract fun plantItemDao(): PlantItemDao
-
-    companion object {
-        private const val FILE_NAME = "app_database_3f86b669755d4f27a1613b339bd87def"
-
-        fun Context.buildAppDatabase() = Room.databaseBuilder(
-            this,
-            AppDatabase::class.java,
-            FILE_NAME
-        ).addCallback(
-            object : Callback() {
-                override fun onCreate(db: SupportSQLiteDatabase) {
-                    super.onCreate(db)
-                    scheduleSeedingDatabase()
-                }
-            }
-        ).build()
-    }
 }

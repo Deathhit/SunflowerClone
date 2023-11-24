@@ -1,6 +1,5 @@
 plugins {
     id("com.android.library")
-    id("dagger.hilt.android.plugin")
     id("kotlin-kapt")
     id("org.jetbrains.kotlin.android")
 }
@@ -12,7 +11,7 @@ android {
     defaultConfig {
         minSdk = 24
 
-        testInstrumentationRunner = "tw.com.deathhit.core.app_database.config.CustomTestRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -50,22 +49,6 @@ dependencies {
     //Coroutine-Test
     androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion")
 
-    //Gson
-    implementation("com.google.code.gson:gson:2.10.1")
-
-    //Hilt
-    val hiltVersion = "2.48.1"
-    kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
-    implementation("com.google.dagger:hilt-android:$hiltVersion")
-
-    //Hilt-Test
-    kaptAndroidTest("com.google.dagger:hilt-android-compiler:$hiltVersion")
-    androidTestImplementation("com.google.dagger:hilt-android-testing:$hiltVersion")
-
-    //Hilt-Work Manager
-    kapt("androidx.hilt:hilt-compiler:1.1.0")
-    implementation("androidx.hilt:hilt-work:1.1.0")
-
     //Paging
     val pagingVersion = "3.2.1"
     api("androidx.paging:paging-runtime-ktx:$pagingVersion")
@@ -75,14 +58,10 @@ dependencies {
 
     //Room
     val roomVersion = "2.6.0"
+    kapt("androidx.room:room-compiler:$roomVersion")
     api("androidx.room:room-ktx:$roomVersion")
     api("androidx.room:room-paging:$roomVersion")
     api("androidx.room:room-runtime:$roomVersion")
-    kapt("androidx.room:room-compiler:$roomVersion")
-
-    //Work Manager
-    val workVersion = ("2.8.1")
-    implementation("androidx.work:work-runtime-ktx:$workVersion")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

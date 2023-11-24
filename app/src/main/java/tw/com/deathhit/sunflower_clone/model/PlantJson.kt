@@ -1,4 +1,4 @@
-package tw.com.deathhit.core.app_database.json
+package tw.com.deathhit.sunflower_clone.model
 
 import androidx.annotation.Keep
 

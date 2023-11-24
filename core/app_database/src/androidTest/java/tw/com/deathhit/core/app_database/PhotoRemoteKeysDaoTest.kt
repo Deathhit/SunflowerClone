@@ -1,32 +1,28 @@
 package tw.com.deathhit.core.app_database
 
-import dagger.hilt.android.testing.HiltAndroidRule
-import dagger.hilt.android.testing.HiltAndroidTest
+import android.content.Context
+import androidx.test.core.app.ApplicationProvider
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
+import tw.com.deathhit.core.app_database.config.buildAppDatabase
 import tw.com.deathhit.core.app_database.config.generatePhotoEntities
 import tw.com.deathhit.core.app_database.config.generatePhotoRemoteKeysEntity
-import javax.inject.Inject
 
 @OptIn(ExperimentalCoroutinesApi::class)
-@HiltAndroidTest
 class PhotoRemoteKeysDaoTest {
-    @get:Rule
-    var hiltRule = HiltAndroidRule(this)
-
-    @Inject
-    internal lateinit var appDatabase: AppDatabase
+    private lateinit var appDatabase: AppDatabase
 
     private val photoDao get() = appDatabase.photoDao()
     private val photoRemoteKeysDao get() = appDatabase.photoRemoteKeysDao()
 
     @Before
     fun setup() {
-        hiltRule.inject()
+        val context = ApplicationProvider.getApplicationContext<Context>()
+
+        appDatabase = buildAppDatabase(context)
     }
 
     @Test

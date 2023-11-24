@@ -1,4 +1,4 @@
-package tw.com.deathhit.core.app_database
+package tw.com.deathhit.sunflower_clone
 
 import android.content.Context
 import android.os.Build
@@ -16,7 +16,8 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import tw.com.deathhit.core.app_database.json.PlantJson
+import tw.com.deathhit.core.app_database.AppDatabase
+import tw.com.deathhit.sunflower_clone.model.PlantJson
 
 @HiltWorker
 internal class SeedDatabaseWorker @AssistedInject constructor(

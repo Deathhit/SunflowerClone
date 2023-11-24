@@ -1,10 +1,16 @@
 package tw.com.deathhit.core.app_database.config
 
+import android.content.Context
+import androidx.room.Room
+import tw.com.deathhit.core.app_database.AppDatabase
 import tw.com.deathhit.core.app_database.entity.PhotoEntity
 import tw.com.deathhit.core.app_database.entity.PhotoRemoteKeysEntity
 import tw.com.deathhit.core.app_database.entity.PlantEntity
 import java.util.UUID
 import kotlin.random.Random
+
+fun buildAppDatabase(context: Context) =
+    Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java).build()
 
 fun generatePhotoEntities(plantName: String? = null) = mutableListOf<PhotoEntity>().apply {
     for (i in 0..getRandomInt(from = 3, until = 10)) {

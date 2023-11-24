@@ -1,7 +1,7 @@
-package tw.com.deathhit.core.app_database
+package tw.com.deathhit.sunflower_clone
 
 import org.junit.Test
-import tw.com.deathhit.core.app_database.json.PlantJson
+import tw.com.deathhit.sunflower_clone.model.PlantJson
 import java.util.UUID
 import kotlin.random.Random
 
