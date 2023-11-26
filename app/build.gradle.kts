@@ -67,6 +67,10 @@ dependencies {
     implementation(project(":feature:plant_details"))
     implementation(project(":feature:plant_list"))
 
+    //Coroutine-Test
+    val coroutineVersion = "1.7.3"
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion")
+
     //Gson
     implementation("com.google.code.gson:gson:2.10.1")
 
@@ -74,6 +78,10 @@ dependencies {
     val hiltVersion = "2.48.1"
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
     implementation("com.google.dagger:hilt-android:$hiltVersion")
+
+    //Hilt-Test
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:$hiltVersion")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:$hiltVersion")
 
     //Hilt-Work Manager
     kapt("androidx.hilt:hilt-compiler:1.1.0")

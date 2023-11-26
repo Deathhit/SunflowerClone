@@ -19,12 +19,12 @@ class MainActivityViewModel @Inject constructor() : ViewModel() {
         }
     }
 
-    fun goToGallery(plantId: String) {
+    fun goToGalleryScreen(plantName: String) {
         _stateFlow.update { state ->
             state.copy(
                 actions = state.actions + State.Action.GoToScreen(
                     screen = MainScreen.Gallery(
-                        plantId = plantId
+                        plantName = plantName
                     )
                 )
             )
