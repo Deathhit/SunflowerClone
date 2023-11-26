@@ -9,6 +9,6 @@
     android:paddingStart="@dimen/card_side_margin"
     android:paddingTop="@dimen/header_margin"
     android:paddingEnd="@dimen/card_side_margin"
-    app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
     app:spanCount="@integer/grid_columns"
     tools:listitem="@layout/item_garden_planting" />
