@@ -75,7 +75,7 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10.1")
 
     //Hilt
-    val hiltVersion = "2.48.1"
+    val hiltVersion = "2.49"
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
     implementation("com.google.dagger:hilt-android:$hiltVersion")
 
@@ -84,7 +84,7 @@ dependencies {
     implementation("androidx.hilt:hilt-work:1.1.0")
 
     //Work Manager
-    val workVersion = ("2.8.1")
+    val workVersion = ("2.9.0")
     implementation("androidx.work:work-runtime-ktx:$workVersion")
 
     testImplementation("junit:junit:4.13.2")

@@ -51,7 +51,7 @@ dependencies {
     androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion")
 
     //Hilt
-    val hiltVersion = "2.48.1"
+    val hiltVersion = "2.49"
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
     implementation("com.google.dagger:hilt-android:$hiltVersion")
 
