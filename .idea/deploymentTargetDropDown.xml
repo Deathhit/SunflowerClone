@@ -2,10 +2,16 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="All Tests">
+      <entry key="Tests in 'tw.com.deathhit.feature.gallery'">
         <State />
       </entry>
-      <entry key="MainActivityViewModelTest">
+      <entry key="Tests in 'tw.com.deathhit.feature.garden_planting_list'">
+        <State />
+      </entry>
+      <entry key="Tests in 'tw.com.deathhit.feature.navigation'">
+        <State />
+      </entry>
+      <entry key="Tests in 'tw.com.deathhit.feature.plant_list'">
         <State />
       </entry>
       <entry key="app">
