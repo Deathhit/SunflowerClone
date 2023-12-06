@@ -3,6 +3,8 @@
 A sample project to demonstrate the practices of the Android app architecture illustrated below. It is a clone of the Android Sunflower app on Github.
 
 **Note**: To see the original Sunflower project, checkout the [`Sunflower`](https://github.com/android/sunflower/tree/views).
+To see the related medium article, checkout
+the [`Android Application Architecture Showcase : Sunflower Clone`](https://medium.com/@b9915034/android-application-architecture-showcase-sunflower-clone-dee729f6e1f2).
 
 ## Screenshots
 
