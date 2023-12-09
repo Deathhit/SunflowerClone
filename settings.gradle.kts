@@ -17,6 +17,7 @@ rootProject.name = "Sunflower Clone"
 include(":app")
 include(":core:app_database")
 include(":core:app_ui")
+include(":core:app_ui_compose")
 include(":core:unsplash_api")
 include(":data:garden_planting")
 include(":data:photo")
