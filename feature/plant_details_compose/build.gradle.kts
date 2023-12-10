@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "tw.com.deathhit.core.app_ui_compose"
+    namespace = "tw.com.deathhit.feature.plant_details_compose"
     compileSdk = 34
 
     defaultConfig {
@@ -43,24 +43,8 @@ android {
 }
 
 dependencies {
-    //Appcompat
-    api ("androidx.appcompat:appcompat:1.6.1")
-
-    //Compose
-    val composeBom = platform("androidx.compose:compose-bom:2023.10.01")
-    api(composeBom)
-    androidTestApi(composeBom)
-
-    api("androidx.compose.material3:material3")
-
-    //Compose-Preview
-    api("androidx.compose.ui:ui-tooling-preview")
-    debugApi("androidx.compose.ui:ui-tooling")
-
-    //api("com.google.android.material:compose-theme-adapter:1.2.1")
-
-    //Core KTX
-    api ("androidx.core:core-ktx:1.12.0")
+    implementation(project(":core:app_ui_compose"))
+    implementation(project(":domain"))
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

@@ -2,6 +2,9 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="Preview">
+        <State />
+      </entry>
       <entry key="Tests in 'tw.com.deathhit.feature.gallery'">
         <State />
       </entry>
