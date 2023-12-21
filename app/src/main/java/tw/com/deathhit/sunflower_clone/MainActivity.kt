@@ -40,6 +40,11 @@ class MainActivity : AppCompatActivity() {
         bindViewModelState()
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        viewModel.saveState()
+        super.onSaveInstanceState(outState)
+    }
+
     private fun bindViewModelState() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {

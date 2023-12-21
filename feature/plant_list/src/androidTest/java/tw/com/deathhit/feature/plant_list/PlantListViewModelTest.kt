@@ -1,5 +1,6 @@
 package tw.com.deathhit.feature.plant_list
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.paging.testing.asSnapshot
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -21,7 +22,10 @@ class PlantListViewModelTest {
     fun setup() {
         Dispatchers.setMain(StandardTestDispatcher())
 
-        viewModel = PlantListViewModel(plantRepository = plantRepository)
+        viewModel = PlantListViewModel(
+            plantRepository = plantRepository,
+            savedStateHandle = SavedStateHandle.createHandle(null, null)
+        )
     }
 
     @Test

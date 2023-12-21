@@ -1,5 +1,6 @@
 package tw.com.deathhit.sunflower_clone
 
+import androidx.lifecycle.SavedStateHandle
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
@@ -12,7 +13,8 @@ class MainActivityViewModelTest {
 
     @Before
     fun setup() {
-        viewModel = MainActivityViewModel()
+        viewModel =
+            MainActivityViewModel(savedStateHandle = SavedStateHandle.createHandle(null, null))
     }
 
     @Test

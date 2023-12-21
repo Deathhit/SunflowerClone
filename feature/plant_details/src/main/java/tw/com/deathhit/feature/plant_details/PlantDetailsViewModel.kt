@@ -1,6 +1,7 @@
 package tw.com.deathhit.feature.plant_details
 
 import android.os.Bundle
+import android.os.Parcelable
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,6 +16,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.parcelize.Parcelize
 import tw.com.deathhit.domain.GardenPlantingRepository
 import tw.com.deathhit.domain.PlantRepository
 import tw.com.deathhit.feature.plant_details.sealed.ToastType
@@ -27,12 +29,7 @@ class PlantDetailsViewModel @Inject constructor(
     private val plantRepository: PlantRepository,
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-    private val _stateFlow = MutableStateFlow(
-        State(
-            actions = emptyList(),
-            plantId = savedStateHandle[KEY_PLANT_ID]!!
-        )
-    )
+    private val _stateFlow = MutableStateFlow<State>(savedStateHandle[KEY_STATE]!!)
     val stateFlow = _stateFlow.asStateFlow()
 
     val plantFlow =
@@ -59,7 +56,11 @@ class PlantDetailsViewModel @Inject constructor(
             val plant = createPlantFlow().first() ?: return@launch
 
             _stateFlow.update { state ->
-                state.copy(actions = state.actions + State.Action.GoToGalleryScreen(plantName = plant.plantName))
+                state.copy(
+                    actions = state.actions + State.Action.GoToGalleryScreen(
+                        plantName = plant.plantName
+                    )
+                )
             }
         }
     }
@@ -71,9 +72,7 @@ class PlantDetailsViewModel @Inject constructor(
     }
 
     fun saveState() {
-        with(stateFlow.value) {
-            savedStateHandle[KEY_PLANT_ID] = plantId
-        }
+        savedStateHandle[KEY_STATE] = stateFlow.value
     }
 
     fun sharePlant() {
@@ -92,18 +91,33 @@ class PlantDetailsViewModel @Inject constructor(
 
     companion object {
         private const val TAG = "PlantDetailsViewModel"
-        private const val KEY_PLANT_ID = "$TAG.KEY_PLANT_ID"
+        private const val KEY_STATE = "$TAG.KEY_STATE"
 
         internal fun createArgs(plantId: String) = Bundle().apply {
-            putString(KEY_PLANT_ID, plantId)
+            putParcelable(
+                KEY_STATE, State(
+                    plantId = plantId
+                )
+            )
         }
     }
 
-    data class State(val actions: List<Action>, val plantId: String) {
-        sealed interface Action {
+    @Parcelize
+    data class State(
+        val actions: List<Action> = emptyList(),
+        val plantId: String
+    ) : Parcelable {
+        sealed interface Action : Parcelable {
+            @Parcelize
             data object GoBack : Action
+
+            @Parcelize
             data class GoToGalleryScreen(val plantName: String) : Action
+
+            @Parcelize
             data class SharePlant(val plantName: String) : Action
+
+            @Parcelize
             data class Toast(val type: ToastType) : Action
         }
     }

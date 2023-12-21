@@ -1,6 +1,7 @@
 package tw.com.deathhit.feature.gallery
 
 import android.os.Bundle
+import android.os.Parcelable
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,6 +13,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
+import kotlinx.parcelize.Parcelize
 import tw.com.deathhit.domain.PhotoRepository
 import javax.inject.Inject
 
@@ -21,13 +23,7 @@ class GalleryViewModel @Inject constructor(
     private val photoRepository: PhotoRepository,
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-    private val _stateFlow =
-        MutableStateFlow(
-            State(
-                actions = emptyList(),
-                plantName = savedStateHandle[KEY_PLANT_NAME]!!
-            )
-        )
+    private val _stateFlow = MutableStateFlow<State>(savedStateHandle[KEY_STATE]!!)
     val stateFlow = _stateFlow.asStateFlow()
 
     val photoPagingDataFlow = createPhotoPagingDataFlow().cachedIn(viewModelScope)
@@ -51,9 +47,7 @@ class GalleryViewModel @Inject constructor(
     }
 
     fun saveState() {
-        with(stateFlow.value) {
-            savedStateHandle[KEY_PLANT_NAME] = plantName
-        }
+        savedStateHandle[KEY_STATE] = stateFlow.value
     }
 
     private fun createPhotoPagingDataFlow() =
@@ -63,16 +57,20 @@ class GalleryViewModel @Inject constructor(
 
     companion object {
         private const val TAG = "GalleryViewModel"
-        private const val KEY_PLANT_NAME = "$TAG.KEY_PLANT_NAME"
+        private const val KEY_STATE = "$TAG.KEY_STATE"
 
         internal fun createArgs(plantName: String) = Bundle().apply {
-            putString(KEY_PLANT_NAME, plantName)
+            putParcelable(KEY_STATE, State(plantName = plantName))
         }
     }
 
-    data class State(val actions: List<Action>, val plantName: String) {
-        sealed interface Action {
+    @Parcelize
+    data class State(val actions: List<Action> = emptyList(), val plantName: String) : Parcelable {
+        sealed interface Action : Parcelable {
+            @Parcelize
             data object GoBack : Action
+
+            @Parcelize
             data class OpenWebLink(val url: String) : Action
         }
     }

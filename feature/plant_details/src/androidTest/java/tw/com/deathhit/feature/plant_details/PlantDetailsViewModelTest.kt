@@ -62,8 +62,9 @@ class PlantDetailsViewModelTest {
         val finalState = viewModel.stateFlow.value
 
         assert(
-            finalState
-                    == initialState.copy(actions = initialState.actions + PlantDetailsViewModel.State.Action.GoBack)
+            finalState == initialState.copy(
+                actions = initialState.actions + PlantDetailsViewModel.State.Action.GoBack
+            )
         )
     }
 
@@ -99,8 +100,7 @@ class PlantDetailsViewModelTest {
         val finalState = viewModel.stateFlow.value
 
         assert(
-            finalState
-                    == initialState.copy(
+            finalState == initialState.copy(
                 actions = initialState.actions + PlantDetailsViewModel.State.Action.SharePlant(
                     plantName = plant.plantName
                 )

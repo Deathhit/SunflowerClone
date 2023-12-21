@@ -1,5 +1,6 @@
 package tw.com.deathhit.feature.navigation
 
+import androidx.lifecycle.SavedStateHandle
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -17,7 +18,9 @@ class NavigationViewModelTest {
     fun setup() {
         Dispatchers.setMain(StandardTestDispatcher())
 
-        viewModel = NavigationViewModel()
+        viewModel = NavigationViewModel(
+            savedStateHandle = SavedStateHandle.createHandle(null, null)
+        )
     }
 
     @Test
