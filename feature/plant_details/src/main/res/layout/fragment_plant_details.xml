@@ -29,7 +29,7 @@
             app:contentScrim="?attr/colorSurface"
             app:expandedTitleGravity="center_horizontal"
             app:expandedTitleTextColor="@android:color/transparent"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
             app:statusBarScrim="?attr/colorSurface"
             app:toolbarId="@id/toolbar">
 
