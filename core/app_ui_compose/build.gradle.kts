@@ -43,8 +43,7 @@ android {
 }
 
 dependencies {
-    //Appcompat
-    api ("androidx.appcompat:appcompat:1.6.1")
+    api(project(":core:app_ui"))
 
     //Compose
     val composeBom = platform("androidx.compose:compose-bom:2023.10.01")
@@ -56,11 +55,6 @@ dependencies {
     //Compose-Preview
     api("androidx.compose.ui:ui-tooling-preview")
     debugApi("androidx.compose.ui:ui-tooling")
-
-    //api("com.google.android.material:compose-theme-adapter:1.2.1")
-
-    //Core KTX
-    api ("androidx.core:core-ktx:1.12.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
