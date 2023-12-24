@@ -51,8 +51,8 @@ dependencies {
     //Fragment KTX
     api ("androidx.fragment:fragment-ktx:1.6.2")
 
-    //Material
-    api ("com.google.android.material:material:1.10.0")
+    //Material Design
+    api ("com.google.android.material:material:1.11.0")
 
     //Paging
     val pagingVersion = "3.2.1"

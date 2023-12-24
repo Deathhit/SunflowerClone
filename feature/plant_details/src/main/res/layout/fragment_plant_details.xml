@@ -5,18 +5,14 @@
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurface"
     android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/plant_detail_app_bar_height"
-        android:animateLayoutChanges="true"
         android:background="?attr/colorSurface"
-        android:fitsSystemWindows="true"
-        android:stateListAnimator="@animator/show_toolbar"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbarLayout"
@@ -30,13 +26,12 @@
             app:expandedTitleGravity="center_horizontal"
             app:expandedTitleTextColor="@android:color/transparent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-            app:statusBarScrim="?attr/colorSurface"
             app:toolbarId="@id/toolbar">
 
             <ImageView
                 android:id="@+id/imageView_plant"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/plant_detail_app_bar_height"
+                android:layout_height="match_parent"
                 android:contentDescription="@string/plant_details_image_description"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
@@ -46,8 +41,8 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                android:layout_marginBottom="16dp"
                 android:background="@android:color/transparent"
-                app:contentInsetStartWithNavigation="0dp"
                 app:layout_collapseMode="pin"
                 app:menu="@menu/menu_plant_details"
                 app:navigationIcon="@drawable/ic_detail_back" />
