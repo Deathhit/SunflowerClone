@@ -8,10 +8,12 @@ To see the related medium article, checkout the [`Android Application Architectu
 
 ## Screenshots
 
-<img src="docs/screenshots/Screenshot_1.png" width=411 height=731/>
-<img src="docs/screenshots/Screenshot_2.png" width=411 height=731/>
-<img src="docs/screenshots/Screenshot_3.png" width=411 height=731/>
-<img src="docs/screenshots/Screenshot_4.png" width=411 height=731/>
+<p float="left">
+<img src="docs/screenshots/Screenshot_1.png" width = 360> &nbsp;
+<img src="docs/screenshots/Screenshot_2.png" width = 360> &nbsp;
+<img src="docs/screenshots/Screenshot_3.png" width = 360> &nbsp;
+<img src="docs/screenshots/Screenshot_4.png" width = 360> &nbsp;
+</p>
 
 ## Features
 
