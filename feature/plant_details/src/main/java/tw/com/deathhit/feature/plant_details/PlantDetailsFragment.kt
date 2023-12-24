@@ -96,11 +96,6 @@ class PlantDetailsFragment : Fragment() {
         _binding = null
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        viewModel.saveState()
-        super.onSaveInstanceState(outState)
-    }
-
     private fun bindViewModelState() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {

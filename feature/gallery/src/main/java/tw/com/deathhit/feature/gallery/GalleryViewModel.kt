@@ -8,11 +8,8 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.update
 import kotlinx.parcelize.Parcelize
 import tw.com.deathhit.domain.PhotoRepository
 import javax.inject.Inject
@@ -23,31 +20,25 @@ class GalleryViewModel @Inject constructor(
     private val photoRepository: PhotoRepository,
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-    private val _stateFlow = MutableStateFlow<State>(savedStateHandle[KEY_STATE]!!)
-    val stateFlow = _stateFlow.asStateFlow()
+    private var state: State
+        get() = savedStateHandle[KEY_STATE]!!
+        set(value) {
+            savedStateHandle[KEY_STATE] = value
+        }
+    val stateFlow = savedStateHandle.getStateFlow(KEY_STATE, state)
 
     val photoPagingDataFlow = createPhotoPagingDataFlow().cachedIn(viewModelScope)
 
     fun goBack() {
-        _stateFlow.update { state ->
-            state.copy(actions = state.actions + State.Action.GoBack)
-        }
+        state = state.copy(actions = state.actions + State.Action.GoBack)
     }
 
     fun onAction(action: State.Action) {
-        _stateFlow.update { state ->
-            state.copy(actions = state.actions - action)
-        }
+        state = state.copy(actions = state.actions - action)
     }
 
     fun openWebLink(url: String) {
-        _stateFlow.update { state ->
-            state.copy(actions = state.actions + State.Action.OpenWebLink(url = url))
-        }
-    }
-
-    fun saveState() {
-        savedStateHandle[KEY_STATE] = stateFlow.value
+        state = state.copy(actions = state.actions + State.Action.OpenWebLink(url = url))
     }
 
     private fun createPhotoPagingDataFlow() =

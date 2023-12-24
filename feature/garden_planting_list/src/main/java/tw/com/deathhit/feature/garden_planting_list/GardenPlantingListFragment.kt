@@ -86,11 +86,6 @@ class GardenPlantingListFragment : Fragment() {
         _gardenPlantingAdapter = null
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        viewModel.saveState()
-        super.onSaveInstanceState(outState)
-    }
-
     companion object {
         fun create() = GardenPlantingListFragment()
     }

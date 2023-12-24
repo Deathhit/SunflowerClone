@@ -7,14 +7,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.parcelize.Parcelize
 import tw.com.deathhit.domain.GardenPlantingRepository
@@ -29,8 +26,12 @@ class PlantDetailsViewModel @Inject constructor(
     private val plantRepository: PlantRepository,
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-    private val _stateFlow = MutableStateFlow<State>(savedStateHandle[KEY_STATE]!!)
-    val stateFlow = _stateFlow.asStateFlow()
+    private var state: State
+        get() = savedStateHandle[KEY_STATE]!!
+        set(value) {
+            savedStateHandle[KEY_STATE] = value
+        }
+    val stateFlow = savedStateHandle.getStateFlow(KEY_STATE, state)
 
     val plantFlow =
         createPlantFlow().stateIn(viewModelScope, SharingStarted.WhileSubscribed(), null)
@@ -39,49 +40,37 @@ class PlantDetailsViewModel @Inject constructor(
         viewModelScope.launch {
             gardenPlantingRepository.addGardenPlanting(plantId = stateFlow.value.plantId)
 
-            _stateFlow.update { state ->
+            state =
                 state.copy(actions = state.actions + State.Action.Toast(ToastType.AddedPlantToGarden))
-            }
         }
     }
 
     fun goBack() {
-        _stateFlow.update { state ->
-            state.copy(actions = state.actions + State.Action.GoBack)
-        }
+        state = state.copy(actions = state.actions + State.Action.GoBack)
     }
 
     fun goToGalleryScreen() {
         viewModelScope.launch {
             val plant = createPlantFlow().first() ?: return@launch
 
-            _stateFlow.update { state ->
-                state.copy(
-                    actions = state.actions + State.Action.GoToGalleryScreen(
-                        plantName = plant.plantName
-                    )
+            state = state.copy(
+                actions = state.actions + State.Action.GoToGalleryScreen(
+                    plantName = plant.plantName
                 )
-            }
+            )
         }
     }
 
     fun onAction(action: State.Action) {
-        _stateFlow.update { state ->
-            state.copy(actions = state.actions - action)
-        }
-    }
-
-    fun saveState() {
-        savedStateHandle[KEY_STATE] = stateFlow.value
+        state = state.copy(actions = state.actions - action)
     }
 
     fun sharePlant() {
         viewModelScope.launch {
             val plant = createPlantFlow().first() ?: return@launch
 
-            _stateFlow.update { state ->
+            state =
                 state.copy(actions = state.actions + State.Action.SharePlant(plantName = plant.plantName))
-            }
         }
     }
 
