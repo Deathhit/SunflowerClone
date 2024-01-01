@@ -6,5 +6,5 @@ object Dimens {
     val PaddingSmall = 8.dp
     val PaddingNormal = 16.dp
     val PaddingLarge = 24.dp
-    val PaddingScreenBottom = 36.dp
+    val PaddingScreenBottom = 48.dp
 }
