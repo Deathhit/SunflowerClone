@@ -39,7 +39,7 @@ class PlantDetailsFragment : Fragment() {
 
         setContent {
             SunflowerCloneTheme {
-                val plant = viewModel.plantFlow.collectAsState(initial = null).value
+                val plant = viewModel.plantFlow.collectAsState().value
 
                 if (plant != null)
                     PlantDetailsScreen(

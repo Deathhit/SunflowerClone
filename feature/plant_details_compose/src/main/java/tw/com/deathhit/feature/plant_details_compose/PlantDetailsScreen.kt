@@ -57,7 +57,7 @@ internal fun PlantDetailsScreen(
     onGalleryClick: () -> Unit,
     onShareClick: () -> Unit
 ) {
-    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
+    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(rememberTopAppBarState())
 
     Scaffold(
         floatingActionButton = {
