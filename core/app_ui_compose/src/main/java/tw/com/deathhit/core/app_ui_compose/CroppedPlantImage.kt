@@ -2,6 +2,7 @@ package tw.com.deathhit.core.app_ui_compose
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 
@@ -12,5 +13,10 @@ fun CroppedPlantImage(
     modifier: Modifier = Modifier,
     contentDescription: String? = null,
 ) {
-    GlideImage(model = model, contentDescription = contentDescription, modifier = modifier)
+    GlideImage(
+        contentScale = ContentScale.Crop,
+        model = model,
+        contentDescription = contentDescription,
+        modifier = modifier
+    )
 }

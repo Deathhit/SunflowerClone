@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
@@ -102,6 +103,7 @@ private fun PlantContent(
             model = plantImageUrl,
             modifier = Modifier
                 .constrainAs(image) { top.linkTo(parent.top) }
+                .height(Dimens.PlantDetailsImageHeight)
                 .fillMaxWidth()
         )
 

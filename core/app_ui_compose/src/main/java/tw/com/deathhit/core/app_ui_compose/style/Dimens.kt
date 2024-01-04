@@ -7,4 +7,5 @@ object Dimens {
     val PaddingNormal = 16.dp
     val PaddingLarge = 24.dp
     val PaddingScreenBottom = 48.dp
+    val PlantDetailsImageHeight = 230.dp
 }

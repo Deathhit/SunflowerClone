@@ -1,5 +1,7 @@
 plugins {
     id("com.android.library")
+    id("dagger.hilt.android.plugin")
+    id("kotlin-kapt")
     id("kotlin-parcelize")
     id("org.jetbrains.kotlin.android")
 }
@@ -46,6 +48,15 @@ android {
 dependencies {
     implementation(project(":core:app_ui_compose"))
     implementation(project(":domain"))
+
+    //Coroutine-Test
+    val coroutineVersion = "1.7.3"
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion")
+
+    //Hilt
+    val hiltVersion = "2.49"
+    kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
+    implementation("com.google.dagger:hilt-android:$hiltVersion")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
