@@ -28,6 +28,7 @@
             <option value="$PROJECT_DIR$/feature/plant_details" />
             <option value="$PROJECT_DIR$/feature/plant_details_compose" />
             <option value="$PROJECT_DIR$/feature/plant_list" />
+            <option value="$PROJECT_DIR$/feature/plant_list_compose" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

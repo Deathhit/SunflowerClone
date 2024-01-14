@@ -15,6 +15,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "Sunflower Clone"
 include(":app")
+include(":app_compose")
 include(":core:app_database")
 include(":core:app_ui")
 include(":core:app_ui_compose")
@@ -29,4 +30,4 @@ include(":feature:navigation")
 include(":feature:plant_details")
 include(":feature:plant_details_compose")
 include(":feature:plant_list")
-include(":app_compose")
+include(":feature:plant_list_compose")

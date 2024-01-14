@@ -59,7 +59,7 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
     implementation("com.google.dagger:hilt-android:$hiltVersion")
 
-    //Paging-Test
+    //Paging
     val pagingVersion = "3.2.1"
     androidTestImplementation("androidx.paging:paging-testing:$pagingVersion")
 

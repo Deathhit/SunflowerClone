@@ -36,30 +36,30 @@ android {
 
 dependencies {
     //Appcompat
-    api ("androidx.appcompat:appcompat:1.6.1")
+    api("androidx.appcompat:appcompat:1.6.1")
 
     //Constraint Layout
-    api ("androidx.constraintlayout:constraintlayout:2.1.4")
+    api("androidx.constraintlayout:constraintlayout:2.1.4")
 
     //Core KTX
-    api ("androidx.core:core-ktx:1.12.0")
+    api("androidx.core:core-ktx:1.12.0")
 
     //Coroutine
     val coroutineVersion = "1.7.3"
-    api ("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion")
 
     //Fragment KTX
-    api ("androidx.fragment:fragment-ktx:1.6.2")
+    api("androidx.fragment:fragment-ktx:1.6.2")
 
     //Material Design
-    api ("com.google.android.material:material:1.11.0")
+    api("com.google.android.material:material:1.11.0")
 
     //Paging
     val pagingVersion = "3.2.1"
-    api ("androidx.paging:paging-runtime-ktx:$pagingVersion")
+    api("androidx.paging:paging-runtime-ktx:$pagingVersion")
 
     //Recycler View
-    api ("androidx.recyclerview:recyclerview:1.3.2")
+    api("androidx.recyclerview:recyclerview:1.3.2")
 
     //View Pager 2
     api("androidx.viewpager2:viewpager2:1.1.0-beta02")
