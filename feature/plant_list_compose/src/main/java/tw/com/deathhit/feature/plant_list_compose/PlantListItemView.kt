@@ -20,14 +20,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import tw.com.deathhit.core.app_ui_compose.CroppedPlantImage
 import tw.com.deathhit.core.app_ui_compose.style.SunflowerCloneTheme
 
-@Composable
-fun PlantListItem(imageUrl: String, name: String, onClick: () -> Unit) {
-    ImageListItem(name = name, imageUrl = imageUrl, onClick = onClick)
-}
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ImageListItem(name: String, imageUrl: String, onClick: () -> Unit) {
+internal fun PlantListItem(name: String, imageUrl: String, onClick: () -> Unit) {
     Card(
         onClick = onClick,
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),

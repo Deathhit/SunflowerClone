@@ -1,4 +1,4 @@
-package tw.com.deathhit.feature.plant_list_compose
+package tw.com.deathhit.feature.garden_planting_list_compose
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.imePadding
@@ -14,20 +14,21 @@ import androidx.paging.PagingData
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import kotlinx.coroutines.flow.flowOf
-import tw.com.deathhit.domain.model.PlantDO
+import tw.com.deathhit.core.app_ui.R
+import tw.com.deathhit.domain.model.GardenPlantingDO
 
 @Composable
-internal fun PlantListScreen(
-    plants: LazyPagingItems<PlantDO>,
-    onPlantClick: (PlantDO) -> Unit = {},
+internal fun GardenPlantingListScreen(
+    plants: LazyPagingItems<GardenPlantingDO>,
+    onPlantClick: (GardenPlantingDO) -> Unit = {},
 ) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
         modifier = Modifier
             .imePadding(),
         contentPadding = PaddingValues(
-            horizontal = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.card_side_margin),
-            vertical = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.header_margin)
+            horizontal = dimensionResource(id = R.dimen.card_side_margin),
+            vertical = dimensionResource(id = R.dimen.header_margin)
         )
     ) {
         items(
@@ -36,9 +37,14 @@ internal fun PlantListScreen(
             val plant = plants[index]
 
             if (plant != null)
-                PlantListItem(imageUrl = plant.imageUrl, name = plant.plantName, onClick = {
-                    onPlantClick(plant)
-                })
+                GardenPlantingListItem(
+                    imageUrl = plant.imageUrl,
+                    name = plant.plantName,
+                    plantDate = plant.plantDate,
+                    waterIntervalDays = plant.wateringIntervalDays,
+                    onClick = {
+                        onPlantClick(plant)
+                    })
         }
     }
 }
@@ -46,48 +52,52 @@ internal fun PlantListScreen(
 @Preview
 @Composable
 private fun PlantListScreenPreview(
-    @PreviewParameter(PlantListPreviewParamProvider::class) plants: List<PlantDO>
+    @PreviewParameter(GardenPlantingListPreviewParamProvider::class) plants: List<GardenPlantingDO>
 ) {
-    PlantListScreen(plants = flowOf(PagingData.from(plants)).collectAsLazyPagingItems())
+    GardenPlantingListScreen(plants = flowOf(PagingData.from(plants)).collectAsLazyPagingItems())
 }
 
-private class PlantListPreviewParamProvider : PreviewParameterProvider<List<PlantDO>> {
-    override val values: Sequence<List<PlantDO>> =
+private class GardenPlantingListPreviewParamProvider : PreviewParameterProvider<List<GardenPlantingDO>> {
+    override val values: Sequence<List<GardenPlantingDO>> =
         sequenceOf(
             emptyList(),
             listOf(
-                PlantDO(
+                GardenPlantingDO(
                     description = "Apple",
+                    gardenPlantingId = 1,
                     growZoneNumber = 1,
                     imageUrl = "",
-                    plantDate = null,
+                    plantDate = 0,
                     plantId = "1",
                     plantName = "Apple",
                     wateringIntervalDays = 1
                 ),
-                PlantDO(
+                GardenPlantingDO(
                     description = "Banana",
+                    gardenPlantingId = 2,
                     growZoneNumber = 2,
                     imageUrl = "",
-                    plantDate = null,
+                    plantDate = 20000,
                     plantId = "2",
                     plantName = "Banana",
                     wateringIntervalDays = 2
                 ),
-                PlantDO(
+                GardenPlantingDO(
                     description = "Carrot",
+                    gardenPlantingId = 3,
                     growZoneNumber = 3,
                     imageUrl = "",
-                    plantDate = null,
+                    plantDate = 30000,
                     plantId = "3",
                     plantName = "Carrot",
                     wateringIntervalDays = 3
                 ),
-                PlantDO(
+                GardenPlantingDO(
                     description = "Dill",
+                    gardenPlantingId = 4,
                     growZoneNumber = 4,
                     imageUrl = "",
-                    plantDate = null,
+                    plantDate = 40000,
                     plantId = "4",
                     plantName = "Dill",
                     wateringIntervalDays = 4

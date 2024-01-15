@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="garden_planting_list_image_description">Picture of plant</string>
+    <string name="garden_planting_list_planted">Planted</string>
+    <string name="garden_planting_list_water_in_x_days">water in %d days.</string>
+</resources>
