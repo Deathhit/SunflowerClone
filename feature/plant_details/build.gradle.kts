@@ -55,7 +55,7 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:$glideVersion")
 
     //Hilt
-    val hiltVersion = "2.49"
+    val hiltVersion = "2.50"
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
     implementation("com.google.dagger:hilt-android:$hiltVersion")
 

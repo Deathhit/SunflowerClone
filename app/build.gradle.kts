@@ -74,7 +74,7 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10.1")
 
     //Hilt
-    val hiltVersion = "2.49"
+    val hiltVersion = "2.50"
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
     implementation("com.google.dagger:hilt-android:$hiltVersion")
 
