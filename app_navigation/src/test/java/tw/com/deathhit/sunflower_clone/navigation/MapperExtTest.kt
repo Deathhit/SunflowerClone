@@ -1,4 +1,4 @@
-package tw.com.deathhit.sunflower_clone
+package tw.com.deathhit.sunflower_clone.navigation
 
 import org.junit.Test
 import tw.com.deathhit.sunflower_clone.model.PlantJson

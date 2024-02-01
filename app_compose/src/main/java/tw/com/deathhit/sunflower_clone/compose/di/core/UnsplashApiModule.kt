@@ -1,4 +1,4 @@
-package tw.com.deathhit.sunflower_clone.di.core
+package tw.com.deathhit.sunflower_clone.compose.di.core
 
 import android.content.Context
 import dagger.Module
@@ -7,9 +7,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import tw.com.deathhit.core.unsplash_api.UnsplashService.Companion.createUnsplashService
-import tw.com.deathhit.sunflower_clone.getUnsplashAccessKey
-import tw.com.deathhit.sunflower_clone.getUnsplashAppName
-import tw.com.deathhit.sunflower_clone.getUnsplashServerUrl
+import tw.com.deathhit.sunflower_clone.compose.getUnsplashAccessKey
+import tw.com.deathhit.sunflower_clone.compose.getUnsplashAppName
+import tw.com.deathhit.sunflower_clone.compose.getUnsplashServerUrl
 import javax.inject.Singleton
 
 @Module

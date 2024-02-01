@@ -46,9 +46,9 @@ dependencies {
     api(project(":core:app_ui"))
 
     //Compose
-    val composeBom = platform("androidx.compose:compose-bom:2023.10.01")
-    api("androidx.compose:compose-bom:2024.01.00")
-    androidTestApi("androidx.compose:compose-bom:2024.01.00")
+    val composeBom = platform("androidx.compose:compose-bom:2024.01.00")
+    api(composeBom)
+    androidTestApi(composeBom)
 
     api("androidx.compose.material3:material3")
 

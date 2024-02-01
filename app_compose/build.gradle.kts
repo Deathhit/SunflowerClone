@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "tw.com.deathhit.sunflower_clone"
+    namespace = "tw.com.deathhit.sunflower_clone.compose"
     compileSdk = 34
 
     defaultConfig {

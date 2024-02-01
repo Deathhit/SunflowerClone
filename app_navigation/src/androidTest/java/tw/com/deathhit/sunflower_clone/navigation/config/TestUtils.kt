@@ -1,4 +1,4 @@
-package tw.com.deathhit.sunflower_clone.config
+package tw.com.deathhit.sunflower_clone.navigation.config
 
 import java.util.UUID
 

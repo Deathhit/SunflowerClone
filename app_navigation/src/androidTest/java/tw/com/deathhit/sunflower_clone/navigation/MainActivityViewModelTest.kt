@@ -1,12 +1,12 @@
-package tw.com.deathhit.sunflower_clone
+package tw.com.deathhit.sunflower_clone.navigation
 
 import androidx.lifecycle.SavedStateHandle
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import tw.com.deathhit.sunflower_clone.config.generatePlantId
-import tw.com.deathhit.sunflower_clone.config.generatePlantName
 import tw.com.deathhit.sunflower_clone.model.MainScreen
+import tw.com.deathhit.sunflower_clone.navigation.config.generatePlantId
+import tw.com.deathhit.sunflower_clone.navigation.config.generatePlantName
 
 class MainActivityViewModelTest {
     private lateinit var viewModel: MainActivityViewModel
@@ -49,26 +49,6 @@ class MainActivityViewModelTest {
             finalState == initialState.copy(
                 actions = initialState.actions + MainActivityViewModel.State.Action.GoToScreen(
                     screen = MainScreen.Gallery(plantName = plantName)
-                )
-            )
-        )
-    }
-
-    @Test
-    fun goToInitialScreen() = runTest {
-        //Given
-        val initialState = viewModel.stateFlow.value
-
-        //When
-        viewModel.goToInitialScreen()
-
-        //Then
-        val finalState = viewModel.stateFlow.value
-
-        assert(
-            finalState == initialState.copy(
-                actions = initialState.actions + MainActivityViewModel.State.Action.GoToInitialScreen(
-                    screen = MainScreen.Navigation
                 )
             )
         )

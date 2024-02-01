@@ -1,4 +1,4 @@
-package tw.com.deathhit.sunflower_clone
+package tw.com.deathhit.sunflower_clone.compose
 
 import android.app.Application
 import androidx.hilt.work.HiltWorkerFactory

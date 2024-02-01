@@ -1,4 +1,4 @@
-package tw.com.deathhit.sunflower_clone
+package tw.com.deathhit.sunflower_clone.navigation
 
 import android.content.Context
 import android.content.pm.PackageManager

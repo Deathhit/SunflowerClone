@@ -10,7 +10,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import tw.com.deathhit.core.app_database.AppDatabase
-import tw.com.deathhit.sunflower_clone.SeedDatabaseWorker.Companion.scheduleSeedingDatabase
+import tw.com.deathhit.sunflower_clone.navigation.SeedDatabaseWorker.Companion.scheduleSeedingDatabase
 import javax.inject.Singleton
 
 @Module

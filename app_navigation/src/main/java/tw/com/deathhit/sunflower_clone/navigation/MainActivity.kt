@@ -1,4 +1,4 @@
-package tw.com.deathhit.sunflower_clone
+package tw.com.deathhit.sunflower_clone.navigation
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -16,8 +16,8 @@ import kotlinx.coroutines.launch
 import tw.com.deathhit.feature.gallery.GalleryFragment
 import tw.com.deathhit.feature.navigation.NavigationFragment
 import tw.com.deathhit.feature.plant_details.PlantDetailsFragment
-import tw.com.deathhit.sunflower_clone.databinding.ActivityMainBinding
 import tw.com.deathhit.sunflower_clone.model.MainScreen
+import tw.com.deathhit.sunflower_clone.navigation.databinding.ActivityMainBinding
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
