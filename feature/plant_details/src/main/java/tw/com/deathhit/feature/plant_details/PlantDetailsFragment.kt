@@ -164,8 +164,10 @@ class PlantDetailsFragment : Fragment() {
 
     companion object {
         fun create(plantId: String) = PlantDetailsFragment().apply {
-            arguments = PlantDetailsViewModel.createArgs(plantId = plantId)
+            arguments = createArgs(plantId = plantId)
         }
+
+        fun createArgs(plantId: String) = PlantDetailsViewModel.createArgs(plantId = plantId)
     }
 
     interface Callback {

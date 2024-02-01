@@ -33,6 +33,9 @@
       <entry key="app_compose">
         <State />
       </entry>
+      <entry key="app_navigation">
+        <State />
+      </entry>
     </value>
   </component>
 </project>

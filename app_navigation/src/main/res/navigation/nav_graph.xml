@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_navigation">
+
+    <!--Fragment-->
+    <fragment
+        android:id="@+id/fragment_navigation"
+        android:name="tw.com.deathhit.feature.navigation.NavigationFragment"
+        android:label="Navigation" />
+
+    <fragment
+        android:id="@+id/fragment_gallery"
+        android:name="tw.com.deathhit.feature.gallery.GalleryFragment"
+        android:label="Gallery" />
+
+    <fragment
+        android:id="@+id/fragment_plantDetails"
+        android:name="tw.com.deathhit.feature.plant_details.PlantDetailsFragment"
+        android:label="Plant Details" />
+
+    <!--Action-->
+    <action
+        android:id="@+id/action_gallery"
+        app:destination="@id/fragment_gallery"
+        app:enterAnim="@anim/slide_in_left"
+        app:exitAnim="@anim/slide_out_right" />
+
+    <action
+        android:id="@+id/action_plantDetails"
+        app:destination="@id/fragment_plantDetails"
+        app:enterAnim="@anim/slide_in_left"
+        app:exitAnim="@anim/slide_out_right" />
+
+</navigation>
