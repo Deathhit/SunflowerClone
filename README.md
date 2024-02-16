@@ -35,7 +35,7 @@ Same as the original Sunflower, SunflowerClone uses the [Unsplash API](https://u
 screen. You will need to obtain a free developer API key to make the gallery screen work. Please See the
 [Unsplash API Documentation](https://unsplash.com/documentation) for instructions.
 
-Once you have your API key, you can add it by replacing the metadata in the manifest in your application module.
+Once you have your API key, you can add it by replacing the metadata in the manifest in :config:sunflower_clone module.
 
 <img src="docs/screenshots/Screenshot_Unsplash_API_Key.png"/>
 
