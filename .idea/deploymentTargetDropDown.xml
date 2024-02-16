@@ -5,10 +5,10 @@
       <entry key="MainActivityViewModelTest">
         <State />
       </entry>
-      <entry key="Tests in 'tw.com.deathhit.sunflower_clone.compose'">
+      <entry key="MainActivityViewModelTest (1)">
         <State />
       </entry>
-      <entry key="Tests in 'tw.com.deathhit.sunflower_clone.navigation'">
+      <entry key="Tests in 'tw.com.deathhit.sunflower_clone'">
         <State />
       </entry>
       <entry key="app">
@@ -31,6 +31,15 @@
         <State />
       </entry>
       <entry key="app_navigation">
+        <State />
+      </entry>
+      <entry key="app_sunflower_clone">
+        <State />
+      </entry>
+      <entry key="app_sunflower_clone_compose">
+        <State />
+      </entry>
+      <entry key="app_sunflower_clone_navigation">
         <State />
       </entry>
     </value>

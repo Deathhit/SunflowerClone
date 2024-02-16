@@ -9,9 +9,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/app_compose" />
-            <option value="$PROJECT_DIR$/app_navigation" />
+            <option value="$PROJECT_DIR$/app_sunflower_clone" />
+            <option value="$PROJECT_DIR$/app_sunflower_clone_compose" />
+            <option value="$PROJECT_DIR$/app_sunflower_clone_navigation" />
+            <option value="$PROJECT_DIR$/config" />
+            <option value="$PROJECT_DIR$/config/sunflower_clone" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core/app_database" />
             <option value="$PROJECT_DIR$/core/app_ui" />

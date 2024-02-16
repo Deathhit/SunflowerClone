@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowAudioPlaybackCapture="false"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="false"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        tools:targetApi="34">
+
+        <!--Unsplash Api-->
+        <meta-data
+            android:name="tw.com.deathhit.config.sunflower_clone.UNSPLASH_ACCESS_KEY"
+            android:value="[YOUR UNSPLASH ACCESS KEY]" />
+
+        <meta-data
+            android:name="tw.com.deathhit.config.sunflower_clone.UNSPLASH_APP_NAME"
+            android:value="@string/app_name" />
+
+        <meta-data
+            android:name="tw.com.deathhit.config.sunflower_clone.UNSPLASH_SERVER_URL"
+            android:value="https://api.unsplash.com/" />
+
+        <!--Initialization Provider-->
+        <!--We replace the WorkManager configuration in MainApplication to make dependency injections work with workers.-->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <!-- If you are using androidx.startup to initialize other components -->
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"
+                tools:node="remove" />
+        </provider>
+    </application>
+</manifest>
