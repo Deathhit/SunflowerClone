@@ -1,10 +1,9 @@
 # SunflowerClone
 
-A sample project to demonstrate the practices of the Android app architecture illustrated below. It is a clone of the Android Sunflower app on Github.
+A sample project to demonstrate the practices of the Android app architecture illustrated below. 
+It is a clone of the Android Sunflower app on Github.
 
 **Note**: To see the original Sunflower project, checkout the [`Sunflower`](https://github.com/android/sunflower/tree/views).
-
-To see the related medium article, checkout the [`Android Application Architecture Showcase : Sunflower Clone`](https://medium.com/@b9915034/android-application-architecture-showcase-sunflower-clone-dee729f6e1f2).
 
 ## Screenshots
 
@@ -20,12 +19,9 @@ To see the related medium article, checkout the [`Android Application Architectu
 <img src="docs/diagrams/Android App Architecture Overview.png"/>
 <img src="docs/diagrams/Sunflower Clone Dependency Graph.png"/>
 
-This example shows how to build an Android project based on the app architecture.
-Please see the links below to understand this topic better.
+This sample demonstrates a modern approach to Android application architecture. See the Medium article below.
 
-[Guide to app architecture](https://developer.android.com/topic/architecture)
-
-[Guide to Android app modularization](https://developer.android.com/topic/modularization)
+ [`Android Application Architecture Showcase : Sunflower Clone`](https://medium.com/@b9915034/android-application-architecture-showcase-sunflower-clone-dee729f6e1f2).
 
 ## Requirements
 
