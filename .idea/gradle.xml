@@ -23,15 +23,16 @@
             <option value="$PROJECT_DIR$/data/plant" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/feature" />
+            <option value="$PROJECT_DIR$/feature/compose" />
+            <option value="$PROJECT_DIR$/feature/compose/garden_planting_list" />
+            <option value="$PROJECT_DIR$/feature/compose/navigation" />
+            <option value="$PROJECT_DIR$/feature/compose/plant_details" />
+            <option value="$PROJECT_DIR$/feature/compose/plant_list" />
             <option value="$PROJECT_DIR$/feature/gallery" />
             <option value="$PROJECT_DIR$/feature/garden_planting_list" />
-            <option value="$PROJECT_DIR$/feature/garden_planting_list_compose" />
             <option value="$PROJECT_DIR$/feature/navigation" />
-            <option value="$PROJECT_DIR$/feature/navigation_compose" />
             <option value="$PROJECT_DIR$/feature/plant_details" />
-            <option value="$PROJECT_DIR$/feature/plant_details_compose" />
             <option value="$PROJECT_DIR$/feature/plant_list" />
-            <option value="$PROJECT_DIR$/feature/plant_list_compose" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

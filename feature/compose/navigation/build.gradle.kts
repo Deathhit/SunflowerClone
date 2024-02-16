@@ -1,10 +1,13 @@
 plugins {
     id("com.android.library")
+    id("dagger.hilt.android.plugin")
+    id("kotlin-kapt")
+    id("kotlin-parcelize")
     id("org.jetbrains.kotlin.android")
 }
 
 android {
-    namespace = "tw.com.deathhit.core.app_ui_compose"
+    namespace = "tw.com.deathhit.feature.compose.navigation"
     compileSdk = 34
 
     defaultConfig {
@@ -16,6 +19,7 @@ android {
 
     buildFeatures {
         compose = true
+        viewBinding = true
     }
 
     buildTypes {
@@ -43,30 +47,19 @@ android {
 }
 
 dependencies {
-    api(project(":core:app_ui"))
+    implementation(project(":core:app_ui_compose"))
+    implementation(project(":domain"))
+    implementation(project(":feature:compose:garden_planting_list"))
+    implementation(project(":feature:compose:plant_list"))
 
-    //Compose
-    val composeBom = platform("androidx.compose:compose-bom:2024.01.00")
-    api(composeBom)
-    androidTestApi(composeBom)
+    //Coroutine-Test
+    val coroutineVersion = "1.7.3"
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion")
 
-    api("androidx.compose.material3:material3")
-
-    //Compose-Preview
-    api("androidx.compose.ui:ui-tooling-preview")
-    debugApi("androidx.compose.ui:ui-tooling")
-
-    //Compose-View Binding
-    api("androidx.compose.ui:ui-viewbinding")
-
-    //Constraint Layout
-    api("androidx.constraintlayout:constraintlayout-compose:1.0.1")
-
-    //Glide
-    api("com.github.bumptech.glide:compose:1.0.0-beta01")
-
-    //Paging
-    api("androidx.paging:paging-compose:3.3.0-alpha02")
+    //Hilt
+    val hiltVersion = "2.50"
+    kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
+    implementation("com.google.dagger:hilt-android:$hiltVersion")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

@@ -63,8 +63,8 @@ dependencies {
     implementation(project(":data:plant"))
     implementation(project(":domain"))
     implementation(project(":feature:gallery"))
-    implementation(project(":feature:navigation"))
-    implementation(project(":feature:plant_details_compose"))
+    implementation(project(":feature:compose:navigation"))
+    implementation(project(":feature:compose:plant_details"))
 
     //Coroutine-Test
     val coroutineVersion = "1.7.3"

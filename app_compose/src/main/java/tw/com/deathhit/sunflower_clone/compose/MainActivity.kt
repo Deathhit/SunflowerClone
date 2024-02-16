@@ -14,8 +14,8 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import tw.com.deathhit.feature.gallery.GalleryFragment
-import tw.com.deathhit.feature.navigation.NavigationFragment
-import tw.com.deathhit.feature.plant_details_compose.PlantDetailsFragment
+import tw.com.deathhit.feature.compose.navigation.NavigationFragment
+import tw.com.deathhit.feature.compose.plant_details.PlantDetailsFragment
 import tw.com.deathhit.sunflower_clone.compose.databinding.ActivityMainBinding
 import tw.com.deathhit.sunflower_clone.model.MainScreen
 
