@@ -21,7 +21,7 @@ android {
     }
 
     buildFeatures {
-        viewBinding = true
+        compose = true
     }
 
     buildTypes {
@@ -49,6 +49,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.4"
+    }
+
     kotlinOptions {
         jvmTarget = "17"
     }
@@ -56,7 +60,7 @@ android {
 
 dependencies {
     implementation(project(":config:sunflower_clone"))
-    implementation(project(":core:app_ui"))
+    implementation(project(":core:app_ui_compose"))
     implementation(project(":domain"))
     implementation(project(":feature:gallery"))
     implementation(project(":feature:compose:navigation"))
@@ -70,6 +74,10 @@ dependencies {
     val hiltVersion = "2.50"
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
     implementation("com.google.dagger:hilt-android:$hiltVersion")
+
+    //Navigation-Compose
+    val navVersion = "2.7.7"
+    implementation("androidx.navigation:navigation-compose:$navVersion")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 import kotlinx.parcelize.Parcelize
 import tw.com.deathhit.domain.GardenPlantingRepository
 import tw.com.deathhit.domain.PlantRepository
+import tw.com.deathhit.feature.compose.plant_details.PlantDetailsDestination.Companion.plantId
 import tw.com.deathhit.feature.compose.plant_details.sealed.ToastType
 import javax.inject.Inject
 
@@ -27,7 +28,7 @@ class PlantDetailsViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
     private var state: State
-        get() = savedStateHandle[KEY_STATE]!!
+        get() = savedStateHandle[KEY_STATE] ?: State(plantId = savedStateHandle.plantId)
         set(value) {
             savedStateHandle[KEY_STATE] = value
         }

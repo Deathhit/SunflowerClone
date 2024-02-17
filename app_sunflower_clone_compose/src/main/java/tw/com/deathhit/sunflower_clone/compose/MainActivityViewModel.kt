@@ -32,12 +32,6 @@ class MainActivityViewModel @Inject constructor(private val savedStateHandle: Sa
         )
     }
 
-    fun goToInitialScreen() {
-        state = state.copy(
-            actions = state.actions + State.Action.GoToInitialScreen(screen = MainScreen.Navigation)
-        )
-    }
-
     fun goToPlantDetailsScreen(plantId: String) {
         state = state.copy(
             actions = state.actions + State.Action.GoToScreen(
@@ -62,9 +56,6 @@ class MainActivityViewModel @Inject constructor(private val savedStateHandle: Sa
         sealed interface Action : Parcelable {
             @Parcelize
             data object GoBack : Action
-
-            @Parcelize
-            data class GoToInitialScreen(val screen: MainScreen) : Action
 
             @Parcelize
             data class GoToScreen(val screen: MainScreen) : Action

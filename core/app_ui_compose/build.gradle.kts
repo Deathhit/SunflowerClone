@@ -65,8 +65,14 @@ dependencies {
     //Glide
     api("com.github.bumptech.glide:compose:1.0.0-beta01")
 
+    //Hilt-Navigation-Compose
+    api("androidx.hilt:hilt-navigation-compose:1.1.0")
+
     //Paging
-    api("androidx.paging:paging-compose:3.3.0-alpha02")
+    api("androidx.paging:paging-compose:3.3.0-alpha03")
+
+    //View Model-Compose
+    api("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
