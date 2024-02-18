@@ -31,62 +31,63 @@ internal fun GardenPlantingListItem(
     waterIntervalDays: Int?,
     onClick: () -> Unit
 ) {
-    Card(
-        onClick = onClick,
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
-        modifier = Modifier
-            .padding(horizontal = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.card_side_margin))
-            .padding(bottom = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.card_bottom_margin))
-    ) {
-        Column(Modifier.fillMaxWidth()) {
-            CroppedPlantImage(
-                model = imageUrl,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.plant_item_image_height)),
-                contentDescription = stringResource(R.string.garden_planting_list_image_description)
-            )
-
-            name?.let { name ->
-                Text(
-                    text = name,
-                    textAlign = TextAlign.Center,
-                    maxLines = 1,
-                    style = MaterialTheme.typography.titleMedium,
+    SunflowerCloneTheme {
+        Card(
+            onClick = onClick,
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
+            modifier = Modifier
+                .padding(horizontal = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.card_side_margin))
+                .padding(bottom = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.card_bottom_margin))
+        ) {
+            Column(Modifier.fillMaxWidth()) {
+                CroppedPlantImage(
+                    model = imageUrl,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(vertical = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.margin_normal))
-                        .wrapContentWidth(Alignment.CenterHorizontally)
+                        .height(dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.plant_item_image_height)),
+                    contentDescription = stringResource(R.string.garden_planting_list_image_description)
                 )
-            }
 
-            Text(
-                text = stringResource(id = R.string.garden_planting_list_planted),
-                Modifier.align(Alignment.CenterHorizontally),
-                style = MaterialTheme.typography.titleSmall
-            )
+                name?.let { name ->
+                    Text(
+                        text = name,
+                        textAlign = TextAlign.Center,
+                        maxLines = 1,
+                        style = MaterialTheme.typography.titleMedium,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.margin_normal))
+                            .wrapContentWidth(Alignment.CenterHorizontally)
+                    )
+                }
 
-            val dateFormat = SimpleDateFormat("MMM d, yyyy", Locale.getDefault())
-
-            Text(
-                text = dateFormat.format(plantDate),
-                Modifier.align(Alignment.CenterHorizontally),
-                style = MaterialTheme.typography.labelSmall
-            )
-
-            waterIntervalDays?.let { waterIntervalDays ->
                 Text(
-                    text = stringResource(
-                        id = R.string.garden_planting_list_water_in_x_days,
-                        waterIntervalDays
-                    ),
-                    Modifier
-                        .align(Alignment.CenterHorizontally)
-                        .padding(bottom = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.margin_normal)),
+                    text = stringResource(id = R.string.garden_planting_list_planted),
+                    Modifier.align(Alignment.CenterHorizontally),
+                    style = MaterialTheme.typography.titleSmall
+                )
+
+                val dateFormat = SimpleDateFormat("MMM d, yyyy", Locale.getDefault())
+
+                Text(
+                    text = dateFormat.format(plantDate),
+                    Modifier.align(Alignment.CenterHorizontally),
                     style = MaterialTheme.typography.labelSmall
                 )
-            }
 
+                waterIntervalDays?.let { waterIntervalDays ->
+                    Text(
+                        text = stringResource(
+                            id = R.string.garden_planting_list_water_in_x_days,
+                            waterIntervalDays
+                        ),
+                        Modifier
+                            .align(Alignment.CenterHorizontally)
+                            .padding(bottom = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.margin_normal)),
+                        style = MaterialTheme.typography.labelSmall
+                    )
+                }
+            }
         }
     }
 }
@@ -94,13 +95,11 @@ internal fun GardenPlantingListItem(
 @Preview
 @Composable
 private fun Preview() {
-    SunflowerCloneTheme {
-        GardenPlantingListItem(
-            imageUrl = "",
-            name = "Tomato",
-            plantDate = 0,
-            waterIntervalDays = 4,
-            onClick = {}
-        )
-    }
+    GardenPlantingListItem(
+        imageUrl = "",
+        name = "Tomato",
+        plantDate = 0,
+        waterIntervalDays = 4,
+        onClick = {}
+    )
 }

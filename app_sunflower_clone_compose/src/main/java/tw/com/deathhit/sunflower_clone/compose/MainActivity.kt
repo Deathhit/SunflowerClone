@@ -14,6 +14,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import tw.com.deathhit.feature.compose.navigation.NavigationDestination
+import tw.com.deathhit.feature.compose.navigation.NavigationScreen
 import tw.com.deathhit.feature.compose.plant_details.PlantDetailsDestination
 import tw.com.deathhit.feature.compose.plant_details.PlantDetailsScreen
 import tw.com.deathhit.sunflower_clone.compose.model.MainScreen
@@ -56,9 +58,14 @@ class MainActivity : AppCompatActivity() {
     ) {
         NavHost(
             navController = navHostController,
-            startDestination = plantDetailsDestination.route    //TODO test
+            startDestination = navigationDestination.route
         ) {
             NavDestination
+            composable(navigationDestination.route) {
+                NavigationScreen(
+                    onGoToPlantDetailsScreen = { viewModel.goToPlantDetailsScreen(plantId = it) }
+                )
+            }
             composable(
                 plantDetailsDestination.route,
                 arguments = PlantDetailsDestination.args
@@ -71,6 +78,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
+        private val navigationDestination = NavigationDestination("Navigation")
         private val plantDetailsDestination = PlantDetailsDestination("PlantDetails")
     }
 }

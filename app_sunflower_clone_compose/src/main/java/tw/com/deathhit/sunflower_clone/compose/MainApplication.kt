@@ -1,18 +1,7 @@
 package tw.com.deathhit.sunflower_clone.compose
 
-import android.app.Application
-import androidx.hilt.work.HiltWorkerFactory
-import androidx.work.Configuration
 import dagger.hilt.android.HiltAndroidApp
-import javax.inject.Inject
+import tw.com.deathhit.config.sunflower_clone.SunflowerCloneApplication
 
 @HiltAndroidApp
-class MainApplication : Application(), Configuration.Provider {
-    @Inject
-    lateinit var workerFactory: HiltWorkerFactory
-
-    override val workManagerConfiguration: Configuration
-        get() = Configuration.Builder()
-            .setWorkerFactory(workerFactory)
-            .build()
-}
+class MainApplication : SunflowerCloneApplication()

@@ -23,31 +23,33 @@ import tw.com.deathhit.core.app_ui_compose.style.SunflowerCloneTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun PlantListItem(name: String, imageUrl: String, onClick: () -> Unit) {
-    Card(
-        onClick = onClick,
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
-        modifier = Modifier
-            .padding(horizontal = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.card_side_margin))
-            .padding(bottom = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.card_bottom_margin))
-    ) {
-        Column(Modifier.fillMaxWidth()) {
-            CroppedPlantImage(
-                model = imageUrl,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.plant_item_image_height)),
-                contentDescription = stringResource(R.string.plant_list_item_image_description)
-            )
-            Text(
-                text = name,
-                textAlign = TextAlign.Center,
-                maxLines = 1,
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.margin_normal))
-                    .wrapContentWidth(Alignment.CenterHorizontally)
-            )
+    SunflowerCloneTheme {
+        Card(
+            onClick = onClick,
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
+            modifier = Modifier
+                .padding(horizontal = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.card_side_margin))
+                .padding(bottom = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.card_bottom_margin))
+        ) {
+            Column(Modifier.fillMaxWidth()) {
+                CroppedPlantImage(
+                    model = imageUrl,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.plant_item_image_height)),
+                    contentDescription = stringResource(R.string.plant_list_item_image_description)
+                )
+                Text(
+                    text = name,
+                    textAlign = TextAlign.Center,
+                    maxLines = 1,
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.margin_normal))
+                        .wrapContentWidth(Alignment.CenterHorizontally)
+                )
+            }
         }
     }
 }
@@ -55,11 +57,9 @@ internal fun PlantListItem(name: String, imageUrl: String, onClick: () -> Unit) 
 @Preview
 @Composable
 private fun Preview() {
-    SunflowerCloneTheme {
-        PlantListItem(
-            imageUrl = "",
-            name = "Tomato",
-            onClick = {}
-        )
-    }
+    PlantListItem(
+        imageUrl = "",
+        name = "Tomato",
+        onClick = {}
+    )
 }
