@@ -24,7 +24,7 @@ import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun GardenPlantingListItem(
+internal fun GardenPlantingListItemView(
     imageUrl: String?,
     name: String?,
     plantDate: Long,
@@ -95,7 +95,7 @@ internal fun GardenPlantingListItem(
 @Preview
 @Composable
 private fun Preview() {
-    GardenPlantingListItem(
+    GardenPlantingListItemView(
         imageUrl = "",
         name = "Tomato",
         plantDate = 0,

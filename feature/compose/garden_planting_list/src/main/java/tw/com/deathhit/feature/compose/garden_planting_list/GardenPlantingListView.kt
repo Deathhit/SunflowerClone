@@ -41,7 +41,7 @@ internal fun GardenPlantingListView(
                 val plant = plants[index]
 
                 if (plant != null)
-                    GardenPlantingListItem(
+                    GardenPlantingListItemView(
                         imageUrl = plant.imageUrl,
                         name = plant.plantName,
                         plantDate = plant.plantDate,

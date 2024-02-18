@@ -41,7 +41,7 @@ internal fun PlantListView(
                 val plant = plants[index]
 
                 if (plant != null)
-                    PlantListItem(imageUrl = plant.imageUrl, name = plant.plantName, onClick = {
+                    PlantListItemView(imageUrl = plant.imageUrl, name = plant.plantName, onClick = {
                         onPlantClick(plant)
                     })
             }

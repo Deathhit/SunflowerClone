@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.hilt.navigation.compose.hiltViewModel
+import tw.com.deathhit.feature.compose.garden_planting_list.GardenPlantingListScreen
+import tw.com.deathhit.feature.compose.plant_list.PlantListScreen
 
 @Composable
 fun NavigationScreen(
@@ -24,5 +26,18 @@ fun NavigationScreen(
         }
     }
 
-    NavigationView(onGoToPlantDetailsScreen = { viewModel.goToPlantDetailsScreen(plantId = it) })
+    NavigationView(
+        myGardenPageView = {
+            GardenPlantingListScreen(
+                onGoToPlantDetailsScreen = { viewModel.goToPlantDetailsScreen(plantId = it) },
+                viewModel = hiltViewModel(key = "MyGardenPageView")
+            )
+        },
+        plantListPageView = {
+            PlantListScreen(
+                onGoToPlantDetailsScreen = { viewModel.goToPlantDetailsScreen(plantId = it) },
+                viewModel = hiltViewModel(key = "PlantListPageView")
+            )
+        }
+    )
 }

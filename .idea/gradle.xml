@@ -26,6 +26,7 @@
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/compose" />
+            <option value="$PROJECT_DIR$/feature/compose/gallery" />
             <option value="$PROJECT_DIR$/feature/compose/garden_planting_list" />
             <option value="$PROJECT_DIR$/feature/compose/navigation" />
             <option value="$PROJECT_DIR$/feature/compose/plant_details" />

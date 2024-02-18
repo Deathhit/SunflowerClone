@@ -34,15 +34,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import kotlinx.coroutines.launch
 import tw.com.deathhit.core.app_ui_compose.style.SunflowerCloneTheme
-import tw.com.deathhit.feature.compose.garden_planting_list.GardenPlantingListScreen
-import tw.com.deathhit.feature.compose.plant_list.PlantListScreen
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
-internal fun NavigationView(onGoToPlantDetailsScreen: (plantId: String) -> Unit) {
+internal fun NavigationView(
+    myGardenPageView: @Composable () -> Unit,
+    plantListPageView: @Composable () -> Unit
+) {
     SunflowerCloneTheme {
         val pagerState = rememberPagerState(pageCount = { NavigationPage.entries.size })
         val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
@@ -55,7 +55,8 @@ internal fun NavigationView(onGoToPlantDetailsScreen: (plantId: String) -> Unit)
         ) { contentPadding ->
             NavigationPager(
                 pagerState = pagerState,
-                onGoToPlantDetailsScreen = onGoToPlantDetailsScreen,
+                myGardenPageView = myGardenPageView,
+                plantListPageView = plantListPageView,
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(contentPadding)
@@ -68,7 +69,8 @@ internal fun NavigationView(onGoToPlantDetailsScreen: (plantId: String) -> Unit)
 @Composable
 private fun NavigationPager(
     pagerState: PagerState,
-    onGoToPlantDetailsScreen: (plantId: String) -> Unit,
+    myGardenPageView: @Composable () -> Unit,
+    plantListPageView: @Composable () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val pageList = listOf(NavigationPage.PLANT_LIST, NavigationPage.MY_GARDEN)
@@ -78,16 +80,8 @@ private fun NavigationPager(
 
         HorizontalPager(state = pagerState) { page ->
             when (pageList[page]) {
-                //We don't want to re-create the view model for the page every time.
-                NavigationPage.MY_GARDEN -> GardenPlantingListScreen(
-                    onGoToPlantDetailsScreen = onGoToPlantDetailsScreen,
-                    viewModel = hiltViewModel(key = page.toString())
-                )
-
-                NavigationPage.PLANT_LIST -> PlantListScreen(
-                    onGoToPlantDetailsScreen = onGoToPlantDetailsScreen,
-                    viewModel = hiltViewModel(key = page.toString())
-                )
+                NavigationPage.MY_GARDEN -> myGardenPageView()
+                NavigationPage.PLANT_LIST -> plantListPageView()
             }
         }
     }
@@ -138,6 +132,7 @@ private fun NavigationTopAppBar(
     val context = LocalContext.current
 
     TopAppBar(
+        scrollBehavior = scrollBehavior,
         title = {
             Row(
                 Modifier.fillMaxWidth(),
@@ -145,18 +140,19 @@ private fun NavigationTopAppBar(
             ) {
                 Text(
                     text = stringResource(id = context.applicationInfo.labelRes),
-                    style = MaterialTheme.typography.displaySmall
+                    style = MaterialTheme.typography.titleLarge
                 )
             }
-        },
-        scrollBehavior = scrollBehavior
+        }
     )
 }
 
 @Preview
 @Composable
 private fun Preview() {
-    NavigationView(onGoToPlantDetailsScreen = {})
+    NavigationView(
+        myGardenPageView = {},
+        plantListPageView = {})
 }
 
 private enum class NavigationPage(

@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("dagger.hilt.android.plugin")
     id("kotlin-kapt")
     id("kotlin-parcelize")
@@ -7,17 +7,14 @@ plugins {
 }
 
 android {
-    namespace = "tw.com.deathhit.sunflower_clone.compose"
+    namespace = "tw.com.deathhit.feature.compose.gallery"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "tw.com.deathhit.sunflower_clone"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildFeatures {
@@ -25,18 +22,8 @@ android {
     }
 
     buildTypes {
-        debug {
-            /*
-            isMinifyEnabled = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-             */
-        }
-
         release {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -59,12 +46,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":config:sunflower_clone"))
     implementation(project(":core:app_ui_compose"))
     implementation(project(":domain"))
-    implementation(project(":feature:compose:gallery"))
-    implementation(project(":feature:compose:navigation"))
-    implementation(project(":feature:compose:plant_details"))
 
     //Coroutine-Test
     val coroutineVersion = "1.7.3"
@@ -75,9 +58,9 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
     implementation("com.google.dagger:hilt-android:$hiltVersion")
 
-    //Navigation-Compose
-    val navVersion = "2.7.7"
-    implementation("androidx.navigation:navigation-compose:$navVersion")
+    //Paging
+    val pagingVersion = "3.2.1"
+    androidTestImplementation("androidx.paging:paging-testing:$pagingVersion")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

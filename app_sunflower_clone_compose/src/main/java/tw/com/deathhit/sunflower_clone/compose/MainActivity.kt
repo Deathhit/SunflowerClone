@@ -8,12 +8,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import tw.com.deathhit.feature.compose.gallery.GalleryDestination
+import tw.com.deathhit.feature.compose.gallery.GalleryScreen
 import tw.com.deathhit.feature.compose.navigation.NavigationDestination
 import tw.com.deathhit.feature.compose.navigation.NavigationScreen
 import tw.com.deathhit.feature.compose.plant_details.PlantDetailsDestination
@@ -37,7 +38,12 @@ class MainActivity : AppCompatActivity() {
                     when (action) {
                         MainActivityViewModel.State.Action.GoBack -> onBackPressedDispatcher.onBackPressed()
                         is MainActivityViewModel.State.Action.GoToScreen -> when (action.screen) {
-                            is MainScreen.Gallery -> TODO()
+                            is MainScreen.Gallery -> navController.navigate(
+                                galleryDestination.createLink(
+                                    action.screen.plantName
+                                )
+                            )
+
                             is MainScreen.PlantDetails -> navController.navigate(
                                 plantDetailsDestination.createLink(plantId = action.screen.plantId)
                             )
@@ -60,7 +66,12 @@ class MainActivity : AppCompatActivity() {
             navController = navHostController,
             startDestination = navigationDestination.route
         ) {
-            NavDestination
+            composable(
+                galleryDestination.route,
+                arguments = GalleryDestination.args
+            ) {
+                GalleryScreen(onGoBack = { viewModel.goBack() })
+            }
             composable(navigationDestination.route) {
                 NavigationScreen(
                     onGoToPlantDetailsScreen = { viewModel.goToPlantDetailsScreen(plantId = it) }
@@ -78,6 +89,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
+        private val galleryDestination = GalleryDestination("Gallery")
         private val navigationDestination = NavigationDestination("Navigation")
         private val plantDetailsDestination = PlantDetailsDestination("PlantDetails")
     }

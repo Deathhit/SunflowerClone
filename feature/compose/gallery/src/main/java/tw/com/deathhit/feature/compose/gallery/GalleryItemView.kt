@@ -1,4 +1,4 @@
-package tw.com.deathhit.feature.compose.plant_list
+package tw.com.deathhit.feature.compose.gallery
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,7 +22,11 @@ import tw.com.deathhit.core.app_ui_compose.style.SunflowerCloneTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun PlantListItemView(name: String, imageUrl: String, onClick: () -> Unit) {
+internal fun GalleryItemView(
+    imageUrl: String?,
+    photographer: String?,
+    onClick: () -> Unit
+) {
     SunflowerCloneTheme {
         Card(
             onClick = onClick,
@@ -37,18 +41,21 @@ internal fun PlantListItemView(name: String, imageUrl: String, onClick: () -> Un
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.plant_item_image_height)),
-                    contentDescription = stringResource(R.string.plant_list_item_image_description)
+                    contentDescription = stringResource(R.string.gallery_image_description)
                 )
-                Text(
-                    text = name,
-                    textAlign = TextAlign.Center,
-                    maxLines = 1,
-                    style = MaterialTheme.typography.titleMedium,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.margin_normal))
-                        .wrapContentWidth(Alignment.CenterHorizontally)
-                )
+
+                photographer?.let { photographer ->
+                    Text(
+                        text = photographer,
+                        textAlign = TextAlign.Center,
+                        maxLines = 1,
+                        style = MaterialTheme.typography.titleMedium,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.margin_normal))
+                            .wrapContentWidth(Alignment.CenterHorizontally)
+                    )
+                }
             }
         }
     }
@@ -57,9 +64,9 @@ internal fun PlantListItemView(name: String, imageUrl: String, onClick: () -> Un
 @Preview
 @Composable
 private fun Preview() {
-    PlantListItemView(
+    GalleryItemView(
         imageUrl = "",
-        name = "Tomato",
+        photographer = "Sunflower Clone",
         onClick = {}
     )
 }
