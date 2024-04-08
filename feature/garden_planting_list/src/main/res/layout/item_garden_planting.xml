@@ -40,6 +40,8 @@
             android:id="@+id/textView_plantDateHeader"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:layout_marginStart="@dimen/margin_normal"
             android:layout_marginTop="@dimen/margin_normal"
             android:gravity="center_horizontal"
             android:text="@string/garden_planting_list_planted"
