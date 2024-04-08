@@ -52,11 +52,13 @@ internal fun GardenPlantingListItemView(
                     Text(
                         text = name,
                         textAlign = TextAlign.Center,
-                        maxLines = 1,
                         style = MaterialTheme.typography.titleMedium,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(vertical = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.margin_normal))
+                            .padding(
+                                horizontal = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.margin_normal),
+                                vertical = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.margin_normal)
+                            )
                             .wrapContentWidth(Alignment.CenterHorizontally)
                     )
                 }
