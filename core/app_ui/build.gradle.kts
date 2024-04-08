@@ -45,7 +45,7 @@ dependencies {
     api("androidx.core:core-ktx:1.12.0")
 
     //Coroutine
-    val coroutineVersion = "1.7.3"
+    val coroutineVersion = "1.8.0"
     api("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion")
 
     //Fragment KTX

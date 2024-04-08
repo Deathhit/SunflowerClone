@@ -45,20 +45,20 @@ dependencies {
     implementation(project(":domain"))
 
     //Coroutine-Test
-    val coroutineVersion = "1.7.3"
+    val coroutineVersion = "1.8.0"
     androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion")
 
     //Gson
     implementation("com.google.code.gson:gson:2.10.1")
 
     //Hilt
-    val hiltVersion = "2.50"
+    val hiltVersion = "2.51.1"
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
     implementation("com.google.dagger:hilt-android:$hiltVersion")
 
     //Hilt-Work Manager
-    kapt("androidx.hilt:hilt-compiler:1.1.0")
-    api("androidx.hilt:hilt-work:1.1.0")
+    kapt("androidx.hilt:hilt-compiler:1.2.0")
+    api("androidx.hilt:hilt-work:1.2.0")
 
     //Work Manager
     val workVersion = ("2.9.0")

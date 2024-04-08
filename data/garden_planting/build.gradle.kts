@@ -40,7 +40,7 @@ dependencies {
     implementation(project(":domain"))
 
     //Coroutine-Test
-    val coroutineVersion = "1.7.3"
+    val coroutineVersion = "1.8.0"
     androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion")
 
     //Paging-Test

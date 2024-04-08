@@ -46,7 +46,7 @@ dependencies {
     api(project(":core:app_ui"))
 
     //Compose
-    val composeBom = platform("androidx.compose:compose-bom:2024.01.00")
+    val composeBom = platform("androidx.compose:compose-bom:2024.03.00")
     api(composeBom)
     androidTestApi(composeBom)
 
@@ -66,10 +66,10 @@ dependencies {
     api("com.github.bumptech.glide:compose:1.0.0-beta01")
 
     //Hilt-Navigation-Compose
-    api("androidx.hilt:hilt-navigation-compose:1.1.0")
+    api("androidx.hilt:hilt-navigation-compose:1.2.0")
 
     //Paging
-    api("androidx.paging:paging-compose:3.3.0-alpha03")
+    api("androidx.paging:paging-compose:3.3.0-alpha05")
 
     //View Model-Compose
     api("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")

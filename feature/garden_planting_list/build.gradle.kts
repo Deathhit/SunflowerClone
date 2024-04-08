@@ -46,7 +46,7 @@ dependencies {
     implementation(project(":domain"))
 
     //Coroutine-Test
-    val coroutineVersion = "1.7.3"
+    val coroutineVersion = "1.8.0"
     androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion")
 
     //Glide
@@ -55,7 +55,7 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:$glideVersion")
 
     //Hilt
-    val hiltVersion = "2.50"
+    val hiltVersion = "2.51.1"
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
     implementation("com.google.dagger:hilt-android:$hiltVersion")
 
