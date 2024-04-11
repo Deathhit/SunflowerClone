@@ -50,6 +50,7 @@ dependencies {
     api(composeBom)
     androidTestApi(composeBom)
 
+    //Compose-Material 3
     api("androidx.compose.material3:material3")
 
     //Compose-Preview
@@ -69,7 +70,7 @@ dependencies {
     api("androidx.hilt:hilt-navigation-compose:1.2.0")
 
     //Paging
-    api("androidx.paging:paging-compose:3.3.0-alpha05")
+    api("androidx.paging:paging-compose:3.3.0-beta01")
 
     //View Model-Compose
     api("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")

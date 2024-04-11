@@ -14,7 +14,7 @@ data class PlantDetailsDestination(val name: String) {
         private const val KEY_PLANT_ID = "$TAG.KEY_PLANT_ID"
 
         val args = listOf(navArgument(KEY_PLANT_ID) {
-            defaultValue = "malus-pumila"   //todo test
+            defaultValue = "malus-pumila"   //For testing
             type = NavType.StringType
         })
 

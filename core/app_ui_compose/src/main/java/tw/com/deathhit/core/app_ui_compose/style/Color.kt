@@ -3,11 +3,12 @@ package tw.com.deathhit.core.app_ui_compose.style
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.res.colorResource
 import tw.com.deathhit.core.app_ui.R
 
 internal val darkColorScheme
-    @Composable get() = darkColorScheme(
+    @Composable @ReadOnlyComposable get() = darkColorScheme(
         primary = colorResource(id = R.color.md_theme_dark_primary),
         onPrimary = colorResource(id = R.color.md_theme_dark_onPrimary),
         primaryContainer = colorResource(id = R.color.md_theme_dark_primaryContainer),
@@ -40,7 +41,7 @@ internal val darkColorScheme
     )
 
 internal val lightColorScheme
-    @Composable get() = lightColorScheme(
+    @Composable @ReadOnlyComposable  get() = lightColorScheme(
         primary = colorResource(id = R.color.md_theme_light_primary),
         onPrimary = colorResource(id = R.color.md_theme_light_onPrimary),
         primaryContainer = colorResource(id = R.color.md_theme_light_primaryContainer),
