@@ -51,7 +51,7 @@ internal fun PlantListView(
 
 @Preview
 @Composable
-private fun Preview(
+private fun PlantListPreview(
     @PreviewParameter(PlantListPreviewParamProvider::class) plants: List<PlantDO>
 ) {
     PlantListView(

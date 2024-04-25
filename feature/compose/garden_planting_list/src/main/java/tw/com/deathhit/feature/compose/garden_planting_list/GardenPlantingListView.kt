@@ -56,7 +56,7 @@ internal fun GardenPlantingListView(
 
 @Preview
 @Composable
-private fun Preview(
+private fun GardenPlantingListPreview(
     @PreviewParameter(GardenPlantingListPreviewParamProvider::class) plants: List<GardenPlantingDO>
 ) {
     GardenPlantingListView(

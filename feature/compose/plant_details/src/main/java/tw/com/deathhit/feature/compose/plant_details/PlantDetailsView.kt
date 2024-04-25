@@ -61,6 +61,9 @@ internal fun PlantDetailsView(
         val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
 
         Scaffold(
+            modifier = Modifier
+                .fillMaxSize()
+                .nestedScroll(scrollBehavior.nestedScrollConnection),
             floatingActionButton = {
                 if (!isPlanted)
                     PlantFab(onFabClick = onFabClick)
@@ -72,8 +75,7 @@ internal fun PlantDetailsView(
                     onBackClick = onBackClick,
                     onShareClick = onShareClick
                 )
-            },
-            modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection)
+            }
         ) { padding ->
             PlantContent(
                 description = description,
@@ -249,7 +251,7 @@ private fun PlantInformation(
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
-private fun Preview() {
+private fun PlantDetailsPreview() {
     PlantDetailsView(
         description = "The tomato is the edible, often red, berry of the nightshade Solanum lycopersicum, commonly known as a tomato plant. The species originated in western South America. The Nahuatl (Aztec language) word tomatl gave rise to the Spanish word tomate, from which the English word tomato derived. Its use as a cultivated food may have originated with the indigenous peoples of Mexico. The Spanish encountered the tomato from their contact with the Aztec during the Spanish colonization of the Americas and brought it to Europe. From there, the tomato was introduced to other parts of the European-colonized world during the 16th century.<br><br>The tomato is consumed in diverse ways, raw or cooked, in many dishes, sauces, salads, and drinks. While tomatoes are fruits – botanically classified as berries – they are commonly used as a vegetable ingredient or side dish.<br><br>Numerous varieties of the tomato plant are widely grown in temperate climates across the world, with greenhouses allowing for the production of tomatoes throughout all seasons of the year. Tomato plants typically grow to 1–3 meters (3–10 ft) in height. They are vines that have a weak stem that sprawls and typically needs support. Indeterminate tomato plants are perennials in their native habitat, but are cultivated as annuals. Determinate, or bush, plants are annuals that stop growing at a certain height and produce a crop all at once. The size of the tomato varies according to the cultivar, with a range of 0.5–4 inches (1.3–10.2 cm) in width.<br><br>(From <a href=\"https://en.wikipedia.org/wiki/Tomato\">Wikipedia</a>)",
         isPlanted = false,

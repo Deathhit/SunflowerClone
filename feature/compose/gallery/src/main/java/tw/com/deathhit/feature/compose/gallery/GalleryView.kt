@@ -130,7 +130,7 @@ private fun GalleryTopBar(
 
 @Preview
 @Composable
-private fun Preview(
+private fun GalleryPreview(
     @PreviewParameter(GalleryPreviewParamProvider::class) photos: List<PhotoDO>
 ) {
     GalleryView(

@@ -78,7 +78,7 @@ private fun NavigationPager(
     Column(modifier = modifier) {
         NavigationTabRow(pagerState = pagerState)
 
-        HorizontalPager(state = pagerState) { page ->
+        HorizontalPager(modifier = Modifier.fillMaxSize(), state = pagerState) { page ->
             when (pageList[page]) {
                 NavigationPage.MY_GARDEN -> myGardenPageView()
                 NavigationPage.PLANT_LIST -> plantListPageView()
@@ -149,7 +149,7 @@ private fun NavigationTopAppBar(
 
 @Preview
 @Composable
-private fun Preview() {
+private fun NavigationPreview() {
     NavigationView(
         myGardenPageView = {},
         plantListPageView = {})
