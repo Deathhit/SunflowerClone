@@ -43,14 +43,14 @@ android {
 
 dependencies {
     //Coroutine
-    val coroutineVersion = "1.8.0"
+    val coroutineVersion = "1.8.1"
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion")
 
     //Coroutine-Test
     androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion")
 
     //Paging
-    val pagingVersion = "3.2.1"
+    val pagingVersion = "3.3.0"
     api("androidx.paging:paging-runtime-ktx:$pagingVersion")
 
     //Paging-Test
@@ -64,6 +64,6 @@ dependencies {
     api("androidx.room:room-runtime:$roomVersion")
 
     testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
 }

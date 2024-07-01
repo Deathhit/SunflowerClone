@@ -46,7 +46,7 @@ dependencies {
     api(project(":core:app_ui"))
 
     //Compose
-    val composeBom = platform("androidx.compose:compose-bom:2024.03.00")
+    val composeBom = platform("androidx.compose:compose-bom:2024.06.00")
     api(composeBom)
     androidTestApi(composeBom)
 
@@ -70,12 +70,12 @@ dependencies {
     api("androidx.hilt:hilt-navigation-compose:1.2.0")
 
     //Paging
-    api("androidx.paging:paging-compose:3.3.0-beta01")
+    api("androidx.paging:paging-compose:3.3.0")
 
     //View Model-Compose
-    api("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+    api("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.2")
 
     testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
 }
