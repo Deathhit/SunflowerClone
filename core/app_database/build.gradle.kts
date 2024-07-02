@@ -55,11 +55,10 @@ dependencies {
     androidTestImplementation(libs.paging.test)
 
     //Room
-    val roomVersion = "2.6.1"
-    kapt("androidx.room:room-compiler:$roomVersion")
-    api("androidx.room:room-ktx:$roomVersion")
-    api("androidx.room:room-paging:$roomVersion")
-    api("androidx.room:room-runtime:$roomVersion")
+    kapt(libs.room.compiler)
+    api(libs.room.ktx)
+    api(libs.room.paging)
+    api(libs.room.runtime)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
