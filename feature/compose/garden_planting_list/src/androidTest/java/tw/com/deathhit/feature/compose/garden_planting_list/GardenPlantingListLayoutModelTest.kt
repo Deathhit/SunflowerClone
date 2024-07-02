@@ -1,4 +1,4 @@
-package tw.com.deathhit.feature.compose.plant_list
+package tw.com.deathhit.feature.compose.garden_planting_list
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.paging.testing.asSnapshot
@@ -9,37 +9,37 @@ import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.Before
 import org.junit.Test
-import tw.com.deathhit.feature.compose.plant_list.config.TestPlantRepository
-import tw.com.deathhit.feature.compose.plant_list.config.generatePlantId
+import tw.com.deathhit.feature.compose.garden_planting_list.config.TestGardenPlantingRepository
+import tw.com.deathhit.feature.compose.garden_planting_list.config.generatePlantId
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class PlantListViewModelTest {
-    private val plantRepository = TestPlantRepository()
+class GardenPlantingListLayoutModelTest {
+    private val gardenPlantingRepository = TestGardenPlantingRepository()
 
-    private lateinit var viewModel: PlantListViewModel
+    private lateinit var viewModel: GardenPlantingListViewModel
 
     @Before
     fun setup() {
         Dispatchers.setMain(StandardTestDispatcher())
 
-        viewModel = PlantListViewModel(
-            plantRepository = plantRepository,
+        viewModel = GardenPlantingListViewModel(
+            gardenPlantingRepository = gardenPlantingRepository,
             savedStateHandle = SavedStateHandle.createHandle(null, null)
         )
     }
 
     @Test
-    fun plantPagingDataFlow() = runTest {
+    fun gardenPlantingPagingDataFlow() = runTest {
         //Given
         val pageSize = 25
 
         val repositoryItems =
-            plantRepository.getPlantPagingDataFlow().asSnapshot {
+            gardenPlantingRepository.getGardenPlantingPagingDataFlow().asSnapshot {
                 scrollTo(pageSize)
             }
 
         //When
-        val viewModelItems = viewModel.plantPagingDataFlow.asSnapshot {
+        val viewModelItems = viewModel.gardenPlantingPagingDataFlow.asSnapshot {
             scrollTo(pageSize)
         }
 
@@ -61,7 +61,7 @@ class PlantListViewModelTest {
 
         assert(
             finalState == initialState.copy(
-                actions = initialState.actions + PlantListViewModel.State.Action.GoToPlantDetailsScreen(
+                actions = initialState.actions + GardenPlantingListViewModel.State.Action.GoToPlantDetailsScreen(
                     plantId = plantId
                 )
             )

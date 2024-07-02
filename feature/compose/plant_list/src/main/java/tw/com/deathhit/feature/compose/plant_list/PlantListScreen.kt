@@ -25,7 +25,7 @@ fun PlantListScreen(
         }
     }
 
-    PlantListView(
+    PlantListLayout(
         plants = viewModel.plantPagingDataFlow.collectAsLazyPagingItems(),
         onPlantClick = { viewModel.goToPlantDetailsScreen(plantId = it.plantId) }
     )

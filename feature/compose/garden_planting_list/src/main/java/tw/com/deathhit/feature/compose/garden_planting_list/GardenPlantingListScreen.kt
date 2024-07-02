@@ -25,7 +25,7 @@ fun GardenPlantingListScreen(
         }
     }
 
-    GardenPlantingListView(
+    GardenPlantingListLayout(
         plants = viewModel.gardenPlantingPagingDataFlow.collectAsLazyPagingItems(),
         onPlantClick = { viewModel.goToPlantDetailsScreen(plantId = it.plantId) }
     )

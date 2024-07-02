@@ -20,7 +20,7 @@ import tw.com.deathhit.core.app_ui_compose.style.SunflowerCloneTheme
 import tw.com.deathhit.domain.model.PlantDO
 
 @Composable
-internal fun PlantListView(
+fun PlantListLayout(
     plants: LazyPagingItems<PlantDO>,
     onPlantClick: (PlantDO) -> Unit,
 ) {
@@ -54,9 +54,50 @@ internal fun PlantListView(
 private fun PlantListPreview(
     @PreviewParameter(PlantListPreviewParamProvider::class) plants: List<PlantDO>
 ) {
-    PlantListView(
+    PlantListLayout(
         plants = flowOf(PagingData.from(plants)).collectAsLazyPagingItems(),
         onPlantClick = {}
+    )
+}
+
+object PlantListLayout {
+    val previewList = listOf(
+        PlantDO(
+            description = "Apple",
+            growZoneNumber = 1,
+            imageUrl = "",
+            plantDate = null,
+            plantId = "1",
+            plantName = "Apple",
+            wateringIntervalDays = 1
+        ),
+        PlantDO(
+            description = "Banana",
+            growZoneNumber = 2,
+            imageUrl = "",
+            plantDate = null,
+            plantId = "2",
+            plantName = "Banana",
+            wateringIntervalDays = 2
+        ),
+        PlantDO(
+            description = "Carrot",
+            growZoneNumber = 3,
+            imageUrl = "",
+            plantDate = null,
+            plantId = "3",
+            plantName = "Carrot",
+            wateringIntervalDays = 3
+        ),
+        PlantDO(
+            description = "Dill",
+            growZoneNumber = 4,
+            imageUrl = "",
+            plantDate = null,
+            plantId = "4",
+            plantName = "Dill",
+            wateringIntervalDays = 4
+        ),
     )
 }
 
@@ -64,43 +105,6 @@ private class PlantListPreviewParamProvider : PreviewParameterProvider<List<Plan
     override val values: Sequence<List<PlantDO>> =
         sequenceOf(
             emptyList(),
-            listOf(
-                PlantDO(
-                    description = "Apple",
-                    growZoneNumber = 1,
-                    imageUrl = "",
-                    plantDate = null,
-                    plantId = "1",
-                    plantName = "Apple",
-                    wateringIntervalDays = 1
-                ),
-                PlantDO(
-                    description = "Banana",
-                    growZoneNumber = 2,
-                    imageUrl = "",
-                    plantDate = null,
-                    plantId = "2",
-                    plantName = "Banana",
-                    wateringIntervalDays = 2
-                ),
-                PlantDO(
-                    description = "Carrot",
-                    growZoneNumber = 3,
-                    imageUrl = "",
-                    plantDate = null,
-                    plantId = "3",
-                    plantName = "Carrot",
-                    wateringIntervalDays = 3
-                ),
-                PlantDO(
-                    description = "Dill",
-                    growZoneNumber = 4,
-                    imageUrl = "",
-                    plantDate = null,
-                    plantId = "4",
-                    plantName = "Dill",
-                    wateringIntervalDays = 4
-                ),
-            )
+            PlantListLayout.previewList
         )
 }

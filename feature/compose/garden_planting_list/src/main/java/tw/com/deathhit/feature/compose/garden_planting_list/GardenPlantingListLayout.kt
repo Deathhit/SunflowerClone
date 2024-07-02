@@ -20,7 +20,7 @@ import tw.com.deathhit.core.app_ui_compose.style.SunflowerCloneTheme
 import tw.com.deathhit.domain.model.GardenPlantingDO
 
 @Composable
-internal fun GardenPlantingListView(
+fun GardenPlantingListLayout(
     plants: LazyPagingItems<GardenPlantingDO>,
     onPlantClick: (GardenPlantingDO) -> Unit,
 ) {
@@ -46,9 +46,8 @@ internal fun GardenPlantingListView(
                         name = plant.plantName,
                         plantDate = plant.plantDate,
                         waterIntervalDays = plant.wateringIntervalDays,
-                        onClick = {
-                            onPlantClick(plant)
-                        })
+                        onClick = { onPlantClick(plant) }
+                    )
             }
         }
     }
@@ -59,9 +58,54 @@ internal fun GardenPlantingListView(
 private fun GardenPlantingListPreview(
     @PreviewParameter(GardenPlantingListPreviewParamProvider::class) plants: List<GardenPlantingDO>
 ) {
-    GardenPlantingListView(
+    GardenPlantingListLayout(
         plants = flowOf(PagingData.from(plants)).collectAsLazyPagingItems(),
         onPlantClick = {}
+    )
+}
+
+object GardenPlantingListLayout {
+    val previewList = listOf(
+        GardenPlantingDO(
+            description = "Apple",
+            gardenPlantingId = 1,
+            growZoneNumber = 1,
+            imageUrl = "",
+            plantDate = 0,
+            plantId = "1",
+            plantName = "Apple",
+            wateringIntervalDays = 1
+        ),
+        GardenPlantingDO(
+            description = "Banana",
+            gardenPlantingId = 2,
+            growZoneNumber = 2,
+            imageUrl = "",
+            plantDate = 20000,
+            plantId = "2",
+            plantName = "Banana",
+            wateringIntervalDays = 2
+        ),
+        GardenPlantingDO(
+            description = "Carrot",
+            gardenPlantingId = 3,
+            growZoneNumber = 3,
+            imageUrl = "",
+            plantDate = 30000,
+            plantId = "3",
+            plantName = "Carrot",
+            wateringIntervalDays = 3
+        ),
+        GardenPlantingDO(
+            description = "Dill",
+            gardenPlantingId = 4,
+            growZoneNumber = 4,
+            imageUrl = "",
+            plantDate = 40000,
+            plantId = "4",
+            plantName = "Dill",
+            wateringIntervalDays = 4
+        ),
     )
 }
 
@@ -70,47 +114,6 @@ private class GardenPlantingListPreviewParamProvider :
     override val values: Sequence<List<GardenPlantingDO>> =
         sequenceOf(
             emptyList(),
-            listOf(
-                GardenPlantingDO(
-                    description = "Apple",
-                    gardenPlantingId = 1,
-                    growZoneNumber = 1,
-                    imageUrl = "",
-                    plantDate = 0,
-                    plantId = "1",
-                    plantName = "Apple",
-                    wateringIntervalDays = 1
-                ),
-                GardenPlantingDO(
-                    description = "Banana",
-                    gardenPlantingId = 2,
-                    growZoneNumber = 2,
-                    imageUrl = "",
-                    plantDate = 20000,
-                    plantId = "2",
-                    plantName = "Banana",
-                    wateringIntervalDays = 2
-                ),
-                GardenPlantingDO(
-                    description = "Carrot",
-                    gardenPlantingId = 3,
-                    growZoneNumber = 3,
-                    imageUrl = "",
-                    plantDate = 30000,
-                    plantId = "3",
-                    plantName = "Carrot",
-                    wateringIntervalDays = 3
-                ),
-                GardenPlantingDO(
-                    description = "Dill",
-                    gardenPlantingId = 4,
-                    growZoneNumber = 4,
-                    imageUrl = "",
-                    plantDate = 40000,
-                    plantId = "4",
-                    plantName = "Dill",
-                    wateringIntervalDays = 4
-                ),
-            )
+            GardenPlantingListLayout.previewList
         )
 }
