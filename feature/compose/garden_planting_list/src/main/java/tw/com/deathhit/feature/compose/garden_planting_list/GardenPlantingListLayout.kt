@@ -42,7 +42,7 @@ fun GardenPlantingListLayout(
             val plant = plants[index]
 
             if (plant != null)
-                GardenPlantingListItemView(
+                GardenPlantingItem(
                     imageUrl = plant.imageUrl,
                     name = plant.plantName,
                     plantDate = plant.plantDate,

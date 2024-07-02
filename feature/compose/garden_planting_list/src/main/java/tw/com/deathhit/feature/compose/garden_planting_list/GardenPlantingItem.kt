@@ -24,7 +24,7 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 @Composable
-internal fun GardenPlantingListItemView(
+internal fun GardenPlantingItem(
     imageUrl: String?,
     name: String?,
     plantDate: Long,
@@ -94,12 +94,12 @@ internal fun GardenPlantingListItemView(
 
 @Preview
 @Composable
-private fun Preview() {
+private fun GardenPlantingItemPreview() {
     val context = LocalContext.current
     val toast = Toast.makeText(context, "", Toast.LENGTH_LONG)
 
     SunflowerCloneTheme {
-        GardenPlantingListItemView(
+        GardenPlantingItem(
             imageUrl = "",
             name = "Tomato",
             plantDate = 0,
