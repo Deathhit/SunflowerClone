@@ -70,9 +70,8 @@ dependencies {
     androidTestImplementation(libs.jetbrains.koltin.coroutine.test)
 
     //Hilt
-    val hiltVersion = "2.51.1"
-    kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
-    implementation("com.google.dagger:hilt-android:$hiltVersion")
+    kapt(libs.hilt.compiler)
+    implementation(libs.hilt)
 
     //Navigation-Compose
     val navVersion = "2.7.7"

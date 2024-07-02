@@ -53,9 +53,8 @@ dependencies {
     implementation(libs.glide)
 
     //Hilt
-    val hiltVersion = "2.51.1"
-    kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
-    implementation("com.google.dagger:hilt-android:$hiltVersion")
+    kapt(libs.hilt.compiler)
+    implementation(libs.hilt)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
