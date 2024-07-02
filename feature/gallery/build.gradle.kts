@@ -46,8 +46,7 @@ dependencies {
     implementation(project(":domain"))
 
     //Coroutine-Test
-    val coroutineVersion = "1.8.0"
-    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion")
+    androidTestImplementation(libs.jetbrains.koltin.coroutine.test)
 
     //Glide
     val glideVersion = "4.16.0"

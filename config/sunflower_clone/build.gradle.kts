@@ -45,8 +45,7 @@ dependencies {
     implementation(project(":domain"))
 
     //Coroutine-Test
-    val coroutineVersion = "1.8.1"
-    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion")
+    androidTestImplementation(libs.jetbrains.koltin.coroutine.test)
 
     //Gson
     implementation("com.google.code.gson:gson:2.11.0")

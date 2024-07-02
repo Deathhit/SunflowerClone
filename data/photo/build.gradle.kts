@@ -41,8 +41,7 @@ dependencies {
     implementation(project(":domain"))
 
     //Coroutine-Test
-    val coroutineVersion = "1.8.1"
-    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion")
+    androidTestImplementation(libs.jetbrains.koltin.coroutine.test)
 
     //Paging-Test
     val pagingVersion = "3.3.0"
