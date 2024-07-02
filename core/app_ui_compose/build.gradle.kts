@@ -63,8 +63,8 @@ dependencies {
     //Constraint Layout
     api("androidx.constraintlayout:constraintlayout-compose:1.0.1")
 
-    //Glide
-    api("com.github.bumptech.glide:compose:1.0.0-beta01")
+    //Glide-Compose
+    api(libs.glide.compose)
 
     //Hilt-Navigation-Compose
     api("androidx.hilt:hilt-navigation-compose:1.2.0")

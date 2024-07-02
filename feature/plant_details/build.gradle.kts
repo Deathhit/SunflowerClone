@@ -49,9 +49,8 @@ dependencies {
     androidTestImplementation(libs.jetbrains.koltin.coroutine.test)
 
     //Glide
-    val glideVersion = "4.16.0"
-    kapt("com.github.bumptech.glide:compiler:$glideVersion")
-    implementation("com.github.bumptech.glide:glide:$glideVersion")
+    kapt(libs.glide.compiler)
+    implementation(libs.glide)
 
     //Hilt
     val hiltVersion = "2.51.1"
