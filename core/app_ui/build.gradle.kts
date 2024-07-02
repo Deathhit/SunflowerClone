@@ -36,13 +36,13 @@ android {
 
 dependencies {
     //Appcompat
-    api("androidx.appcompat:appcompat:1.7.0")
+    api(libs.androidx.appcompat)
 
     //Constraint Layout
     api("androidx.constraintlayout:constraintlayout:2.1.4")
 
     //Core KTX
-    api("androidx.core:core-ktx:1.13.1")
+    api(libs.androidx.core.ktx)
 
     //Coroutine
     implementation(libs.jetbrains.koltin.coroutine)
@@ -51,7 +51,7 @@ dependencies {
     api("androidx.fragment:fragment-ktx:1.8.1")
 
     //Material Design
-    api("com.google.android.material:material:1.12.0")
+    api(libs.material)
 
     //Paging
     val pagingVersion = "3.3.0"
