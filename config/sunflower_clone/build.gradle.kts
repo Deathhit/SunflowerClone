@@ -48,7 +48,7 @@ dependencies {
     androidTestImplementation(libs.jetbrains.koltin.coroutine.test)
 
     //Gson
-    implementation("com.google.code.gson:gson:2.11.0")
+    implementation(libs.gson)
 
     //Hilt
     kapt(libs.hilt.compiler)

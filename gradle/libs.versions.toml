@@ -6,6 +6,7 @@ coroutine = "1.8.1"
 espressoCore = "3.6.1"
 glide = "4.16.0"
 glideCompose = "1.0.0-beta01"
+gson = "2.11.0"
 hilt = "2.51.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -20,6 +21,7 @@ androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "j
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide" }
 glide-compose = { group = "com.github.bumptech.glide", name = "compose", version.ref = "glideCompose" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
 jetbrains-koltin-coroutine = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutine" }
