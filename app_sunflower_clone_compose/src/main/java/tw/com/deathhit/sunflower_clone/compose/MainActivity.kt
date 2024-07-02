@@ -2,12 +2,12 @@ package tw.com.deathhit.sunflower_clone.compose
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -23,13 +23,14 @@ import tw.com.deathhit.sunflower_clone.compose.model.MainScreen
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+    private val viewModel: MainActivityViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
-            val viewModel: MainActivityViewModel = hiltViewModel()
 
-            MainNavHost(navHostController = navController, viewModel = viewModel)
+            MainNavHost(navHostController = navController)
 
             val actions = viewModel.stateFlow.collectAsState().value.actions
 
@@ -59,8 +60,7 @@ class MainActivity : AppCompatActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     private fun MainNavHost(
-        navHostController: NavHostController,
-        viewModel: MainActivityViewModel
+        navHostController: NavHostController
     ) {
         NavHost(
             navController = navHostController,
