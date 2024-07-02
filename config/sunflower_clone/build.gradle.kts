@@ -55,23 +55,13 @@ dependencies {
     implementation(libs.hilt)
 
     //Hilt-Work Manager
-    kapt("androidx.hilt:hilt-compiler:1.2.0")
-    api("androidx.hilt:hilt-work:1.2.0")
+    kapt(libs.hilt.work.compiler)
+    api(libs.hilt.work)
 
     //Work Manager
-    val workVersion = ("2.9.0")
-    implementation("androidx.work:work-runtime-ktx:$workVersion")
+    implementation(libs.work)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-}
-
-hilt {
-    enableAggregatingTask = true
-}
-
-kapt {
-    //Hilt: Allow references to generated code
-    correctErrorTypes = true
 }
