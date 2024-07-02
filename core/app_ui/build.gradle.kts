@@ -39,7 +39,7 @@ dependencies {
     api(libs.androidx.appcompat)
 
     //Constraint Layout
-    api("androidx.constraintlayout:constraintlayout:2.1.4")
+    api(libs.constraintLayout)
 
     //Core KTX
     api(libs.androidx.core.ktx)
@@ -48,7 +48,7 @@ dependencies {
     implementation(libs.jetbrains.koltin.coroutine)
 
     //Fragment KTX
-    api("androidx.fragment:fragment-ktx:1.8.1")
+    api(libs.androidx.fragment.ktx)
 
     //Material Design
     api(libs.material)
@@ -57,10 +57,10 @@ dependencies {
     api(libs.paging.runtime)
 
     //Recycler View
-    api("androidx.recyclerview:recyclerview:1.3.2")
+    api(libs.recyclerview)
 
     //View Pager 2
-    api("androidx.viewpager2:viewpager2:1.1.0")
+    api(libs.viewpager2)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
