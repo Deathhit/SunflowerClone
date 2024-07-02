@@ -36,7 +36,7 @@ fun NavigationScreen(
     }
 
     NavigationLayout(
-        myGardenPageView = {
+        myGardenPage = {
             GardenPlantingListScreen(
                 onGoToPlantDetailsScreen = { viewModel.goToPlantDetailsScreen(plantId = it) },
                 viewModel = hiltViewModel()
@@ -44,7 +44,7 @@ fun NavigationScreen(
         },
         pageList = pageList,
         pagerState = rememberPagerState(pageCount = { pageList.size }),
-        plantListPageView = {
+        plantListPage = {
             PlantListScreen(
                 onGoToPlantDetailsScreen = { viewModel.goToPlantDetailsScreen(plantId = it) },
                 viewModel = hiltViewModel()

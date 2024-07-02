@@ -44,10 +44,10 @@ import tw.com.deathhit.feature.compose.plant_list.PlantListLayout
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun NavigationLayout(
-    myGardenPageView: @Composable () -> Unit,
+    myGardenPage: @Composable () -> Unit,
     pageList: List<NavigationPage>,
     pagerState: PagerState,
-    plantListPageView: @Composable () -> Unit,
+    plantListPage: @Composable () -> Unit,
     title: String
 ) {
     val coroutineScope = rememberCoroutineScope()
@@ -100,8 +100,8 @@ fun NavigationLayout(
 
             HorizontalPager(modifier = Modifier.fillMaxSize(), state = pagerState) { page ->
                 when (pageList[page]) {
-                    NavigationPage.MY_GARDEN -> myGardenPageView()
-                    NavigationPage.PLANT_LIST -> plantListPageView()
+                    NavigationPage.MY_GARDEN -> myGardenPage()
+                    NavigationPage.PLANT_LIST -> plantListPage()
                 }
             }
         }
@@ -118,7 +118,7 @@ private fun NavigationPreview() {
 
     SunflowerCloneTheme {
         NavigationLayout(
-            myGardenPageView = {
+            myGardenPage = {
                 GardenPlantingListLayout(
                     plants = flowOf(PagingData.from(GardenPlantingListLayout.previewList)).collectAsLazyPagingItems(),
                     onPlantClick = {
@@ -128,7 +128,7 @@ private fun NavigationPreview() {
             },
             pageList = pageList,
             pagerState = rememberPagerState(pageCount = { NavigationPage.entries.size }),
-            plantListPageView = {
+            plantListPage = {
                 PlantListLayout(
                     plants = flowOf(PagingData.from(PlantListLayout.previewList)).collectAsLazyPagingItems(),
                     onPlantClick = {
