@@ -24,6 +24,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -34,6 +36,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.paging.PagingData
 import androidx.paging.compose.collectAsLazyPagingItems
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
 import tw.com.deathhit.core.app_ui_compose.style.SunflowerCloneTheme
@@ -51,16 +54,21 @@ fun NavigationLayout(
     title: String
 ) {
     val coroutineScope = rememberCoroutineScope()
-    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
+    val scrollToPageJob = remember {
+        mutableStateOf<Job?>(null)
+    }
 
     Scaffold(
-        modifier = Modifier.fillMaxSize().nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = Modifier
+            .fillMaxSize()
+            .nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             TopAppBar(
                 scrollBehavior = scrollBehavior,
                 title = {
                     Row(
-                        Modifier.fillMaxWidth(),
+                        modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.Center,
                     ) {
                         Text(
@@ -72,7 +80,11 @@ fun NavigationLayout(
             )
         }
     ) { contentPadding ->
-        Column(modifier = Modifier.fillMaxSize().padding(contentPadding)) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(contentPadding)
+        ) {
             TabRow(
                 selectedTabIndex = pagerState.currentPage,
                 divider = {
@@ -92,7 +104,12 @@ fun NavigationLayout(
 
                     Tab(
                         selected = isSelected,
-                        onClick = { coroutineScope.launch { pagerState.scrollToPage(index) } },
+                        onClick = {
+                            scrollToPageJob.value?.cancel()
+
+                            scrollToPageJob.value =
+                                coroutineScope.launch { pagerState.scrollToPage(index) }
+                        },
                         text = { Text(text = text) },
                         icon = { Icon(painter = painter, contentDescription = text) })
                 }
