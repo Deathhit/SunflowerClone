@@ -46,34 +46,34 @@ dependencies {
     api(project(":core:app_ui"))
 
     //Compose
-    val composeBom = platform("androidx.compose:compose-bom:2024.06.00")
+    val composeBom = platform(libs.compose.bom)
     api(composeBom)
     androidTestApi(composeBom)
 
     //Compose-Material 3
-    api("androidx.compose.material3:material3")
+    api(libs.compose.material3)
 
     //Compose-Preview
-    api("androidx.compose.ui:ui-tooling-preview")
-    debugApi("androidx.compose.ui:ui-tooling")
+    api(libs.compose.ui.preview)
+    debugApi(libs.compose.ui)
 
     //Compose-View Binding
-    api("androidx.compose.ui:ui-viewbinding")
+    api(libs.compose.ui.viewbinding)
 
     //Constraint Layout
-    api("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+    api(libs.constraintlayout.compose)
 
     //Glide-Compose
     api(libs.glide.compose)
 
     //Hilt-Navigation-Compose
-    api("androidx.hilt:hilt-navigation-compose:1.2.0")
+    api(libs.hilt.navigation.compose)
 
     //Paging
     api(libs.paging.compose)
 
     //View Model-Compose
-    api("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.2")
+    api(libs.viewmodel.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

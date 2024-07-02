@@ -39,7 +39,7 @@ dependencies {
     api(libs.androidx.appcompat)
 
     //Constraint Layout
-    api(libs.constraintLayout)
+    api(libs.constraintlayout)
 
     //Core KTX
     api(libs.androidx.core.ktx)
