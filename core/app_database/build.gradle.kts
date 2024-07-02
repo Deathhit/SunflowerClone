@@ -43,8 +43,7 @@ android {
 
 dependencies {
     //Coroutine
-    val coroutineVersion = "1.8.1"
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion")
+    implementation(libs.jetbrains.koltin.coroutine)
 
     //Coroutine-Test
     androidTestImplementation(libs.jetbrains.koltin.coroutine.test)

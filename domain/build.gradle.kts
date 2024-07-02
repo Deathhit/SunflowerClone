@@ -10,8 +10,7 @@ java {
 
 dependencies {
     //Coroutine
-    val coroutineVersion = "1.8.1"
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion")
+    implementation(libs.jetbrains.koltin.coroutine)
 
     //Paging
     val pagingVersion = "3.3.0"

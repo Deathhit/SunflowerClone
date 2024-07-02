@@ -36,8 +36,7 @@ android {
 
 dependencies {
     //Coroutine
-    val coroutineVersion = "1.8.1"
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion")
+    implementation(libs.jetbrains.koltin.coroutine)
 
     //Retrofit
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
