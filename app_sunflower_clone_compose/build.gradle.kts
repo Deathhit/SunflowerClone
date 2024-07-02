@@ -74,8 +74,7 @@ dependencies {
     implementation(libs.hilt)
 
     //Navigation-Compose
-    val navVersion = "2.7.7"
-    implementation("androidx.navigation:navigation-compose:$navVersion")
+    implementation(libs.navigation.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
