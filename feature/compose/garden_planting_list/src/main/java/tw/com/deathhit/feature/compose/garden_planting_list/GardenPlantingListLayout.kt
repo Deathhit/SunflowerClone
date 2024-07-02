@@ -1,5 +1,6 @@
 package tw.com.deathhit.feature.compose.garden_planting_list
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.imePadding
@@ -7,6 +8,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
@@ -24,31 +26,29 @@ fun GardenPlantingListLayout(
     plants: LazyPagingItems<GardenPlantingDO>,
     onPlantClick: (GardenPlantingDO) -> Unit,
 ) {
-    SunflowerCloneTheme {
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
-            modifier = Modifier
-                .fillMaxSize()
-                .imePadding(),
-            contentPadding = PaddingValues(
-                horizontal = dimensionResource(id = R.dimen.card_side_margin),
-                vertical = dimensionResource(id = R.dimen.header_margin)
-            )
-        ) {
-            items(
-                plants.itemCount
-            ) { index ->
-                val plant = plants[index]
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(2),
+        modifier = Modifier
+            .fillMaxSize()
+            .imePadding(),
+        contentPadding = PaddingValues(
+            horizontal = dimensionResource(id = R.dimen.card_side_margin),
+            vertical = dimensionResource(id = R.dimen.header_margin)
+        )
+    ) {
+        items(
+            plants.itemCount
+        ) { index ->
+            val plant = plants[index]
 
-                if (plant != null)
-                    GardenPlantingListItemView(
-                        imageUrl = plant.imageUrl,
-                        name = plant.plantName,
-                        plantDate = plant.plantDate,
-                        waterIntervalDays = plant.wateringIntervalDays,
-                        onClick = { onPlantClick(plant) }
-                    )
-            }
+            if (plant != null)
+                GardenPlantingListItemView(
+                    imageUrl = plant.imageUrl,
+                    name = plant.plantName,
+                    plantDate = plant.plantDate,
+                    waterIntervalDays = plant.wateringIntervalDays,
+                    onClick = { onPlantClick(plant) }
+                )
         }
     }
 }
@@ -58,10 +58,17 @@ fun GardenPlantingListLayout(
 private fun GardenPlantingListPreview(
     @PreviewParameter(GardenPlantingListPreviewParamProvider::class) plants: List<GardenPlantingDO>
 ) {
-    GardenPlantingListLayout(
-        plants = flowOf(PagingData.from(plants)).collectAsLazyPagingItems(),
-        onPlantClick = {}
-    )
+    val context = LocalContext.current
+    val toast = Toast.makeText(context, "", Toast.LENGTH_LONG)
+
+    SunflowerCloneTheme {
+        GardenPlantingListLayout(
+            plants = flowOf(PagingData.from(plants)).collectAsLazyPagingItems(),
+            onPlantClick = {
+                toast.apply { setText("Clicked Garden Plant ${it.plantName}!") }.show()
+            }
+        )
+    }
 }
 
 object GardenPlantingListLayout {
