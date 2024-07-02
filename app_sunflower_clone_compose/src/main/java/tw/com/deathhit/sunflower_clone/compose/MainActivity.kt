@@ -4,10 +4,15 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -59,12 +64,19 @@ class MainActivity : AppCompatActivity() {
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
-    private fun MainNavHost(
-        navHostController: NavHostController
-    ) {
+    private fun MainNavHost(navHostController: NavHostController) {
+        val enterTransition: (AnimatedContentTransitionScope<NavBackStackEntry>.() -> EnterTransition) =
+            { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(300)) }
+        val exitTransition: (AnimatedContentTransitionScope<NavBackStackEntry>.() -> ExitTransition) =
+            { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) }
+
         NavHost(
             navController = navHostController,
-            startDestination = navigationDestination.route
+            startDestination = navigationDestination.route,
+            enterTransition = enterTransition,
+            exitTransition = exitTransition,
+            popEnterTransition = enterTransition,
+            popExitTransition = exitTransition
         ) {
             composable(
                 galleryDestination.route,
