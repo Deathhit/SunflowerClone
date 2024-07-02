@@ -1,6 +1,12 @@
 pluginManagement {
     repositories {
-        google()
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
         mavenCentral()
         gradlePluginPortal()
     }
@@ -26,6 +32,7 @@ include(":data:garden_planting")
 include(":data:photo")
 include(":data:plant")
 include(":domain")
+include(":feature:compose:gallery")
 include(":feature:compose:garden_planting_list")
 include(":feature:compose:navigation")
 include(":feature:compose:plant_details")
@@ -35,4 +42,4 @@ include(":feature:garden_planting_list")
 include(":feature:navigation")
 include(":feature:plant_details")
 include(":feature:plant_list")
-include(":feature:compose:gallery")
+
