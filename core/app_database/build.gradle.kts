@@ -49,11 +49,10 @@ dependencies {
     androidTestImplementation(libs.jetbrains.koltin.coroutine.test)
 
     //Paging
-    val pagingVersion = "3.3.0"
-    api("androidx.paging:paging-runtime-ktx:$pagingVersion")
+    api(libs.paging.runtime)
 
     //Paging-Test
-    androidTestImplementation("androidx.paging:paging-testing:$pagingVersion")
+    androidTestImplementation(libs.paging.test)
 
     //Room
     val roomVersion = "2.6.1"

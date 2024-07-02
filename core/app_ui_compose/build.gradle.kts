@@ -70,7 +70,7 @@ dependencies {
     api("androidx.hilt:hilt-navigation-compose:1.2.0")
 
     //Paging
-    api("androidx.paging:paging-compose:3.3.0")
+    api(libs.paging.compose)
 
     //View Model-Compose
     api("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.2")

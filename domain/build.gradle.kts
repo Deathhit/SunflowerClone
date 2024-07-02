@@ -13,6 +13,5 @@ dependencies {
     implementation(libs.jetbrains.koltin.coroutine)
 
     //Paging
-    val pagingVersion = "3.3.0"
-    api("androidx.paging:paging-common-ktx:$pagingVersion")
+    api(libs.paging.common)
 }

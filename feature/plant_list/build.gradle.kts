@@ -56,9 +56,8 @@ dependencies {
     kapt(libs.hilt.compiler)
     implementation(libs.hilt)
 
-    //Paging
-    val pagingVersion = "3.3.0"
-    androidTestImplementation("androidx.paging:paging-testing:$pagingVersion")
+    //Paging-Test
+    androidTestImplementation(libs.paging.test)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

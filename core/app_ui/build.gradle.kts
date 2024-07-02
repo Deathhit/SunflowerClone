@@ -54,8 +54,7 @@ dependencies {
     api(libs.material)
 
     //Paging
-    val pagingVersion = "3.3.0"
-    api("androidx.paging:paging-runtime-ktx:$pagingVersion")
+    api(libs.paging.runtime)
 
     //Recycler View
     api("androidx.recyclerview:recyclerview:1.3.2")
