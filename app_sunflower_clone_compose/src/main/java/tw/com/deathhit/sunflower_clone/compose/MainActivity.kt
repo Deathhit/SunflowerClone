@@ -18,6 +18,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import tw.com.deathhit.core.app_ui_compose.style.SunflowerCloneTheme
 import tw.com.deathhit.feature.compose.gallery.GalleryDestination
 import tw.com.deathhit.feature.compose.gallery.GalleryScreen
 import tw.com.deathhit.feature.compose.navigation.NavigationDestination
@@ -70,32 +71,34 @@ class MainActivity : AppCompatActivity() {
         val exitTransition: (AnimatedContentTransitionScope<NavBackStackEntry>.() -> ExitTransition) =
             { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) }
 
-        NavHost(
-            navController = navHostController,
-            startDestination = navigationDestination.route,
-            enterTransition = enterTransition,
-            exitTransition = exitTransition,
-            popEnterTransition = enterTransition,
-            popExitTransition = exitTransition
-        ) {
-            composable(
-                galleryDestination.route,
-                arguments = GalleryDestination.args
+        SunflowerCloneTheme {
+            NavHost(
+                navController = navHostController,
+                startDestination = navigationDestination.route,
+                enterTransition = enterTransition,
+                exitTransition = exitTransition,
+                popEnterTransition = enterTransition,
+                popExitTransition = exitTransition
             ) {
-                GalleryScreen(onGoBack = { viewModel.goBack() })
-            }
-            composable(navigationDestination.route) {
-                NavigationScreen(
-                    onGoToPlantDetailsScreen = { viewModel.goToPlantDetailsScreen(plantId = it) }
-                )
-            }
-            composable(
-                plantDetailsDestination.route,
-                arguments = PlantDetailsDestination.args
-            ) {
-                PlantDetailsScreen(
-                    onGoBack = { viewModel.goBack() },
-                    onGoToGalleryScreen = { viewModel.goToGalleryScreen(plantName = it) })
+                composable(
+                    galleryDestination.route,
+                    arguments = GalleryDestination.args
+                ) {
+                    GalleryScreen(onGoBack = { viewModel.goBack() })
+                }
+                composable(navigationDestination.route) {
+                    NavigationScreen(
+                        onGoToPlantDetailsScreen = { viewModel.goToPlantDetailsScreen(plantId = it) }
+                    )
+                }
+                composable(
+                    plantDetailsDestination.route,
+                    arguments = PlantDetailsDestination.args
+                ) {
+                    PlantDetailsScreen(
+                        onGoBack = { viewModel.goBack() },
+                        onGoToGalleryScreen = { viewModel.goToGalleryScreen(plantName = it) })
+                }
             }
         }
     }
