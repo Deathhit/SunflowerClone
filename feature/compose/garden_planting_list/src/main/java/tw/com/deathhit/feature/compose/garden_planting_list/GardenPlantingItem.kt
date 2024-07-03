@@ -24,7 +24,7 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 @Composable
-internal fun GardenPlantingItem(
+fun GardenPlantingItem(
     imageUrl: String?,
     name: String?,
     plantDate: Long,

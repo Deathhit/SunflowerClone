@@ -1,5 +1,6 @@
 package tw.com.deathhit.feature.compose.plant_list
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.imePadding
@@ -7,6 +8,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
@@ -24,7 +26,6 @@ fun PlantListLayout(
     plants: LazyPagingItems<PlantDO>,
     onPlantClick: (PlantDO) -> Unit,
 ) {
-    SunflowerCloneTheme {
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
             modifier = Modifier
@@ -41,12 +42,11 @@ fun PlantListLayout(
                 val plant = plants[index]
 
                 if (plant != null)
-                    PlantListItemView(imageUrl = plant.imageUrl, name = plant.plantName, onClick = {
+                    PlantItem(imageUrl = plant.imageUrl, name = plant.plantName, onClick = {
                         onPlantClick(plant)
                     })
             }
         }
-    }
 }
 
 @Preview
@@ -54,10 +54,17 @@ fun PlantListLayout(
 private fun PlantListPreview(
     @PreviewParameter(PlantListPreviewParamProvider::class) plants: List<PlantDO>
 ) {
-    PlantListLayout(
-        plants = flowOf(PagingData.from(plants)).collectAsLazyPagingItems(),
-        onPlantClick = {}
-    )
+    val context = LocalContext.current
+    val toast = Toast.makeText(context, "", Toast.LENGTH_LONG)
+
+    SunflowerCloneTheme {
+        PlantListLayout(
+            plants = flowOf(PagingData.from(plants)).collectAsLazyPagingItems(),
+            onPlantClick = {
+                toast.apply { setText("Clicked Plant ${it.plantName}!") }.show()
+            }
+        )
+    }
 }
 
 object PlantListLayout {
