@@ -3,6 +3,13 @@
 A sample project to demonstrate the practices of the Android app architecture illustrated below. 
 It is a clone of the Android Sunflower app on Github.
 
+Check the Medium articles below for more details.
+
+ [`Android Application Architecture Showcase : Sunflower Clone`](https://medium.com/@b9915034/android-application-architecture-showcase-sunflower-clone-dee729f6e1f2).
+ 
+ [`Implementing Feature Modules with Jetpack Compose in Sunflower Clone`](https://medium.com/@b9915034/implementing-feature-modules-with-jetpack-compose-in-sunflower-clone-ee268aafea68)
+ 
+
 **Note**: To see the original Sunflower project, checkout the [`Sunflower`](https://github.com/android/sunflower).
 
 ## Screenshots
@@ -18,10 +25,6 @@ It is a clone of the Android Sunflower app on Github.
 
 <img src="docs/diagrams/Android App Architecture Overview.png"/>
 <img src="docs/diagrams/Sunflower Clone Dependency Graph.png"/>
-
-This sample demonstrates a modern approach to Android application architecture. See the Medium article below.
-
- [`Android Application Architecture Showcase : Sunflower Clone`](https://medium.com/@b9915034/android-application-architecture-showcase-sunflower-clone-dee729f6e1f2).
 
 ## Requirements
 
