@@ -46,7 +46,7 @@ fun PlantDetailsScreen(
     }
 
     viewModel.plantFlow.collectAsState().value?.run {
-        PlantDetailsView(
+        PlantDetailsLayout(
             description = description,
             isPlanted = isPlanted,
             plantImageUrl = imageUrl,
