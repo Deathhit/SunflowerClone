@@ -26,27 +26,27 @@ fun PlantListLayout(
     plants: LazyPagingItems<PlantDO>,
     onPlantClick: (PlantDO) -> Unit,
 ) {
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
-            modifier = Modifier
-                .fillMaxSize()
-                .imePadding(),
-            contentPadding = PaddingValues(
-                horizontal = dimensionResource(id = R.dimen.card_side_margin),
-                vertical = dimensionResource(id = R.dimen.header_margin)
-            )
-        ) {
-            items(
-                plants.itemCount
-            ) { index ->
-                val plant = plants[index]
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(2),
+        modifier = Modifier
+            .fillMaxSize()
+            .imePadding(),
+        contentPadding = PaddingValues(
+            horizontal = dimensionResource(id = R.dimen.card_side_margin),
+            vertical = dimensionResource(id = R.dimen.header_margin)
+        )
+    ) {
+        items(
+            plants.itemCount
+        ) { index ->
+            val plant = plants[index]
 
-                if (plant != null)
-                    PlantItem(imageUrl = plant.imageUrl, name = plant.plantName, onClick = {
-                        onPlantClick(plant)
-                    })
-            }
+            if (plant != null)
+                PlantItem(imageUrl = plant.imageUrl, name = plant.plantName, onClick = {
+                    onPlantClick(plant)
+                })
         }
+    }
 }
 
 @Preview
