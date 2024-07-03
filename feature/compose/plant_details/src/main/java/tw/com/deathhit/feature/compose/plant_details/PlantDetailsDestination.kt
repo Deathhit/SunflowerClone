@@ -4,7 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
 
-data class PlantDetailsDestination(val name: String) {
+class PlantDetailsDestination(private val name: String) {
     val route = "$name/{$KEY_PLANT_ID}"
 
     fun createLink(plantId: String) = "$name/$plantId"

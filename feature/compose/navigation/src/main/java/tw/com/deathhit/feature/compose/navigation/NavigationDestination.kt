@@ -1,5 +1,5 @@
 package tw.com.deathhit.feature.compose.navigation
 
-data class NavigationDestination(val name: String) {
+class NavigationDestination(name: String) {
     val route = name
 }
