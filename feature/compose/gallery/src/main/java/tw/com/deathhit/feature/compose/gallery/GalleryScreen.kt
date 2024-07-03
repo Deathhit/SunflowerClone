@@ -32,7 +32,7 @@ fun GalleryScreen(
         }
     }
 
-    GalleryView(
+    GalleryLayout(
         photos = viewModel.photoPagingDataFlow.collectAsLazyPagingItems(),
         onBackClick = { viewModel.goBack() },
         onPhotoClick = { viewModel.openWebLink(url = it.attributionUrl) })

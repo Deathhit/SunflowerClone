@@ -1,5 +1,6 @@
 package tw.com.deathhit.feature.compose.gallery
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,11 +19,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -37,95 +38,66 @@ import tw.com.deathhit.domain.model.PhotoDO
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun GalleryView(
+fun GalleryLayout(
     photos: LazyPagingItems<PhotoDO>,
     onBackClick: () -> Unit,
     onPhotoClick: (PhotoDO) -> Unit
 ) {
-    SunflowerCloneTheme {
-        val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
+    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
 
-        Scaffold(
-            topBar = {
-                GalleryTopBar(
-                    topAppBarScrollBehavior = scrollBehavior,
-                    onBackClick = onBackClick,
-                )
-            },
-            modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection)
-        ) { padding ->
-            GalleryContent(
-                photos = photos,
-                onPhotoClick = onPhotoClick,
+    Scaffold(
+        topBar = {
+            CenterAlignedTopAppBar(
+                navigationIcon = {
+                    IconButton(
+                        onBackClick
+                    ) {
+                        Icon(
+                            Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = stringResource(id = R.string.gallery_back)
+                        )
+                    }
+                },
+                scrollBehavior = scrollBehavior,
+                title = {
+                    Text(
+                        text = stringResource(id = R.string.gallery_title),
+                        style = MaterialTheme.typography.titleLarge,
+                    )
+                },
                 modifier = Modifier
-                    .fillMaxSize()
-                    .padding(padding)
+                    .statusBarsPadding()
+                    .background(color = MaterialTheme.colorScheme.surface)
             )
-        }
-    }
-}
+        },
+        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection)
+    ) { padding ->
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
+            modifier = Modifier
+                .fillMaxSize()
+                .imePadding()
+                .padding(padding),
+            contentPadding = PaddingValues(
+                horizontal = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.card_side_margin),
+                vertical = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.header_margin)
+            )
+        ) {
+            items(
+                photos.itemCount
+            ) { index ->
+                val photo = photos[index]
 
-@Composable
-private fun GalleryContent(
-    photos: LazyPagingItems<PhotoDO>,
-    onPhotoClick: (PhotoDO) -> Unit,
-    modifier: Modifier = Modifier
-) {
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(2),
-        modifier = modifier
-            .fillMaxSize()
-            .imePadding(),
-        contentPadding = PaddingValues(
-            horizontal = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.card_side_margin),
-            vertical = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.header_margin)
-        )
-    ) {
-        items(
-            photos.itemCount
-        ) { index ->
-            val photo = photos[index]
-
-            if (photo != null)
-                GalleryItemView(
-                    imageUrl = photo.imageUrl,
-                    photographer = photo.authorName,
-                    onClick = {
-                        onPhotoClick(photo)
-                    })
-        }
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun GalleryTopBar(
-    topAppBarScrollBehavior: TopAppBarScrollBehavior,
-    onBackClick: () -> Unit,
-    modifier: Modifier = Modifier
-) {
-    CenterAlignedTopAppBar(
-        navigationIcon = {
-            IconButton(
-                onBackClick
-            ) {
-                Icon(
-                    Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = stringResource(id = R.string.gallery_back)
-                )
+                if (photo != null)
+                    GalleryItem(
+                        imageUrl = photo.imageUrl,
+                        photographer = photo.authorName,
+                        onClick = {
+                            onPhotoClick(photo)
+                        })
             }
-        },
-        scrollBehavior = topAppBarScrollBehavior,
-        title = {
-            Text(
-                text = stringResource(id = R.string.gallery_title),
-                style = MaterialTheme.typography.titleLarge,
-            )
-        },
-        modifier = modifier
-            .statusBarsPadding()
-            .background(color = MaterialTheme.colorScheme.surface)
-    )
+        }
+    }
 }
 
 @Preview
@@ -133,11 +105,20 @@ private fun GalleryTopBar(
 private fun GalleryPreview(
     @PreviewParameter(GalleryPreviewParamProvider::class) photos: List<PhotoDO>
 ) {
-    GalleryView(
-        photos = flowOf(PagingData.from(photos)).collectAsLazyPagingItems(),
-        onBackClick = {},
-        onPhotoClick = {}
-    )
+    val context = LocalContext.current
+    val toast = Toast.makeText(context, "", Toast.LENGTH_LONG)
+
+    SunflowerCloneTheme {
+        GalleryLayout(
+            photos = flowOf(PagingData.from(photos)).collectAsLazyPagingItems(),
+            onBackClick = {
+                toast.apply { setText("Clicked Back!") }.show()
+            },
+            onPhotoClick = {
+                toast.apply { setText("Clicked Photo ${it.photoId}!") }.show()
+            }
+        )
+    }
 }
 
 private class GalleryPreviewParamProvider :
