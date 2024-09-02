@@ -7,9 +7,10 @@ Check the Medium articles below for more details.
 
  [`Android Application Architecture Showcase : Sunflower Clone`](https://medium.com/@b9915034/android-application-architecture-showcase-sunflower-clone-dee729f6e1f2).
  
- [`Implementing Feature Modules with Jetpack Compose in Sunflower Clone`](https://medium.com/@b9915034/implementing-feature-modules-with-jetpack-compose-in-sunflower-clone-ee268aafea68)
- 
+ [`Implementing a Feature Module with Jetpack Compose in Sunflower Clone`](https://medium.com/@b9915034/implementing-feature-modules-with-jetpack-compose-in-sunflower-clone-ee268aafea68)
 
+ [`Implementing a Feature Module with Android View in Sunflower Clone`](https://medium.com/@b9915034/implementing-a-feature-module-with-android-view-in-sunflower-clone-c2fa0a373579)
+ 
 **Note**: To see the original Sunflower project, checkout the [`Sunflower`](https://github.com/android/sunflower).
 
 ## Screenshots
@@ -21,7 +22,7 @@ Check the Medium articles below for more details.
 <img src="docs/screenshots/Screenshot_4.png" width = 360> &nbsp;
 </p>
 
-## Features
+## Architecture Overview
 
 <img src="docs/diagrams/Android App Architecture Overview.png"/>
 <img src="docs/diagrams/Sunflower Clone Dependency Graph.png"/>
