@@ -13,10 +13,10 @@ import org.junit.Before
 import org.junit.Test
 import tw.com.deathhit.core.app_database.AppDatabase
 import tw.com.deathhit.core.app_database.view.PhotoItemView
-import tw.com.deathhit.core.unsplash_api.model.PhotoDto
+import tw.com.deathhit.core.unsplash_api.protocol.model.PhotoApiEntity
 import tw.com.deathhit.data.photo.config.TestUnsplashService
 import tw.com.deathhit.data.photo.config.buildAppDatabase
-import tw.com.deathhit.data.photo.config.generatePhotoDtoList
+import tw.com.deathhit.data.photo.config.generatePhotoApiEntities
 
 @OptIn(ExperimentalPagingApi::class)
 class PhotoRemoteMediatorTest {
@@ -43,7 +43,7 @@ class PhotoRemoteMediatorTest {
                 page: Int,
                 perPage: Int,
                 query: String
-            ): List<PhotoDto> {
+            ): List<PhotoApiEntity> {
                 throw RuntimeException("Test")
             }
         }
@@ -77,7 +77,7 @@ class PhotoRemoteMediatorTest {
                 page: Int,
                 perPage: Int,
                 query: String
-            ): List<PhotoDto> = generatePhotoDtoList(from = pageSize + 1, until = pageSize + 2)
+            ): List<PhotoApiEntity> = generatePhotoApiEntities(from = pageSize + 1, until = pageSize + 2)
         }
 
         val remoteMediator = PhotoRemoteMediator(
@@ -110,7 +110,7 @@ class PhotoRemoteMediatorTest {
                 page: Int,
                 perPage: Int,
                 query: String
-            ): List<PhotoDto> = emptyList()
+            ): List<PhotoApiEntity> = emptyList()
         }
 
         val remoteMediator = PhotoRemoteMediator(

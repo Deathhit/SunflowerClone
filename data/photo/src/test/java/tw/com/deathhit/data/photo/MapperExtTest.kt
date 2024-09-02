@@ -2,35 +2,34 @@ package tw.com.deathhit.data.photo
 
 import org.junit.Test
 import tw.com.deathhit.core.app_database.view.PhotoItemView
-import tw.com.deathhit.core.unsplash_api.model.PhotoDto
+import tw.com.deathhit.core.unsplash_api.protocol.model.PhotoApiEntity
+import tw.com.deathhit.core.unsplash_api.protocol.model.PhotoUrlsApiEntity
+import tw.com.deathhit.core.unsplash_api.protocol.model.UserApiEntity
 import java.util.UUID
 import kotlin.random.Random
 
 class MapperExtTest {
     @Test
-    fun mapPhotoDtoListToPhotoRemoteItemsList() {
+    fun mapPhotoApiEntityListToPhotoRemoteItemsList() {
         //Given
         val page = getRandomInt()
         val pageSize = getRandomInt()
         val photoDtoList = listOf(
-            PhotoDto(
-                authorId = getRandomStr(),
-                authorName = getRandomStr(),
-                photoId = getRandomStr(),
-                url = getRandomStr()
+            PhotoApiEntity(
+                id = getRandomStr(),
+                urls = PhotoUrlsApiEntity(small = getRandomStr()),
+                user = UserApiEntity(name = getRandomStr(), username = getRandomStr())
             ),
-            PhotoDto(
-                authorId = getRandomStr(),
-                authorName = getRandomStr(),
-                photoId = getRandomStr(),
-                url = getRandomStr()
+            PhotoApiEntity(
+                id = getRandomStr(),
+                urls = PhotoUrlsApiEntity(small = getRandomStr()),
+                user = UserApiEntity(name = getRandomStr(), username = getRandomStr())
             ),
-            PhotoDto(
-                authorId = getRandomStr(),
-                authorName = getRandomStr(),
-                photoId = getRandomStr(),
-                url = getRandomStr()
-            )
+            PhotoApiEntity(
+                id = getRandomStr(),
+                urls = PhotoUrlsApiEntity(small = getRandomStr()),
+                user = UserApiEntity(name = getRandomStr(), username = getRandomStr())
+            ),
         )
         val plantName = getRandomStr()
 
@@ -48,12 +47,12 @@ class MapperExtTest {
             val photoDto = photoDtoList[index]
 
             with(photoRemoteItems.photoEntity) {
-                authorId == photoDto.authorId
-                        && authorName == photoDto.authorName
-                        && imageUrl == photoDto.url
-                        && photoId == photoDto.photoId
+                authorId == photoDto.user.username
+                        && authorName == photoDto.user.name
+                        && imageUrl == photoDto.urls.small
+                        && photoId == photoDto.id
             } && with(photoRemoteItems.photoRemoteOrderEntity) {
-                photoId == photoDto.photoId && remoteOrder == index + offset
+                photoId == photoDto.id && remoteOrder == index + offset
             }
         }.size == photoDtoList.size)
     }

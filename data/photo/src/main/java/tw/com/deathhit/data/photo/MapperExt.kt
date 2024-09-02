@@ -1,13 +1,11 @@
 package tw.com.deathhit.data.photo
 
-import tw.com.deathhit.core.app_database.entity.PhotoEntity
-import tw.com.deathhit.core.app_database.entity.PhotoRemoteOrderEntity
 import tw.com.deathhit.core.app_database.view.PhotoItemView
-import tw.com.deathhit.core.unsplash_api.model.PhotoDto
+import tw.com.deathhit.core.unsplash_api.protocol.model.PhotoApiEntity
 import tw.com.deathhit.data.photo.model.PhotoRemoteItems
 import tw.com.deathhit.domain.model.PhotoDO
 
-internal fun List<PhotoDto>.toPhotoRemoteItemsList(
+internal fun List<PhotoApiEntity>.toPhotoRemoteItemsList(
     page: Int,
     pageSize: Int,
     plantName: String
@@ -17,15 +15,15 @@ internal fun List<PhotoDto>.toPhotoRemoteItemsList(
     return mapIndexed { index, photo ->
         with(photo) {
             PhotoRemoteItems(
-                photoEntity = PhotoEntity(
-                    authorId = authorId,
-                    authorName = authorName,
-                    imageUrl = url,
-                    photoId = photoId,
+                photoEntity = tw.com.deathhit.core.app_database.entity.PhotoEntity(
+                    authorId = user.username,
+                    authorName = user.name,
+                    imageUrl = urls.small,
+                    photoId = id,
                     plantName = plantName
                 ),
-                photoRemoteOrderEntity = PhotoRemoteOrderEntity(
-                    photoId = photoId,
+                photoRemoteOrderEntity = tw.com.deathhit.core.app_database.entity.PhotoRemoteOrderEntity(
+                    photoId = id,
                     remoteOrder = index + offset
                 )
             )
@@ -33,11 +31,12 @@ internal fun List<PhotoDto>.toPhotoRemoteItemsList(
     }
 }
 
-internal fun PhotoItemView.toPhotoDO(attributionUrl: String) = PhotoDO(
-    attributionUrl = attributionUrl,
-    authorId = authorId,
-    authorName = authorName,
-    imageUrl = imageUrl,
-    photoId = photoId,
-    plantName = plantName
-)
+internal fun PhotoItemView.toPhotoDO(attributionUrl: String) =
+    PhotoDO(
+        attributionUrl = attributionUrl,
+        authorId = authorId,
+        authorName = authorName,
+        imageUrl = imageUrl,
+        photoId = photoId,
+        plantName = plantName
+    )

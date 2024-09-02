@@ -10,7 +10,7 @@ import org.junit.Before
 import org.junit.Test
 import tw.com.deathhit.core.app_database.AppDatabase
 import tw.com.deathhit.core.app_database.entity.PhotoRemoteOrderEntity
-import tw.com.deathhit.core.unsplash_api.model.PhotoDto
+import tw.com.deathhit.core.unsplash_api.protocol.model.PhotoApiEntity
 import tw.com.deathhit.data.photo.config.TestUnsplashService
 import tw.com.deathhit.data.photo.config.buildAppDatabase
 import tw.com.deathhit.data.photo.config.generatePhotoEntities
@@ -41,7 +41,7 @@ class PhotoRepositoryTest {
                     page: Int,
                     perPage: Int,
                     query: String
-                ): List<PhotoDto> = emptyList()
+                ): List<PhotoApiEntity> = emptyList()
             })
 
         val photoEntities = generatePhotoEntities(plantName = plantName)

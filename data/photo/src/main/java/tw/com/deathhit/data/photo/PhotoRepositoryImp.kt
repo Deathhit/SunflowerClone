@@ -30,7 +30,7 @@ class PhotoRepositoryImp(
     }.flow.map { pagingData ->
         pagingData.map {
             it.toPhotoDO(
-                attributionUrl = unsplashService.getAttributionUrl(authorId = it.authorId)
+                attributionUrl = unsplashService.getAttributionUrl(userName = it.authorId)
             )
         }
     }

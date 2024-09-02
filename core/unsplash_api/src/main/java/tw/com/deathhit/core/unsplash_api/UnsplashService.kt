@@ -3,17 +3,17 @@ package tw.com.deathhit.core.unsplash_api
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import tw.com.deathhit.core.unsplash_api.model.PhotoDto
 import tw.com.deathhit.core.unsplash_api.protocol.UnsplashAuthenticator
 import tw.com.deathhit.core.unsplash_api.protocol.UnsplashRetrofitService
+import tw.com.deathhit.core.unsplash_api.protocol.model.PhotoApiEntity
 
 interface UnsplashService {
-    fun getAttributionUrl(authorId: String): String
+    fun getAttributionUrl(userName: String): String
     suspend fun searchPhotos(
         page: Int,
         perPage: Int,
         query: String
-    ): List<PhotoDto>
+    ): List<PhotoApiEntity>
 
     companion object {
         fun createUnsplashService(
