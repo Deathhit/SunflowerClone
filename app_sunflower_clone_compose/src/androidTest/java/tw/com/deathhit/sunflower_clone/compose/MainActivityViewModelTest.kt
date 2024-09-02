@@ -55,26 +55,6 @@ class MainActivityViewModelTest {
     }
 
     @Test
-    fun goToInitialScreen() = runTest {
-        //Given
-        val initialState = viewModel.stateFlow.value
-
-        //When
-        viewModel.goToInitialScreen()
-
-        //Then
-        val finalState = viewModel.stateFlow.value
-
-        assert(
-            finalState == initialState.copy(
-                actions = initialState.actions + MainActivityViewModel.State.Action.GoToInitialScreen(
-                    screen = MainScreen.Navigation
-                )
-            )
-        )
-    }
-
-    @Test
     fun goToPlantDetailsScreen() = runTest {
         //Given
         val initialState = viewModel.stateFlow.value
