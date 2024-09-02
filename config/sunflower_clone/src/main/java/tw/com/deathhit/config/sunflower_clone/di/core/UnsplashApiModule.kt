@@ -9,7 +9,8 @@ import dagger.hilt.components.SingletonComponent
 import tw.com.deathhit.config.sunflower_clone.getUnsplashAccessKey
 import tw.com.deathhit.config.sunflower_clone.getUnsplashAppName
 import tw.com.deathhit.config.sunflower_clone.getUnsplashServerUrl
-import tw.com.deathhit.core.unsplash_api.UnsplashService.Companion.createUnsplashService
+import tw.com.deathhit.core.unsplash_api.UnsplashService
+import tw.com.deathhit.core.unsplash_api.UnsplashServiceImp
 import javax.inject.Singleton
 
 @Module
@@ -17,10 +18,10 @@ import javax.inject.Singleton
 object UnsplashApiModule {
     @Provides
     @Singleton
-    internal fun provideUnsplashService(@ApplicationContext context: Context) =
-        createUnsplashService(
+    internal fun provideUnsplashService(@ApplicationContext context: Context): UnsplashService =
+        UnsplashServiceImp(
             accessKey = context.getUnsplashAccessKey(),
-            appName = context.getUnsplashAppName(),
-            serverUrl = context.getUnsplashServerUrl()
+            serverUrl = context.getUnsplashServerUrl(),
+            unsplashAppName = context.getUnsplashAppName()
         )
 }
