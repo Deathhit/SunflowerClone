@@ -3,10 +3,13 @@ package tw.com.deathhit.feature.compose.plant_details
 import android.content.Context
 import android.content.Intent
 import android.widget.Toast
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.app.ShareCompat
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -57,6 +60,8 @@ fun PlantDetailsScreen(
             onGalleryClick = { viewModel.goToGalleryScreen() },
             onShareClick = { viewModel.sharePlant() }
         )
+    } ?: run {
+        Box(modifier = Modifier.fillMaxSize())
     }
 }
 
