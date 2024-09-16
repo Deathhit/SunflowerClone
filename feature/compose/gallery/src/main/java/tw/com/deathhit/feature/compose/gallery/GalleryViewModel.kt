@@ -8,8 +8,11 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.update
 import kotlinx.parcelize.Parcelize
 import tw.com.deathhit.domain.PhotoRepository
 import tw.com.deathhit.feature.compose.gallery.GalleryDestination.Companion.plantName
@@ -21,12 +24,16 @@ class GalleryViewModel @Inject constructor(
     private val photoRepository: PhotoRepository,
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
+    private val _stateFlow = MutableStateFlow(State(plantName = savedStateHandle.plantName))
+    val stateFlow = _stateFlow.asStateFlow()
+
     private var state: State
-        get() = savedStateHandle[KEY_STATE] ?: State(plantName = savedStateHandle.plantName)
+        get() = stateFlow.value
         set(value) {
+            _stateFlow.update { value }
+
             savedStateHandle[KEY_STATE] = value
         }
-    val stateFlow = savedStateHandle.getStateFlow(KEY_STATE, state)
 
     val photoPagingDataFlow = createPhotoPagingDataFlow().cachedIn(viewModelScope)
 
