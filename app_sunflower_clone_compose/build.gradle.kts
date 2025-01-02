@@ -9,14 +9,14 @@ plugins {
 
 android {
     namespace = "tw.com.deathhit.sunflower_clone.compose"
-    compileSdk = 35
+    compileSdk = rootProject.extra["compileSdk"] as Int
 
     defaultConfig {
         applicationId = "tw.com.deathhit.sunflower_clone"
-        minSdk = 24
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = rootProject.extra["minSdk"] as Int
+        targetSdk = compileSdk
+        versionCode = rootProject.extra["versionCode"] as Int
+        versionName = rootProject.extra["versionName"] as String
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -46,16 +46,14 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
-    }
+        val javaVersion = rootProject.extra["javaVersion"] as JavaVersion
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.4"
+        sourceCompatibility = javaVersion
+        targetCompatibility = javaVersion
     }
 
     kotlinOptions {
-        jvmTarget = "21"
+        jvmTarget = rootProject.extra["kotlinJvmTarget"] as String
     }
 }
 

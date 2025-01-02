@@ -1,11 +1,15 @@
+import org.gradle.internal.extensions.core.extra
+
 plugins {
     id("java-library")
     alias(libs.plugins.jetbrains.kotlin.jvm)
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    val javaVersion = rootProject.extra["javaVersion"] as JavaVersion
+
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
 }
 
 dependencies {

@@ -1,3 +1,5 @@
+import org.gradle.internal.extensions.core.extra
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.google.dagger.hilt)
@@ -9,10 +11,10 @@ plugins {
 
 android {
     namespace = "tw.com.deathhit.feature.compose.plant_details"
-    compileSdk = 35
+    compileSdk = rootProject.extra["compileSdk"] as Int
 
     defaultConfig {
-        minSdk = 24
+        minSdk = rootProject.extra["minSdk"] as Int
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -33,16 +35,14 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
-    }
+        val javaVersion = rootProject.extra["javaVersion"] as JavaVersion
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.4"
+        sourceCompatibility = javaVersion
+        targetCompatibility = javaVersion
     }
 
     kotlinOptions {
-        jvmTarget = "21"
+        jvmTarget = rootProject.extra["kotlinJvmTarget"] as String
     }
 }
 

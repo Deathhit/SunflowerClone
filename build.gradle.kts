@@ -10,10 +10,11 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.parcelize) apply false
 }
 
-//Enable strong skipping mode for Compose.
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    compilerOptions.freeCompilerArgs.addAll(
-        "-P",
-        "plugin:androidx.compose.compiler.plugins.kotlin:experimentalStrongSkipping=true",
-    )
-}
+// Shared configuration values.
+val compileSdk by extra(35)
+val javaVersion by extra(JavaVersion.VERSION_21)
+val kotlinJvmTarget by extra("21")
+val minSdk by extra(24)
+val versionCode by extra(1)
+val versionName by extra("1.0")
+
