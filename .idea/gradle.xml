@@ -16,9 +16,9 @@
             <option value="$PROJECT_DIR$/config" />
             <option value="$PROJECT_DIR$/config/sunflower_clone" />
             <option value="$PROJECT_DIR$/core" />
-            <option value="$PROJECT_DIR$/core/app_ui" />
             <option value="$PROJECT_DIR$/core/app_ui_compose" />
             <option value="$PROJECT_DIR$/core/sunflower_clone_database" />
+            <option value="$PROJECT_DIR$/core/sunflower_clone_ui" />
             <option value="$PROJECT_DIR$/core/unsplash_api" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/data/garden_planting" />

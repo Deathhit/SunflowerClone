@@ -46,7 +46,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:app_ui"))
+    implementation(project(":core:sunflower_clone_ui"))
     implementation(project(":domain"))
     implementation(project(":feature:garden_planting_list"))
     implementation(project(":feature:plant_list"))

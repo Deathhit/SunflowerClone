@@ -46,7 +46,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:app_ui"))
+    implementation(project(":core:sunflower_clone_ui"))
     implementation(project(":domain"))
 
     //Coroutine-Test

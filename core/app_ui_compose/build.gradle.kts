@@ -44,7 +44,7 @@ android {
 }
 
 dependencies {
-    api(project(":core:app_ui"))
+    api(project(":core:sunflower_clone_ui"))
 
     //Compose
     val composeBom = platform(libs.compose.bom)
