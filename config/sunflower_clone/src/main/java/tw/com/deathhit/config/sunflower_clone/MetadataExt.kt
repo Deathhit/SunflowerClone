@@ -25,4 +25,4 @@ private fun Context.getMetadataString(key: String) = with(packageManager) {
             PackageManager.GET_META_DATA
         )
     }
-}.applicationInfo.metaData.getString(key)!!
+}.applicationInfo?.metaData?.getString(key)!!

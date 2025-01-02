@@ -1,13 +1,13 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.google.dagger.hilt)
+    alias(libs.plugins.google.devtools.ksp)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.jetbrains.kotlin.kapt)
 }
 
 android {
     namespace = "tw.com.deathhit.config.sunflower_clone"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 24
@@ -27,12 +27,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "21"
     }
 }
 
@@ -51,11 +51,11 @@ dependencies {
     implementation(libs.gson)
 
     //Hilt
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
     implementation(libs.hilt)
 
     //Hilt-Work Manager
-    kapt(libs.hilt.work.compiler)
+    ksp(libs.hilt.work.compiler)
     api(libs.hilt.work)
 
     //Work Manager

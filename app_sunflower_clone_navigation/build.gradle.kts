@@ -1,19 +1,19 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.dagger.hilt)
+    alias(libs.plugins.google.devtools.ksp)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.jetbrains.kotlin.kapt)
     alias(libs.plugins.jetbrains.kotlin.parcelize)
 }
 
 android {
     namespace = "tw.com.deathhit.sunflower_clone.navigation"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "tw.com.deathhit.sunflower_clone"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -45,12 +45,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "21"
     }
 }
 
@@ -66,7 +66,7 @@ dependencies {
     androidTestImplementation(libs.jetbrains.koltin.coroutine.test)
 
     //Hilt
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
     implementation(libs.hilt)
 
     //Navigation
