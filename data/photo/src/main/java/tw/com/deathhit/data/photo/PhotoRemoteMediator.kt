@@ -5,21 +5,21 @@ import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
-import tw.com.deathhit.core.app_database.AppDatabase
-import tw.com.deathhit.core.app_database.entity.PhotoRemoteKeysEntity
-import tw.com.deathhit.core.app_database.view.PhotoItemView
+import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
+import tw.com.deathhit.core.sunflower_clone_database.entity.PhotoRemoteKeysEntity
+import tw.com.deathhit.core.sunflower_clone_database.view.PhotoItemView
 import tw.com.deathhit.core.unsplash_api.UnsplashService
 import tw.com.deathhit.data.photo.model.PhotoRemoteItems
 
 @OptIn(ExperimentalPagingApi::class)
 class PhotoRemoteMediator(
-    private val appDatabase: AppDatabase,
     private val plantName: String,
+    private val sunflowerCloneDatabase: SunflowerCloneDatabase,
     private val unsplashService: UnsplashService
 ) : RemoteMediator<Int, PhotoItemView>() {
-    private val photoDao = appDatabase.photoDao()
-    private val photoRemoteKeysDao = appDatabase.photoRemoteKeysDao()
-    private val photoRemoteOrderDao = appDatabase.photoRemoteOrderDao()
+    private val photoDao = sunflowerCloneDatabase.photoDao()
+    private val photoRemoteKeysDao = sunflowerCloneDatabase.photoRemoteKeysDao()
+    private val photoRemoteOrderDao = sunflowerCloneDatabase.photoRemoteOrderDao()
 
     override suspend fun load(
         loadType: LoadType,
@@ -113,7 +113,7 @@ class PhotoRemoteMediator(
         val nextKey = loadKey + 1
         val previousKey = if (loadKey == FIRST_PAGE) null else loadKey - 1
 
-        appDatabase.withTransaction {
+        sunflowerCloneDatabase.withTransaction {
             if (loadType == LoadType.REFRESH)
                 photoDao.clearByPlantName(plantName = plantName)
 

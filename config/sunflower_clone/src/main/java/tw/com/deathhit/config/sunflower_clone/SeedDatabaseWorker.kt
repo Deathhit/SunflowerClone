@@ -17,13 +17,13 @@ import dagger.assisted.AssistedInject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import tw.com.deathhit.config.sunflower_clone.model.PlantJson
-import tw.com.deathhit.core.app_database.AppDatabase
+import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
 
 @HiltWorker
 internal class SeedDatabaseWorker @AssistedInject constructor(
     @Assisted appContext: Context,
     @Assisted workerParams: WorkerParameters,
-    private val appDatabase: AppDatabase
+    private val sunflowerCloneDatabase: SunflowerCloneDatabase
 ) : CoroutineWorker(appContext, workerParams) {
     override suspend fun doWork(): Result = withContext(Dispatchers.IO) {
         try {
@@ -33,7 +33,7 @@ internal class SeedDatabaseWorker @AssistedInject constructor(
                         val plantType = object : TypeToken<List<PlantJson>>() {}.type
                         val plantList: List<PlantJson> = Gson().fromJson(jsonReader, plantType)
 
-                        appDatabase.plantDao().upsert(plantList.map { it.toPlantEntity() })
+                        sunflowerCloneDatabase.plantDao().upsert(plantList.map { it.toPlantEntity() })
 
                         Result.success()
                     }

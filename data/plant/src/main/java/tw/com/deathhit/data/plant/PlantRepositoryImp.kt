@@ -6,12 +6,12 @@ import androidx.paging.PagingData
 import androidx.paging.map
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import tw.com.deathhit.core.app_database.AppDatabase
+import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
 import tw.com.deathhit.domain.PlantRepository
 import tw.com.deathhit.domain.model.PlantDO
 
-class PlantRepositoryImp(appDatabase: AppDatabase) : PlantRepository {
-    private val plantItemDao = appDatabase.plantItemDao()
+class PlantRepositoryImp(sunflowerCloneDatabase: SunflowerCloneDatabase) : PlantRepository {
+    private val plantItemDao = sunflowerCloneDatabase.plantItemDao()
 
     override fun getPlantFlow(plantId: String): Flow<PlantDO?> =
         plantItemDao.getEntityFlow(plantId = plantId).map { it?.toPlantDO() }

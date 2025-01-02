@@ -8,8 +8,8 @@ import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import tw.com.deathhit.core.app_database.AppDatabase
-import tw.com.deathhit.core.app_database.entity.PhotoRemoteOrderEntity
+import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
+import tw.com.deathhit.core.sunflower_clone_database.entity.PhotoRemoteOrderEntity
 import tw.com.deathhit.core.unsplash_api.protocol.model.PhotoApiEntity
 import tw.com.deathhit.data.photo.config.TestUnsplashService
 import tw.com.deathhit.data.photo.config.buildAppDatabase
@@ -18,16 +18,16 @@ import tw.com.deathhit.data.photo.config.generatePlantName
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class PhotoRepositoryTest {
-    private lateinit var appDatabase: AppDatabase
+    private lateinit var sunflowerCloneDatabase: SunflowerCloneDatabase
 
-    private val photoDao get() = appDatabase.photoDao()
-    private val photoRemoteOrderDao get() = appDatabase.photoRemoteOrderDao()
+    private val photoDao get() = sunflowerCloneDatabase.photoDao()
+    private val photoRemoteOrderDao get() = sunflowerCloneDatabase.photoRemoteOrderDao()
 
     @Before
     fun setup() {
         val context = ApplicationProvider.getApplicationContext<Context>()
 
-        appDatabase = buildAppDatabase(context)
+        sunflowerCloneDatabase = buildAppDatabase(context)
     }
 
     @Test
@@ -35,7 +35,7 @@ class PhotoRepositoryTest {
         //Given
         val plantName = generatePlantName()
         val photoRepository = PhotoRepositoryImp(
-            appDatabase = appDatabase,
+            sunflowerCloneDatabase = sunflowerCloneDatabase,
             unsplashService = object : TestUnsplashService() {
                 override suspend fun searchPhotos(
                     page: Int,

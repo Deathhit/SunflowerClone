@@ -1,7 +1,7 @@
 package tw.com.deathhit.config.sunflower_clone
 
 import tw.com.deathhit.config.sunflower_clone.model.PlantJson
-import tw.com.deathhit.core.app_database.entity.PlantEntity
+import tw.com.deathhit.core.sunflower_clone_database.entity.PlantEntity
 
 internal fun PlantJson.toPlantEntity() = PlantEntity(
     description = description,

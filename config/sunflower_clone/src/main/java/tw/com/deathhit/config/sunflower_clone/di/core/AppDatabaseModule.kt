@@ -10,7 +10,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import tw.com.deathhit.config.sunflower_clone.SeedDatabaseWorker.Companion.scheduleSeedingDatabase
-import tw.com.deathhit.core.app_database.AppDatabase
+import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
 import javax.inject.Singleton
 
 @Module
@@ -20,7 +20,7 @@ object AppDatabaseModule {
     @Singleton
     internal fun provideAppDatabase(@ApplicationContext context: Context) = Room.databaseBuilder(
         context,
-        AppDatabase::class.java,
+        SunflowerCloneDatabase::class.java,
         "app_database_3f86b669755d4f27a1613b339bd87def"
     ).addCallback(
         object : RoomDatabase.Callback() {

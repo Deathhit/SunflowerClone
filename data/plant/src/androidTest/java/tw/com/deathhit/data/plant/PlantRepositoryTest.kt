@@ -9,30 +9,30 @@ import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import tw.com.deathhit.core.app_database.AppDatabase
-import tw.com.deathhit.core.app_database.entity.PlantEntity
+import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
+import tw.com.deathhit.core.sunflower_clone_database.entity.PlantEntity
 import tw.com.deathhit.data.plant.config.buildAppDatabase
 import tw.com.deathhit.data.plant.config.generatePlantEntities
 import tw.com.deathhit.domain.model.PlantDO
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class PlantRepositoryTest {
-    private lateinit var appDatabase: AppDatabase
+    private lateinit var sunflowerCloneDatabase: SunflowerCloneDatabase
 
-    private val plantDao get() = appDatabase.plantDao()
+    private val plantDao get() = sunflowerCloneDatabase.plantDao()
 
     @Before
     fun setup() {
         val context = ApplicationProvider.getApplicationContext<Context>()
 
-        appDatabase = buildAppDatabase(context)
+        sunflowerCloneDatabase = buildAppDatabase(context)
     }
 
     @Test
     fun getPlantFlow() = runTest {
         //Given
         val plantEntities = generatePlantEntities()
-        val plantRepository = PlantRepositoryImp(appDatabase = appDatabase)
+        val plantRepository = PlantRepositoryImp(sunflowerCloneDatabase = sunflowerCloneDatabase)
 
         val plantEntity = plantEntities.random()
 
@@ -50,7 +50,7 @@ class PlantRepositoryTest {
     fun getPlantPagingDataFlow() = runTest {
         //Given
         val plantEntities = generatePlantEntities().sortedBy { it.plantId }
-        val plantRepository = PlantRepositoryImp(appDatabase = appDatabase)
+        val plantRepository = PlantRepositoryImp(sunflowerCloneDatabase = sunflowerCloneDatabase)
 
         plantDao.upsert(plantEntities)
         advanceUntilIdle()

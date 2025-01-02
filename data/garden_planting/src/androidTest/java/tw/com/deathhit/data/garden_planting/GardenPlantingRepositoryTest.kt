@@ -8,29 +8,29 @@ import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import tw.com.deathhit.core.app_database.AppDatabase
-import tw.com.deathhit.core.app_database.entity.GardenPlantingEntity
+import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
+import tw.com.deathhit.core.sunflower_clone_database.entity.GardenPlantingEntity
 import tw.com.deathhit.data.garden_planting.config.buildAppDatabase
 import tw.com.deathhit.data.garden_planting.config.generatePlantEntities
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class GardenPlantingRepositoryTest {
-    private lateinit var appDatabase: AppDatabase
+    private lateinit var sunflowerCloneDatabase: SunflowerCloneDatabase
 
-    private val gardenPlantingDao get() = appDatabase.gardenPlantingDao()
-    private val plantDao get() = appDatabase.plantDao()
+    private val gardenPlantingDao get() = sunflowerCloneDatabase.gardenPlantingDao()
+    private val plantDao get() = sunflowerCloneDatabase.plantDao()
 
     @Before
     fun setup() {
         val context = ApplicationProvider.getApplicationContext<Context>()
 
-        appDatabase = buildAppDatabase(context)
+        sunflowerCloneDatabase = buildAppDatabase(context)
     }
 
     @Test
     fun getGardenPlantingPagingDataFlow() = runTest {
         //Given
-        val gardenPlantingRepository = GardenPlantingRepositoryImp(appDatabase = appDatabase)
+        val gardenPlantingRepository = GardenPlantingRepositoryImp(sunflowerCloneDatabase = sunflowerCloneDatabase)
         val plantEntities = generatePlantEntities().sortedBy { it.plantId }
 
         val gardenPlantingEntities = plantEntities.map {

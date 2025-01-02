@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import tw.com.deathhit.core.app_database.AppDatabase
+import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
 import tw.com.deathhit.core.unsplash_api.UnsplashService
 import tw.com.deathhit.data.photo.PhotoRepositoryImp
 import tw.com.deathhit.domain.PhotoRepository
@@ -16,11 +16,11 @@ object PhotoRepositoryModule {
     @Provides
     @Singleton
     internal fun providePhotoRepository(
-        appDatabase: AppDatabase,
+        sunflowerCloneDatabase: SunflowerCloneDatabase,
         unsplashService: UnsplashService
     ): PhotoRepository =
         PhotoRepositoryImp(
-            appDatabase = appDatabase,
+            sunflowerCloneDatabase = sunflowerCloneDatabase,
             unsplashService = unsplashService
         )
 }

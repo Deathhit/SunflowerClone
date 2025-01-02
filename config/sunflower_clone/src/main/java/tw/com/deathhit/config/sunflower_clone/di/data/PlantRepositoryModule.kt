@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import tw.com.deathhit.core.app_database.AppDatabase
+import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
 import tw.com.deathhit.data.plant.PlantRepositoryImp
 import tw.com.deathhit.domain.PlantRepository
 import javax.inject.Singleton
@@ -14,6 +14,6 @@ import javax.inject.Singleton
 object PlantRepositoryModule {
     @Provides
     @Singleton
-    internal fun providePlantRepository(appDatabase: AppDatabase): PlantRepository =
-        PlantRepositoryImp(appDatabase = appDatabase)
+    internal fun providePlantRepository(sunflowerCloneDatabase: SunflowerCloneDatabase): PlantRepository =
+        PlantRepositoryImp(sunflowerCloneDatabase = sunflowerCloneDatabase)
 }

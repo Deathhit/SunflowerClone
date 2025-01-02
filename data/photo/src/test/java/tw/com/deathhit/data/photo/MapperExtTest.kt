@@ -1,7 +1,7 @@
 package tw.com.deathhit.data.photo
 
 import org.junit.Test
-import tw.com.deathhit.core.app_database.view.PhotoItemView
+import tw.com.deathhit.core.sunflower_clone_database.view.PhotoItemView
 import tw.com.deathhit.core.unsplash_api.protocol.model.PhotoApiEntity
 import tw.com.deathhit.core.unsplash_api.protocol.model.PhotoUrlsApiEntity
 import tw.com.deathhit.core.unsplash_api.protocol.model.UserApiEntity

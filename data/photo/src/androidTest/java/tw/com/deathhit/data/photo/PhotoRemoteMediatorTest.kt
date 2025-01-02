@@ -11,8 +11,8 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import tw.com.deathhit.core.app_database.AppDatabase
-import tw.com.deathhit.core.app_database.view.PhotoItemView
+import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
+import tw.com.deathhit.core.sunflower_clone_database.view.PhotoItemView
 import tw.com.deathhit.core.unsplash_api.protocol.model.PhotoApiEntity
 import tw.com.deathhit.data.photo.config.TestUnsplashService
 import tw.com.deathhit.data.photo.config.buildAppDatabase
@@ -20,13 +20,13 @@ import tw.com.deathhit.data.photo.config.generatePhotoApiEntities
 
 @OptIn(ExperimentalPagingApi::class)
 class PhotoRemoteMediatorTest {
-    private lateinit var appDatabase: AppDatabase
+    private lateinit var sunflowerCloneDatabase: SunflowerCloneDatabase
 
     @Before
     fun setup() {
         val context = ApplicationProvider.getApplicationContext<Context>()
 
-        appDatabase = buildAppDatabase(context)
+        sunflowerCloneDatabase = buildAppDatabase(context)
     }
 
     @Test
@@ -49,8 +49,8 @@ class PhotoRemoteMediatorTest {
         }
 
         val remoteMediator = PhotoRemoteMediator(
-            appDatabase = appDatabase,
             plantName = "plantName",
+            sunflowerCloneDatabase = sunflowerCloneDatabase,
             unsplashService = unsplashService
         )
 
@@ -81,8 +81,8 @@ class PhotoRemoteMediatorTest {
         }
 
         val remoteMediator = PhotoRemoteMediator(
-            appDatabase = appDatabase,
             plantName = "plantName",
+            sunflowerCloneDatabase = sunflowerCloneDatabase,
             unsplashService = unsplashService
         )
 
@@ -114,8 +114,8 @@ class PhotoRemoteMediatorTest {
         }
 
         val remoteMediator = PhotoRemoteMediator(
-            appDatabase = appDatabase,
             plantName = "plantName",
+            sunflowerCloneDatabase = sunflowerCloneDatabase,
             unsplashService = unsplashService
         )
 

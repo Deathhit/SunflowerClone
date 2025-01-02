@@ -2,8 +2,8 @@ package tw.com.deathhit.data.photo.config
 
 import android.content.Context
 import androidx.room.Room
-import tw.com.deathhit.core.app_database.AppDatabase
-import tw.com.deathhit.core.app_database.entity.PhotoEntity
+import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
+import tw.com.deathhit.core.sunflower_clone_database.entity.PhotoEntity
 import tw.com.deathhit.core.unsplash_api.protocol.model.PhotoApiEntity
 import tw.com.deathhit.core.unsplash_api.protocol.model.PhotoUrlsApiEntity
 import tw.com.deathhit.core.unsplash_api.protocol.model.UserApiEntity
@@ -11,7 +11,7 @@ import java.util.UUID
 import kotlin.random.Random
 
 fun buildAppDatabase(context: Context) =
-    Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java).build()
+    Room.inMemoryDatabaseBuilder(context, SunflowerCloneDatabase::class.java).build()
 
 fun generatePhotoApiEntities(from: Int = 3, until: Int = 10) = mutableListOf<PhotoApiEntity>().apply {
     for (i in 0..getRandomInt(from = from, until = until)) {

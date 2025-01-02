@@ -1,7 +1,7 @@
 package tw.com.deathhit.data.plant
 
 import org.junit.Test
-import tw.com.deathhit.core.app_database.view.PlantItemView
+import tw.com.deathhit.core.sunflower_clone_database.view.PlantItemView
 import java.util.UUID
 import kotlin.random.Random
 
