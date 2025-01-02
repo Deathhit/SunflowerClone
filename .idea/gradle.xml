@@ -10,11 +10,12 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app_sunflower_clone" />
-            <option value="$PROJECT_DIR$/app_sunflower_clone_compose" />
-            <option value="$PROJECT_DIR$/app_sunflower_clone_navigation" />
-            <option value="$PROJECT_DIR$/config" />
-            <option value="$PROJECT_DIR$/config/sunflower_clone" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/app/internal" />
+            <option value="$PROJECT_DIR$/app/internal/sunflower_clone_config" />
+            <option value="$PROJECT_DIR$/app/sunflower_clone" />
+            <option value="$PROJECT_DIR$/app/sunflower_clone_compose" />
+            <option value="$PROJECT_DIR$/app/sunflower_clone_navigation" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core/sunflower_clone_database" />
             <option value="$PROJECT_DIR$/core/sunflower_clone_ui" />

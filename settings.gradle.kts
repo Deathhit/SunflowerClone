@@ -20,10 +20,10 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Sunflower Clone"
-include(":app_sunflower_clone")
-include(":app_sunflower_clone_compose")
-include(":app_sunflower_clone_navigation")
-include(":config:sunflower_clone")
+include(":app:internal:sunflower_clone_config")
+include(":app:sunflower_clone")
+include(":app:sunflower_clone_compose")
+include(":app:sunflower_clone_navigation")
 include(":core:sunflower_clone_database")
 include(":core:sunflower_clone_ui")
 include(":core:sunflower_clone_ui_compose")
@@ -42,4 +42,3 @@ include(":feature:garden_planting_list")
 include(":feature:navigation")
 include(":feature:plant_details")
 include(":feature:plant_list")
-
