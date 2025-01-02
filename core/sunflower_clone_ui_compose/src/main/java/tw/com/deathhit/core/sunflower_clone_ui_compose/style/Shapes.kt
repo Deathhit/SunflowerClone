@@ -1,4 +1,4 @@
-package tw.com.deathhit.core.app_ui_compose.style
+package tw.com.deathhit.core.sunflower_clone_ui_compose.style
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Shapes

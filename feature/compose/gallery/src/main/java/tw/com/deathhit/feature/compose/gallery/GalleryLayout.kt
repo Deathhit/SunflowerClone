@@ -33,7 +33,7 @@ import androidx.paging.PagingData
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import kotlinx.coroutines.flow.flowOf
-import tw.com.deathhit.core.app_ui_compose.style.SunflowerCloneTheme
+import tw.com.deathhit.core.sunflower_clone_ui_compose.style.SunflowerCloneTheme
 import tw.com.deathhit.domain.model.PhotoDO
 
 @OptIn(ExperimentalMaterial3Api::class)

@@ -18,7 +18,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import tw.com.deathhit.core.app_ui_compose.style.SunflowerCloneTheme
+import tw.com.deathhit.core.sunflower_clone_ui_compose.style.SunflowerCloneTheme
 import tw.com.deathhit.feature.compose.gallery.GalleryDestination
 import tw.com.deathhit.feature.compose.gallery.GalleryScreen
 import tw.com.deathhit.feature.compose.navigation.NavigationDestination
