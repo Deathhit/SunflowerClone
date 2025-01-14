@@ -42,8 +42,8 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.core.text.HtmlCompat
 import tw.com.deathhit.core.sunflower_clone_ui_compose.CroppedPlantImage
+import tw.com.deathhit.core.sunflower_clone_ui_compose.SunflowerCloneTheme
 import tw.com.deathhit.core.sunflower_clone_ui_compose.style.Dimens
-import tw.com.deathhit.core.sunflower_clone_ui_compose.style.SunflowerCloneTheme
 
 @ExperimentalMaterial3Api
 @Composable
@@ -161,7 +161,7 @@ fun PlantDetailsLayout(
                     }
 
                     Image(
-                        painter = painterResource(id = tw.com.deathhit.core.app_ui.R.drawable.ic_photo_library),
+                        painter = painterResource(id = tw.com.deathhit.core.sunflower_clone_ui.R.drawable.ic_photo_library),
                         contentDescription = "Gallery Icon",
                         Modifier
                             .clickable { onGalleryClick() }

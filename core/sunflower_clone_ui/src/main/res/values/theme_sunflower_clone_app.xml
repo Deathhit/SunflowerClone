@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Change the parent to switch theme globally.-->
+    <style name="Theme.SunflowerClone.App" parent="Theme.SunflowerClone.Green"/>
+    <!--style name="Theme.SunflowerClone.App" parent="Theme.SunflowerClone.Red"/-->
+</resources>

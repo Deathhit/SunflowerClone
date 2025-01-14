@@ -1,81 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.SunflowerClone.PlantItem.Card"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/card_side_margin"
-    android:layout_marginEnd="@dimen/card_side_margin"
-    android:layout_marginBottom="@dimen/card_bottom_margin"
-    app:cardElevation="@dimen/card_elevation"
-    app:cardPreventCornerOverlap="false"
-    app:shapeAppearanceOverlay="@style/ShapeAppearance.Sunflower.Card">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/imageView_plant"
+            style="@style/Widget.SunflowerClone.PlantItem.ImageView"
             android:layout_width="0dp"
-            android:layout_height="@dimen/plant_item_image_height"
-            android:contentDescription="@string/garden_planting_list_image_description"
-            android:scaleType="centerCrop"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/textView_title"
+            style="@style/Widget.SunflowerClone.PlantItem.TextView.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_normal"
-            android:gravity="center_horizontal"
-            android:text="@{viewModel.plantName}"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_marginStart="@dimen/marginNormal"
+            android:layout_marginTop="@dimen/marginNormal"
+            android:layout_marginEnd="@dimen/marginNormal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageView_plant" />
 
         <TextView
             android:id="@+id/textView_plantDateHeader"
+            style="@style/Widget.SunflowerClone.PlantItem.TextView.Body"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin_normal"
-            android:layout_marginStart="@dimen/margin_normal"
-            android:layout_marginTop="@dimen/margin_normal"
-            android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/marginNormal"
             android:text="@string/garden_planting_list_planted"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
             android:textColor="?attr/colorAccent"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView_title" />
+            app:layout_constraintBottom_toTopOf="@+id/textView_plantDateValue"
+            app:layout_constraintEnd_toEndOf="@+id/textView_title"
+            app:layout_constraintStart_toStartOf="@+id/textView_title"
+            app:layout_constraintTop_toBottomOf="@+id/textView_title"
+            app:layout_constraintVertical_bias="1" />
 
         <TextView
             android:id="@+id/textView_plantDateValue"
+            style="@style/Widget.SunflowerClone.PlantItem.TextView.Body"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:gravity="center_horizontal"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView_plantDateHeader" />
+            app:layout_constraintBottom_toTopOf="@+id/textView_waterInterval"
+            app:layout_constraintEnd_toEndOf="@+id/textView_plantDateHeader"
+            app:layout_constraintStart_toStartOf="@+id/textView_plantDateHeader" />
 
         <TextView
             android:id="@+id/textView_waterInterval"
+            style="@style/Widget.SunflowerClone.PlantItem.TextView.Body"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="@dimen/margin_normal"
-            android:gravity="center_horizontal"
-            android:text="@{@plurals/watering_next(viewModel.wateringInterval, viewModel.wateringInterval)}"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
+            android:layout_marginBottom="@dimen/marginNormal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView_plantDateValue" />
+            app:layout_constraintEnd_toEndOf="@+id/textView_plantDateHeader"
+            app:layout_constraintStart_toStartOf="@+id/textView_plantDateHeader" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

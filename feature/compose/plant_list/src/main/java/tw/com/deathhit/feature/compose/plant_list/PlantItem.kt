@@ -14,12 +14,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import tw.com.deathhit.core.sunflower_clone_ui_compose.CroppedPlantImage
-import tw.com.deathhit.core.sunflower_clone_ui_compose.style.SunflowerCloneTheme
+import tw.com.deathhit.core.sunflower_clone_ui_compose.SunflowerCloneTheme
 
 @Composable
 fun PlantItem(name: String, imageUrl: String, onClick: () -> Unit) {
@@ -27,15 +27,15 @@ fun PlantItem(name: String, imageUrl: String, onClick: () -> Unit) {
         onClick = onClick,
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
         modifier = Modifier
-            .padding(horizontal = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.card_side_margin))
-            .padding(bottom = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.card_bottom_margin))
+            .padding(horizontal = 8.dp)
+            .padding(bottom = 8.dp)
     ) {
         Column(Modifier.fillMaxWidth()) {
             CroppedPlantImage(
                 model = imageUrl,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.plant_item_image_height)),
+                    .height(96.dp),
                 contentDescription = stringResource(R.string.plant_list_item_image_description)
             )
             Text(
@@ -45,8 +45,8 @@ fun PlantItem(name: String, imageUrl: String, onClick: () -> Unit) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(
-                        horizontal = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.margin_normal),
-                        vertical = dimensionResource(id = tw.com.deathhit.core.app_ui.R.dimen.margin_normal)
+                        horizontal = 16.dp,
+                        vertical = 16.dp
                     )
                     .wrapContentWidth(Alignment.CenterHorizontally)
             )

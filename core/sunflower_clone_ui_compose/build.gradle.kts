@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "tw.com.deathhit.core.app_ui_compose"
+    namespace = "tw.com.deathhit.core.sunflower_clone_ui_compose"
     compileSdk = rootProject.extra["compileSdk"] as Int
 
     defaultConfig {

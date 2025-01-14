@@ -39,12 +39,12 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
-import tw.com.deathhit.core.sunflower_clone_ui_compose.style.SunflowerCloneTheme
+import tw.com.deathhit.core.sunflower_clone_ui_compose.SunflowerCloneTheme
 import tw.com.deathhit.feature.compose.garden_planting_list.GardenPlantingListLayout
 import tw.com.deathhit.feature.compose.navigation.enum_type.NavigationPage
 import tw.com.deathhit.feature.compose.plant_list.PlantListLayout
 
-@OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NavigationLayout(
     myGardenPage: @Composable () -> Unit,

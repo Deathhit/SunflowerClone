@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.SunflowerClone" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="dimenFabBottomPadding">@dimen/fabBottomPadding</item>
+        <item name="dimenMarginLarge">@dimen/marginLarge</item>
+        <item name="dimenMarginNormal">@dimen/marginNormal</item>
+        <item name="dimenMarginSmall">@dimen/marginSmall</item>
+        <item name="dimenPlantDetailsMaxImageHeight">@dimen/plantDetailsMaxImageHeight</item>
+        <item name="dimenPlantItemCornerRadius">@dimen/plantItemCornerRadius</item>
+        <item name="dimenPlantItemElevation">@dimen/plantItemElevation</item>
+        <item name="dimenPlantItemImageHeight">@dimen/plantItemImageHeight</item>
+        <item name="intPlantListColumns">@integer/plantListColumns</item>
+        <item name="intSlideDuration">@integer/slideDuration</item>
+    </style>
+</resources>

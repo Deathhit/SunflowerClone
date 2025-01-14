@@ -10,13 +10,13 @@ enum class NavigationPage(
     @StringRes val titleResId: Int,
 ) {
     MY_GARDEN(
-        tw.com.deathhit.core.app_ui.R.drawable.ic_my_garden_active,
-        tw.com.deathhit.core.app_ui.R.drawable.ic_my_garden_inactive,
+        tw.com.deathhit.core.sunflower_clone_ui.R.drawable.ic_my_garden_active,
+        tw.com.deathhit.core.sunflower_clone_ui.R.drawable.ic_my_garden_inactive,
         R.string.navigation_tab_my_garden
     ),
     PLANT_LIST(
-        tw.com.deathhit.core.app_ui.R.drawable.ic_plant_list_active,
-        tw.com.deathhit.core.app_ui.R.drawable.ic_plant_list_inactive,
+        tw.com.deathhit.core.sunflower_clone_ui.R.drawable.ic_plant_list_active,
+        tw.com.deathhit.core.sunflower_clone_ui.R.drawable.ic_plant_list_inactive,
         R.string.navigation_tab_plant_list
     )
 }

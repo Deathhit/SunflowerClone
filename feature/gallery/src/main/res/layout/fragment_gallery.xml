@@ -10,12 +10,8 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:paddingStart="@dimen/card_side_margin"
-        android:paddingTop="@dimen/gallery_header_margin"
-        android:paddingEnd="@dimen/card_side_margin"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="@integer/grid_columns"
+        style="@style/Widget.SunflowerClone.PlantList.RecyclerView"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:listitem="@layout/item_photo" />
 
     <com.google.android.material.appbar.AppBarLayout

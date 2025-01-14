@@ -9,16 +9,15 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
+import androidx.compose.ui.unit.dp
 import androidx.paging.PagingData
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import kotlinx.coroutines.flow.flowOf
-import tw.com.deathhit.core.app_ui.R
-import tw.com.deathhit.core.sunflower_clone_ui_compose.style.SunflowerCloneTheme
+import tw.com.deathhit.core.sunflower_clone_ui_compose.SunflowerCloneTheme
 import tw.com.deathhit.domain.model.PlantDO
 
 @Composable
@@ -32,8 +31,8 @@ fun PlantListLayout(
             .fillMaxSize()
             .imePadding(),
         contentPadding = PaddingValues(
-            horizontal = dimensionResource(id = R.dimen.card_side_margin),
-            vertical = dimensionResource(id = R.dimen.header_margin)
+            horizontal = 8.dp,
+            vertical = 16.dp
         )
     ) {
         items(

@@ -2,14 +2,9 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.SunflowerClone.PlantItem.Card"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/card_side_margin"
-    android:layout_marginEnd="@dimen/card_side_margin"
-    android:layout_marginBottom="@dimen/card_bottom_margin"
-    app:cardElevation="@dimen/card_elevation"
-    app:cardPreventCornerOverlap="false"
-    app:shapeAppearanceOverlay="@style/ShapeAppearance.Sunflower.Card">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,21 +13,20 @@
         <ImageView
             android:id="@+id/imageView_plant"
             android:layout_width="0dp"
-            android:layout_height="@dimen/plant_item_image_height"
-            android:contentDescription="@string/gallery_image_description"
-            android:scaleType="centerCrop"
+            android:layout_height="wrap_content"
+            style="@style/Widget.SunflowerClone.PlantItem.ImageView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/textView_photographer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_normal"
-            android:layout_marginBottom="@dimen/margin_normal"
-            android:gravity="center_horizontal"
-            android:textAppearance="?attr/textAppearanceListItem"
+            style="@style/Widget.SunflowerClone.PlantItem.TextView.Title"
+            android:layout_marginTop="?attr/dimenMarginNormal"
+            android:layout_marginBottom="?attr/dimenMarginNormal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -114,12 +114,12 @@ class NavigationFragment : Fragment() {
             _tabLayoutMediator = TabLayoutMediator(tabLayout, viewPager) { tab, position ->
                 when (position) {
                     POS_MY_GARDEN -> {
-                        tab.setIcon(tw.com.deathhit.core.app_ui.R.drawable.garden_tab_selector)
+                        tab.setIcon(tw.com.deathhit.core.sunflower_clone_ui.R.drawable.garden_tab_selector)
                         tab.text = getString(R.string.navigation_tab_my_garden)
                     }
 
                     POS_PLANT_LIST -> {
-                        tab.setIcon(tw.com.deathhit.core.app_ui.R.drawable.plant_list_tab_selector)
+                        tab.setIcon(tw.com.deathhit.core.sunflower_clone_ui.R.drawable.plant_list_tab_selector)
                         tab.text = getString(R.string.navigation_tab_plant_list)
                     }
                 }
