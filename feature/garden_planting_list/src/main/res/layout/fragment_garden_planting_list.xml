@@ -4,5 +4,5 @@
     android:id="@+id/recyclerView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/Widget.SunflowerClone.PlantList.RecyclerView"
+    style="@style/Widget.SunflowerClone.RecyclerView.PlantList"
     tools:listitem="@layout/item_garden_planting" />

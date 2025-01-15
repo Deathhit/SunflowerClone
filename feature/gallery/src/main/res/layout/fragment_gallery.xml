@@ -10,7 +10,7 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        style="@style/Widget.SunflowerClone.PlantList.RecyclerView"
+        style="@style/Widget.SunflowerClone.RecyclerView.PlantList"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:listitem="@layout/item_photo" />
 
@@ -21,12 +21,24 @@
         android:fitsSystemWindows="true"
         app:liftOnScrollColor="?attr/colorSurface">
 
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:titleEnabled="false"
+            app:toolbarId="@id/toolbar">
+
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:navigationIcon="@drawable/ic_detail_back_no_circle"
+            android:layout_height="wrap_content"
+            style="@style/Widget.SunflowerClone.Toolbar.Normal"
+            app:layout_collapseMode="parallax"
+            app:navigationIcon="@drawable/ic_detail_back"
             app:title="@string/gallery_title" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
 

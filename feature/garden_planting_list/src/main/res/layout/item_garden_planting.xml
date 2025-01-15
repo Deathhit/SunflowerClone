@@ -2,7 +2,7 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/Widget.SunflowerClone.PlantItem.Card"
+    style="@style/Widget.SunflowerClone.Card.PlantItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -12,7 +12,7 @@
 
         <ImageView
             android:id="@+id/imageView_plant"
-            style="@style/Widget.SunflowerClone.PlantItem.ImageView"
+            style="@style/Widget.SunflowerClone.ImageView.PlantItem"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -22,22 +22,24 @@
 
         <TextView
             android:id="@+id/textView_title"
-            style="@style/Widget.SunflowerClone.PlantItem.TextView.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/marginNormal"
             android:layout_marginTop="@dimen/marginNormal"
             android:layout_marginEnd="@dimen/marginNormal"
+            android:gravity="center_horizontal"
+            android:textSize="?attr/dimenTextSizeLarge"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageView_plant" />
 
         <TextView
             android:id="@+id/textView_plantDateHeader"
-            style="@style/Widget.SunflowerClone.PlantItem.TextView.Body"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/marginNormal"
+            android:gravity="center_horizontal"
             android:text="@string/garden_planting_list_planted"
             android:textColor="?attr/colorAccent"
             android:textStyle="bold"
@@ -49,19 +51,19 @@
 
         <TextView
             android:id="@+id/textView_plantDateValue"
-            style="@style/Widget.SunflowerClone.PlantItem.TextView.Body"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             app:layout_constraintBottom_toTopOf="@+id/textView_waterInterval"
             app:layout_constraintEnd_toEndOf="@+id/textView_plantDateHeader"
             app:layout_constraintStart_toStartOf="@+id/textView_plantDateHeader" />
 
         <TextView
             android:id="@+id/textView_waterInterval"
-            style="@style/Widget.SunflowerClone.PlantItem.TextView.Body"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/marginNormal"
+            android:gravity="center_horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView_plantDateHeader"
             app:layout_constraintStart_toStartOf="@+id/textView_plantDateHeader" />

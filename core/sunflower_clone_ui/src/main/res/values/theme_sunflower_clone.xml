@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.SunflowerClone" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:textSize">?attr/dimenTextSizeNormal</item>
         <item name="dimenFabBottomPadding">@dimen/fabBottomPadding</item>
         <item name="dimenMarginLarge">@dimen/marginLarge</item>
         <item name="dimenMarginNormal">@dimen/marginNormal</item>
@@ -9,6 +10,9 @@
         <item name="dimenPlantItemCornerRadius">@dimen/plantItemCornerRadius</item>
         <item name="dimenPlantItemElevation">@dimen/plantItemElevation</item>
         <item name="dimenPlantItemImageHeight">@dimen/plantItemImageHeight</item>
+        <item name="dimenTextSizeLarge">@dimen/textSizeLarge</item>
+        <item name="dimenTextSizeNormal">@dimen/textSizeNormal</item>
+        <item name="dimenTextSizeSmall">@dimen/textSizeSmall</item>
         <item name="intPlantListColumns">@integer/plantListColumns</item>
         <item name="intSlideDuration">@integer/slideDuration</item>
     </style>

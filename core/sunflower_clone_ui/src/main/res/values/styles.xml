@@ -1,30 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Widget.SunflowerClone.PlantItem.Card" parent="Widget.Material3.CardView.Outlined">
+    <style name="Widget.SunflowerClone.Card.PlantItem" parent="Widget.Material3.CardView.Outlined">
         <item name="android:layout_margin">@dimen/marginSmall</item>
         <item name="cardPreventCornerOverlap">false</item>
         <item name="elevation">@dimen/plantItemElevation</item>
         <item name="shapeAppearanceOverlay">@style/ShapeAppearance.SunflowerClone.PlantItem</item>
     </style>
 
-    <style name="Widget.SunflowerClone.PlantItem.ImageView" parent="">
+    <style name="Widget.SunflowerClone.ImageView.PlantItem" parent="">
         <item name="android:contentDescription">@string/plant_image_description</item>
         <item name="android:minHeight">?attr/dimenPlantItemImageHeight</item>
         <item name="android:scaleType">centerCrop</item>
     </style>
 
-    <style name="Widget.SunflowerClone.PlantItem.TextView.Body" parent="Widget.AppCompat.TextView">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textAppearance">?attr/textAppearanceListItemSecondary</item>
-    </style>
-
-    <style name="Widget.SunflowerClone.PlantItem.TextView.Title" parent="Widget.AppCompat.TextView">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textAppearance">?attr/textAppearanceListItem</item>
-    </style>
-
-    <style name="Widget.SunflowerClone.PlantList.RecyclerView" parent="">
+    <style name="Widget.SunflowerClone.RecyclerView.PlantList" parent="">
         <item name="android:clipToPadding">false</item>
         <item name="android:paddingBottom">?attr/dimenMarginLarge</item>
         <item name="android:paddingEnd">?attr/dimenMarginSmall</item>
@@ -33,4 +23,6 @@
         <item name="layoutManager">androidx.recyclerview.widget.GridLayoutManager</item>
         <item name="spanCount">?attr/intPlantListColumns</item>
     </style>
+
+    <style name="Widget.SunflowerClone.Toolbar.Normal" parent="Widget.MaterialComponents.Toolbar.PrimarySurface" />
 </resources>

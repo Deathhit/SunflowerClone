@@ -1,14 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- We don't need to define colors here because they are already included by Material 3.-->
+<?xml version="1.0" encoding="utf-8"?><!-- We don't need to define colors here because they are already included by Material 3.-->
 <resources>
-    <attr name="dimenFabBottomPadding" format="dimension"/>
-    <attr name="dimenMarginLarge" format="dimension"/>
-    <attr name="dimenMarginNormal" format="dimension"/>
-    <attr name="dimenMarginSmall" format="dimension"/>
-    <attr name="dimenPlantDetailsMaxImageHeight" format="dimension"/>
-    <attr name="dimenPlantItemCornerRadius" format="dimension"/>
-    <attr name="dimenPlantItemElevation" format="dimension"/>
-    <attr name="dimenPlantItemImageHeight" format="dimension"/>
-    <attr name="intPlantListColumns" format="integer"/>
-    <attr name="intSlideDuration" format="integer"/>
+    <attr name="dimenFabBottomPadding" format="dimension" />
+    <attr name="dimenMarginLarge" format="dimension" />
+    <attr name="dimenMarginNormal" format="dimension" />
+    <attr name="dimenMarginSmall" format="dimension" />
+    <attr name="dimenPlantDetailsMaxImageHeight" format="dimension" />
+    <attr name="dimenPlantItemCornerRadius" format="dimension" />
+    <attr name="dimenPlantItemElevation" format="dimension" />
+    <attr name="dimenPlantItemImageHeight" format="dimension" />
+    <attr name="dimenTextSizeLarge" format="dimension" />
+    <attr name="dimenTextSizeNormal" format="dimension" />
+    <attr name="dimenTextSizeSmall" format="dimension" />
+    <attr name="intPlantListColumns" format="integer" />
+    <attr name="intSlideDuration" format="integer" />
 </resources>
