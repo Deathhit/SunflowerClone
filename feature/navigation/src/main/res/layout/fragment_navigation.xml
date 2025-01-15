@@ -26,9 +26,9 @@
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar"
+                style="@style/Widget.SunflowerClone.Toolbar.Normal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Widget.SunflowerClone.Toolbar.Normal"
                 app:layout_collapseMode="parallax" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
