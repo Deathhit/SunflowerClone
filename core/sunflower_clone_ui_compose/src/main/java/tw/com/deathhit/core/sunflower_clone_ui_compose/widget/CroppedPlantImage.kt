@@ -1,4 +1,4 @@
-package tw.com.deathhit.core.sunflower_clone_ui_compose
+package tw.com.deathhit.core.sunflower_clone_ui_compose.widget
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
