@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="gallery_image_description">Picture of plant</string>
     <string name="gallery_title">Photos by Unsplash</string>
     <string name="gallery_toast_unable_to_open_link">Unable to open link</string>
 </resources>
