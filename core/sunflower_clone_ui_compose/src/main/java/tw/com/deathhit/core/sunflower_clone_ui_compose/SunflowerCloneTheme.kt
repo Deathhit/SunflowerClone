@@ -16,6 +16,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
+import tw.com.deathhit.core.sunflower_clone_ui_compose.SunflowerCloneTheme.Colors
 import tw.com.deathhit.core.sunflower_clone_ui_compose.style.Shapes
 import tw.com.deathhit.core.sunflower_clone_ui_compose.style.Typography
 
@@ -26,103 +28,110 @@ fun SunflowerCloneTheme(
     var colorScheme: ColorScheme? by remember { mutableStateOf(null) }
 
     MaterialTheme(
-        colorScheme = colorScheme ?: SunflowerCloneTheme.getColorScheme().also { colorScheme = it },
+        colorScheme = colorScheme ?: getColorScheme().also { colorScheme = it },
         shapes = Shapes,
         typography = Typography,
         content = content
     )
 }
 
+@Composable
+@ReadOnlyComposable
+private fun getColorScheme() = if (isSystemInDarkTheme())
+    darkColorScheme(
+        primary = Colors.primary,
+        onPrimary = Colors.onPrimary,
+        primaryContainer = Colors.primaryContainer,
+        onPrimaryContainer = Colors.onPrimaryContainer,
+        inversePrimary = Colors.inversePrimary,
+        secondary = Colors.secondary,
+        onSecondary = Colors.onSecondary,
+        secondaryContainer = Colors.secondaryContainer,
+        onSecondaryContainer = Colors.onSecondaryContainer,
+        tertiary = Colors.tertiary,
+        onTertiary = Colors.onTertiary,
+        tertiaryContainer = Colors.tertiaryContainer,
+        onTertiaryContainer = Colors.onTertiaryContainer,
+        background = Colors.background,
+        onBackground = Colors.onBackground,
+        surface = Colors.surface,
+        onSurface = Colors.onSurface,
+        surfaceVariant = Colors.surfaceVariant,
+        onSurfaceVariant = Colors.onSurfaceVariant,
+        inverseSurface = Colors.inverseSurface,
+        inverseOnSurface = Colors.inverseOnSurface,
+        error = Colors.error,
+        onError = Colors.onError,
+        errorContainer = Colors.errorContainer,
+        onErrorContainer = Colors.onErrorContainer,
+        outline = Colors.outline,
+        outlineVariant = Colors.outlineVariant,
+        surfaceBright = Colors.surfaceBright,
+        surfaceContainer = Colors.surfaceContainer,
+        surfaceContainerHigh = Colors.surfaceContainerHigh,
+        surfaceContainerHighest = Colors.surfaceContainerHighest,
+        surfaceContainerLow = Colors.surfaceContainerLow,
+        surfaceContainerLowest = Colors.surfaceContainerLowest,
+        surfaceDim = Colors.surfaceDim
+    )
+else
+    lightColorScheme(
+        primary = Colors.primary,
+        onPrimary = Colors.onPrimary,
+        primaryContainer = Colors.primaryContainer,
+        onPrimaryContainer = Colors.onPrimaryContainer,
+        inversePrimary = Colors.inversePrimary,
+        secondary = Colors.secondary,
+        onSecondary = Colors.onSecondary,
+        secondaryContainer = Colors.secondaryContainer,
+        onSecondaryContainer = Colors.onSecondaryContainer,
+        tertiary = Colors.tertiary,
+        onTertiary = Colors.onTertiary,
+        tertiaryContainer = Colors.tertiaryContainer,
+        onTertiaryContainer = Colors.onTertiaryContainer,
+        background = Colors.background,
+        onBackground = Colors.onBackground,
+        surface = Colors.surface,
+        onSurface = Colors.onSurface,
+        surfaceVariant = Colors.surfaceVariant,
+        onSurfaceVariant = Colors.onSurfaceVariant,
+        inverseSurface = Colors.inverseSurface,
+        inverseOnSurface = Colors.inverseOnSurface,
+        error = Colors.error,
+        onError = Colors.onError,
+        errorContainer = Colors.errorContainer,
+        onErrorContainer = Colors.onErrorContainer,
+        outline = Colors.outline,
+        outlineVariant = Colors.outlineVariant,
+        surfaceBright = Colors.surfaceBright,
+        surfaceContainer = Colors.surfaceContainer,
+        surfaceContainerHigh = Colors.surfaceContainerHigh,
+        surfaceContainerHighest = Colors.surfaceContainerHighest,
+        surfaceContainerLow = Colors.surfaceContainerLow,
+        surfaceContainerLowest = Colors.surfaceContainerLowest,
+        surfaceDim = Colors.surfaceDim
+    )
+
 object SunflowerCloneTheme {
     private val typedValue = TypedValue()
 
     @Composable
     @ReadOnlyComposable
-    internal fun getColorScheme() = if (isSystemInDarkTheme())
-        darkColorScheme(
-            primary = Colors.primary,
-            onPrimary = Colors.onPrimary,
-            primaryContainer = Colors.primaryContainer,
-            onPrimaryContainer = Colors.onPrimaryContainer,
-            inversePrimary = Colors.inversePrimary,
-            secondary = Colors.secondary,
-            onSecondary = Colors.onSecondary,
-            secondaryContainer = Colors.secondaryContainer,
-            onSecondaryContainer = Colors.onSecondaryContainer,
-            tertiary = Colors.tertiary,
-            onTertiary = Colors.onTertiary,
-            tertiaryContainer = Colors.tertiaryContainer,
-            onTertiaryContainer = Colors.onTertiaryContainer,
-            background = Colors.background,
-            onBackground = Colors.onBackground,
-            surface = Colors.surface,
-            onSurface = Colors.onSurface,
-            surfaceVariant = Colors.surfaceVariant,
-            onSurfaceVariant = Colors.onSurfaceVariant,
-            inverseSurface = Colors.inverseSurface,
-            inverseOnSurface = Colors.inverseOnSurface,
-            error = Colors.error,
-            onError = Colors.onError,
-            errorContainer = Colors.errorContainer,
-            onErrorContainer = Colors.onErrorContainer,
-            outline = Colors.outline,
-            outlineVariant = Colors.outlineVariant,
-            surfaceBright = Colors.surfaceBright,
-            surfaceContainer = Colors.surfaceContainer,
-            surfaceContainerHigh = Colors.surfaceContainerHigh,
-            surfaceContainerHighest = Colors.surfaceContainerHighest,
-            surfaceContainerLow = Colors.surfaceContainerLow,
-            surfaceContainerLowest = Colors.surfaceContainerLowest,
-            surfaceDim = Colors.surfaceDim
-        )
-    else
-        lightColorScheme(
-            primary = Colors.primary,
-            onPrimary = Colors.onPrimary,
-            primaryContainer = Colors.primaryContainer,
-            onPrimaryContainer = Colors.onPrimaryContainer,
-            inversePrimary = Colors.inversePrimary,
-            secondary = Colors.secondary,
-            onSecondary = Colors.onSecondary,
-            secondaryContainer = Colors.secondaryContainer,
-            onSecondaryContainer = Colors.onSecondaryContainer,
-            tertiary = Colors.tertiary,
-            onTertiary = Colors.onTertiary,
-            tertiaryContainer = Colors.tertiaryContainer,
-            onTertiaryContainer = Colors.onTertiaryContainer,
-            background = Colors.background,
-            onBackground = Colors.onBackground,
-            surface = Colors.surface,
-            onSurface = Colors.onSurface,
-            surfaceVariant = Colors.surfaceVariant,
-            onSurfaceVariant = Colors.onSurfaceVariant,
-            inverseSurface = Colors.inverseSurface,
-            inverseOnSurface = Colors.inverseOnSurface,
-            error = Colors.error,
-            onError = Colors.onError,
-            errorContainer = Colors.errorContainer,
-            onErrorContainer = Colors.onErrorContainer,
-            outline = Colors.outline,
-            outlineVariant = Colors.outlineVariant,
-            surfaceBright = Colors.surfaceBright,
-            surfaceContainer = Colors.surfaceContainer,
-            surfaceContainerHigh = Colors.surfaceContainerHigh,
-            surfaceContainerHighest = Colors.surfaceContainerHighest,
-            surfaceContainerLow = Colors.surfaceContainerLow,
-            surfaceContainerLowest = Colors.surfaceContainerLowest,
-            surfaceDim = Colors.surfaceDim
-        )
+    private fun colorAttribute(@AttrRes attrId: Int) = colorResource(resolveAttrId(attrId))
 
     @Composable
     @ReadOnlyComposable
-    private fun colorAttribute(@AttrRes attrId: Int) =
-        colorResource(typedValue.apply {
-            LocalContext.current.theme.resolveAttribute(
-                attrId,
-                this,
-                true
-            )
-        }.resourceId)
+    private fun dimenAttribute(@AttrRes attrId: Int) = dimensionResource(resolveAttrId(attrId))
+
+    @Composable
+    @ReadOnlyComposable
+    private fun resolveAttrId(@AttrRes attrId: Int) = typedValue.apply {
+        LocalContext.current.theme.resolveAttribute(
+            attrId,
+            this,
+            true
+        )
+    }.resourceId
 
     object Colors {
         val primary: Color @Composable @ReadOnlyComposable get() = colorAttribute(com.google.android.material.R.attr.colorPrimary)
@@ -160,5 +169,16 @@ object SunflowerCloneTheme {
         val surfaceContainerHigh: Color @Composable @ReadOnlyComposable get() = colorAttribute(com.google.android.material.R.attr.colorSurfaceContainerHigh)
         val surfaceContainerHighest: Color
             @Composable @ReadOnlyComposable get() = colorAttribute(com.google.android.material.R.attr.colorSurfaceContainerHighest)
+    }
+
+    object Dimens {
+        val fabBottomPadding @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenFabBottomPadding)
+        val marginLarge @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenMarginLarge)
+        val marginNormal @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenMarginNormal)
+        val marginSmall @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenMarginSmall)
+        val plantDetailsMaxImageHeight @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenPlantDetailsMaxImageHeight)
+        val plantItemCornerRadius @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenPlantItemCornerRadius)
+        val plantItemElevation @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenPlantItemElevation)
+        val plantItemImageHeight @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenPlantItemImageHeight)
     }
 }
