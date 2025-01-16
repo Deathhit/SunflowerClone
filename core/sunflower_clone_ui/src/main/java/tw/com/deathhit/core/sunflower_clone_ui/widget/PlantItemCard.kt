@@ -13,9 +13,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import tw.com.deathhit.core.sunflower_clone_ui.SunflowerCloneTheme
 
-@Suppress("UnusedReceiverParameter")
 @Composable
-fun SunflowerCloneTheme.PlantItemCard(
+fun PlantItemCard(
     modifier: Modifier = Modifier,
     content: @Composable ColumnScope.() -> Unit
 ) {
@@ -37,7 +36,7 @@ private fun SunflowerCloneTheme.PlantItemCardPreview() {
     val padding = SunflowerCloneTheme.Dimens.marginNormal
 
     SunflowerCloneTheme {
-        SunflowerCloneTheme.PlantItemCard(
+        PlantItemCard(
             modifier = Modifier
                 .padding(padding)
         ) {

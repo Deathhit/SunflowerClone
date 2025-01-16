@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.SunflowerClone.Red" parent="Theme.SunflowerClone">
+        <item name="android:colorBackground">@color/sunflowerCloneRed_background</item>
+
         <item name="colorPrimary">@color/sunflowerCloneRed_primary</item>
         <item name="colorOnPrimary">@color/sunflowerCloneRed_onPrimary</item>
         <item name="colorPrimaryContainer">@color/sunflowerCloneRed_primaryContainer</item>
@@ -17,7 +19,6 @@
         <item name="colorOnError">@color/sunflowerCloneRed_onError</item>
         <item name="colorErrorContainer">@color/sunflowerCloneRed_errorContainer</item>
         <item name="colorOnErrorContainer">@color/sunflowerCloneRed_onErrorContainer</item>
-        <item name="android:colorBackground">@color/sunflowerCloneRed_background</item>
         <item name="colorOnBackground">@color/sunflowerCloneRed_onBackground</item>
         <item name="colorSurface">@color/sunflowerCloneRed_surface</item>
         <item name="colorOnSurface">@color/sunflowerCloneRed_onSurface</item>
@@ -50,6 +51,8 @@
     </style>
 
     <style name="ThemeOverlay.SunflowerClone.Red.MediumContrast" parent="Theme.SunflowerClone">
+        <item name="android:colorBackground">@color/sunflowerCloneRed_background_mediumContrast</item>
+
         <item name="colorPrimary">@color/sunflowerCloneRed_primary_mediumContrast</item>
         <item name="colorOnPrimary">@color/sunflowerCloneRed_onPrimary_mediumContrast</item>
         <item name="colorPrimaryContainer">@color/sunflowerCloneRed_primaryContainer_mediumContrast</item>
@@ -66,7 +69,6 @@
         <item name="colorOnError">@color/sunflowerCloneRed_onError_mediumContrast</item>
         <item name="colorErrorContainer">@color/sunflowerCloneRed_errorContainer_mediumContrast</item>
         <item name="colorOnErrorContainer">@color/sunflowerCloneRed_onErrorContainer_mediumContrast</item>
-        <item name="android:colorBackground">@color/sunflowerCloneRed_background_mediumContrast</item>
         <item name="colorOnBackground">@color/sunflowerCloneRed_onBackground_mediumContrast</item>
         <item name="colorSurface">@color/sunflowerCloneRed_surface_mediumContrast</item>
         <item name="colorOnSurface">@color/sunflowerCloneRed_onSurface_mediumContrast</item>
@@ -99,6 +101,8 @@
     </style>
     
     <style name="ThemeOverlay.SunflowerClone.Red.HighContrast" parent="Theme.SunflowerClone">
+        <item name="android:colorBackground">@color/sunflowerCloneRed_background_highContrast</item>
+
         <item name="colorPrimary">@color/sunflowerCloneRed_primary_highContrast</item>
         <item name="colorOnPrimary">@color/sunflowerCloneRed_onPrimary_highContrast</item>
         <item name="colorPrimaryContainer">@color/sunflowerCloneRed_primaryContainer_highContrast</item>
@@ -115,7 +119,6 @@
         <item name="colorOnError">@color/sunflowerCloneRed_onError_highContrast</item>
         <item name="colorErrorContainer">@color/sunflowerCloneRed_errorContainer_highContrast</item>
         <item name="colorOnErrorContainer">@color/sunflowerCloneRed_onErrorContainer_highContrast</item>
-        <item name="android:colorBackground">@color/sunflowerCloneRed_background_highContrast</item>
         <item name="colorOnBackground">@color/sunflowerCloneRed_onBackground_highContrast</item>
         <item name="colorSurface">@color/sunflowerCloneRed_surface_highContrast</item>
         <item name="colorOnSurface">@color/sunflowerCloneRed_onSurface_highContrast</item>
