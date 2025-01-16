@@ -12,6 +12,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.core.view.WindowCompat
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -61,6 +62,13 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+        configureStatusBar()
+    }
+
+    private fun configureStatusBar() {
+        WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars =
+            true
     }
 
     @OptIn(ExperimentalMaterial3Api::class)

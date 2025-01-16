@@ -3,6 +3,7 @@ package tw.com.deathhit.app.sunflower_clone
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.lifecycle.Lifecycle
@@ -14,10 +15,10 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import tw.com.deathhit.app.sunflower_clone.databinding.ActivityMainBinding
+import tw.com.deathhit.app.sunflower_clone.model.MainScreen
 import tw.com.deathhit.feature.gallery.GalleryFragment
 import tw.com.deathhit.feature.navigation.NavigationFragment
 import tw.com.deathhit.feature.plant_details.PlantDetailsFragment
-import tw.com.deathhit.app.sunflower_clone.model.MainScreen
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -36,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         savedInstanceState ?: run {
             viewModel.goToInitialScreen()
         }
+
+        configureStatusBar()
 
         bindViewModelState()
     }
@@ -92,6 +95,11 @@ class MainActivity : AppCompatActivity() {
                     }
             }
         }
+    }
+
+    private fun configureStatusBar() {
+        WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars =
+            true
     }
 
     private fun goToInitialScreen(screen: MainScreen) {
