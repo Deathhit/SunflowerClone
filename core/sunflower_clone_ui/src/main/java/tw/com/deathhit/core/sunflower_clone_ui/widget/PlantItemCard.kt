@@ -29,10 +29,9 @@ fun PlantItemCard(
     )
 }
 
-@Suppress("UnusedReceiverParameter")
 @Composable
 @Preview
-private fun SunflowerCloneTheme.PlantItemCardPreview() {
+private fun PlantItemCardPreview() {
     val padding = SunflowerCloneTheme.Dimens.marginNormal
 
     SunflowerCloneTheme {
@@ -41,7 +40,7 @@ private fun SunflowerCloneTheme.PlantItemCardPreview() {
                 .padding(padding)
         ) {
             Text(
-                text = "SunflowerCloneTheme.PlantItemCardPreview",
+                text = "PlantItemCardPreview",
                 modifier = Modifier
                     .padding(padding)
                     .fillMaxWidth(),
