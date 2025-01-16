@@ -1,4 +1,4 @@
-package tw.com.deathhit.core.sunflower_clone_ui_compose
+package tw.com.deathhit.core.sunflower_clone_ui
 
 import android.util.TypedValue
 import androidx.annotation.AttrRes
@@ -17,9 +17,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
-import tw.com.deathhit.core.sunflower_clone_ui_compose.SunflowerCloneTheme.Colors
-import tw.com.deathhit.core.sunflower_clone_ui_compose.style.Shapes
-import tw.com.deathhit.core.sunflower_clone_ui_compose.style.Typography
+import tw.com.deathhit.core.sunflower_clone_ui.SunflowerCloneTheme.Colors
+import tw.com.deathhit.core.sunflower_clone_ui.style.Shapes
+import tw.com.deathhit.core.sunflower_clone_ui.style.Typography
 
 @Composable
 fun SunflowerCloneTheme(
@@ -172,15 +172,15 @@ object SunflowerCloneTheme {
     }
 
     object Dimens {
-        val fabBottomPadding @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenFabBottomPadding)
-        val marginLarge @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenMarginLarge)
-        val marginNormal @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenMarginNormal)
-        val marginSmall @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenMarginSmall)
-        val plantDetailsMaxImageHeight @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenPlantDetailsMaxImageHeight)
-        val plantItemCornerRadius @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenPlantItemCornerRadius)
-        val plantItemImageHeight @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenPlantItemImageHeight)
-        val textSizeLarge @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenTextSizeLarge)
-        val textSizeNormal @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenTextSizeNormal)
-        val textSizeSmall @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenTextSizeSmall)
+        val fabBottomPadding @Composable @ReadOnlyComposable get() = dimenAttribute(R.attr.dimenFabBottomPadding)
+        val marginLarge @Composable @ReadOnlyComposable get() = dimenAttribute(R.attr.dimenMarginLarge)
+        val marginNormal @Composable @ReadOnlyComposable get() = dimenAttribute(R.attr.dimenMarginNormal)
+        val marginSmall @Composable @ReadOnlyComposable get() = dimenAttribute(R.attr.dimenMarginSmall)
+        val plantDetailsMaxImageHeight @Composable @ReadOnlyComposable get() = dimenAttribute(R.attr.dimenPlantDetailsMaxImageHeight)
+        val plantItemCornerRadius @Composable @ReadOnlyComposable get() = dimenAttribute(R.attr.dimenPlantItemCornerRadius)
+        val plantItemImageHeight @Composable @ReadOnlyComposable get() = dimenAttribute(R.attr.dimenPlantItemImageHeight)
+        val textSizeLarge @Composable @ReadOnlyComposable get() = dimenAttribute(R.attr.dimenTextSizeLarge)
+        val textSizeNormal @Composable @ReadOnlyComposable get() = dimenAttribute(R.attr.dimenTextSizeNormal)
+        val textSizeSmall @Composable @ReadOnlyComposable get() = dimenAttribute(R.attr.dimenTextSizeSmall)
     }
 }

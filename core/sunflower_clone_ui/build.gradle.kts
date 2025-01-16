@@ -3,6 +3,7 @@ import org.gradle.internal.extensions.core.extra
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.jetbrains.kotlin.compose)
 }
 
 android {
@@ -14,6 +15,10 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+    }
+
+    buildFeatures {
+        compose = true
     }
 
     buildTypes {
@@ -42,17 +47,38 @@ dependencies {
     //Appcompat
     api(libs.androidx.appcompat)
 
+    //Compose
+    val composeBom = platform(libs.compose.bom)
+    api(composeBom)
+    androidTestApi(composeBom)
+
+    //Compose-Material 3
+    api(libs.compose.material3)
+
+    //Compose-Preview
+    api(libs.compose.ui.preview)
+    debugApi(libs.compose.ui)
+
+    //Compose-View Binding
+    api(libs.compose.ui.viewbinding)
+
     //Constraint Layout
     api(libs.constraintlayout)
+
+    //Constraint Layout-Compose
+    api(libs.constraintlayout.compose)
 
     //Core KTX
     api(libs.androidx.core.ktx)
 
-    //Coroutine
-    implementation(libs.jetbrains.koltin.coroutine)
-
     //Fragment KTX
     api(libs.androidx.fragment.ktx)
+
+    //Glide-Compose
+    api(libs.glide.compose)
+
+    //Hilt-Navigation-Compose
+    api(libs.hilt.navigation.compose)
 
     //Material Design
     api(libs.material)
@@ -60,8 +86,14 @@ dependencies {
     //Paging
     api(libs.paging.runtime)
 
+    //Paging-Compose
+    api(libs.paging.compose)
+
     //Recycler View
     api(libs.recyclerview)
+
+    //View Model-Compose
+    api(libs.viewmodel.compose)
 
     //View Pager 2
     api(libs.viewpager2)

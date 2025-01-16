@@ -41,9 +41,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.core.text.HtmlCompat
-import tw.com.deathhit.core.sunflower_clone_ui_compose.widget.CroppedPlantImage
-import tw.com.deathhit.core.sunflower_clone_ui_compose.SunflowerCloneTheme
-import tw.com.deathhit.core.sunflower_clone_ui_compose.style.Dimens
+import tw.com.deathhit.core.sunflower_clone_ui.widget.CroppedPlantImage
+import tw.com.deathhit.core.sunflower_clone_ui.SunflowerCloneTheme
+import tw.com.deathhit.core.sunflower_clone_ui.style.Dimens
 
 @ExperimentalMaterial3Api
 @Composable

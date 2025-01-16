@@ -18,8 +18,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import tw.com.deathhit.core.sunflower_clone_ui_compose.widget.CroppedPlantImage
-import tw.com.deathhit.core.sunflower_clone_ui_compose.SunflowerCloneTheme
+import tw.com.deathhit.core.sunflower_clone_ui.widget.CroppedPlantImage
+import tw.com.deathhit.core.sunflower_clone_ui.SunflowerCloneTheme
 
 @Composable
 fun PlantItem(name: String, imageUrl: String, onClick: () -> Unit) {
