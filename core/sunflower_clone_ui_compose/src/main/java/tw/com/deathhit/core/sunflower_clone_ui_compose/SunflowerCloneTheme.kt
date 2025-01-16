@@ -178,7 +178,6 @@ object SunflowerCloneTheme {
         val marginSmall @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenMarginSmall)
         val plantDetailsMaxImageHeight @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenPlantDetailsMaxImageHeight)
         val plantItemCornerRadius @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenPlantItemCornerRadius)
-        val plantItemElevation @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenPlantItemElevation)
         val plantItemImageHeight @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenPlantItemImageHeight)
         val textSizeLarge @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenTextSizeLarge)
         val textSizeNormal @Composable @ReadOnlyComposable get() = dimenAttribute(tw.com.deathhit.core.sunflower_clone_ui.R.attr.dimenTextSizeNormal)

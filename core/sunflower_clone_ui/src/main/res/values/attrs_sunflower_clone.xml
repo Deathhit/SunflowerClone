@@ -7,7 +7,6 @@
     <attr name="dimenMarginSmall" format="dimension" />
     <attr name="dimenPlantDetailsMaxImageHeight" format="dimension" />
     <attr name="dimenPlantItemCornerRadius" format="dimension" />
-    <attr name="dimenPlantItemElevation" format="dimension" />
     <attr name="dimenPlantItemImageHeight" format="dimension" />
     <attr name="dimenTextSizeLarge" format="dimension" />
     <attr name="dimenTextSizeNormal" format="dimension" />

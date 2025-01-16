@@ -7,7 +7,6 @@
     <dimen name="marginSmall">8dp</dimen>
     <dimen name="plantDetailsMaxImageHeight">278dp</dimen>
     <dimen name="plantItemCornerRadius">12dp</dimen>
-    <dimen name="plantItemElevation">2dp</dimen>
     <dimen name="plantItemImageHeight">96dp</dimen>
     <dimen name="textSizeLarge">16sp</dimen>
     <dimen name="textSizeNormal">14sp</dimen>

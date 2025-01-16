@@ -9,7 +9,6 @@
         <item name="dimenMarginSmall">@dimen/marginSmall</item>
         <item name="dimenPlantDetailsMaxImageHeight">@dimen/plantDetailsMaxImageHeight</item>
         <item name="dimenPlantItemCornerRadius">@dimen/plantItemCornerRadius</item>
-        <item name="dimenPlantItemElevation">@dimen/plantItemElevation</item>
         <item name="dimenPlantItemImageHeight">@dimen/plantItemImageHeight</item>
         <item name="dimenTextSizeLarge">@dimen/textSizeLarge</item>
         <item name="dimenTextSizeNormal">@dimen/textSizeNormal</item>
