@@ -140,10 +140,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="?attr/dimenMarginNormal"
         android:contentDescription="@string/plant_details_add_plant_to_garden"
-        android:tint="@android:color/white"
+
+        app:backgroundTint="?attr/colorPrimary"
         app:layout_anchor="@id/appBarLayout"
         app:layout_anchorGravity="bottom|end"
-        app:shapeAppearance="@style/ShapeAppearance.Sunflower.FAB"
+        app:shapeAppearance="@style/ShapeAppearance.SunflowerClone.FAB"
         app:srcCompat="@drawable/ic_plus" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

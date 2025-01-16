@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="ShapeAppearance.SunflowerClone.PlantItem" parent="ShapeAppearance.MaterialComponents">
+
+    <style name="ShapeAppearance.SunflowerClone.Card.PlantItem" parent="ShapeAppearance.MaterialComponents">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopLeft">0dp</item>
         <item name="cornerSizeTopRight">?attr/dimenPlantItemCornerRadius</item>
@@ -8,19 +9,13 @@
         <item name="cornerSizeBottomLeft">?attr/dimenPlantItemCornerRadius</item>
     </style>
 
-    <style name="ShapeAppearance.Sunflower.Button.Add" parent="ShapeAppearance.MaterialComponents">
+    <style name="ShapeAppearance.SunflowerClone.Button.Add" parent="ShapeAppearance.MaterialComponents">
         <item name="cornerFamily">rounded</item>
-
         <item name="cornerSizeTopLeft">0dp</item>
-        <item name="cornerSizeTopRight">@dimen/button_corner_radius</item>
+        <item name="cornerSizeTopRight">?attr/dimenFabCornerRadius</item>
         <item name="cornerSizeBottomRight">0dp</item>
-        <item name="cornerSizeBottomLeft">@dimen/button_corner_radius</item>
+        <item name="cornerSizeBottomLeft">?attr/dimenFabCornerRadius</item>
     </style>
 
-    <style
-        name="ShapeAppearance.Sunflower.FAB"
-        parent="ShapeAppearance.MaterialComponents.SmallComponent" />
-
-    <!-- Add plant button -->
-    <dimen name="button_corner_radius">12dp</dimen>
+    <style name="ShapeAppearance.SunflowerClone.FAB" parent="ShapeAppearance.MaterialComponents.SmallComponent" />
 </resources>

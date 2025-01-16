@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="fabBottomPadding">72dp</dimen>
+    <dimen name="fabCornerRadius">12dp</dimen>
     <dimen name="marginLarge">32dp</dimen>
     <dimen name="marginNormal">16dp</dimen>
     <dimen name="marginSmall">8dp</dimen>

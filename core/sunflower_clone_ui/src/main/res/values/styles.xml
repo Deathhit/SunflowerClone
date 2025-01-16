@@ -5,7 +5,7 @@
         <item name="android:layout_margin">@dimen/marginSmall</item>
         <item name="cardPreventCornerOverlap">false</item>
         <item name="elevation">@dimen/plantItemElevation</item>
-        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.SunflowerClone.PlantItem</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.SunflowerClone.Card.PlantItem</item>
     </style>
 
     <style name="Widget.SunflowerClone.ImageView.PlantItem" parent="">

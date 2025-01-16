@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!-- We don't need to define colors here because they are already included by Material 3.-->
 <resources>
     <attr name="dimenFabBottomPadding" format="dimension" />
+    <attr name="dimenFabCornerRadius" format="dimension" />
     <attr name="dimenMarginLarge" format="dimension" />
     <attr name="dimenMarginNormal" format="dimension" />
     <attr name="dimenMarginSmall" format="dimension" />
