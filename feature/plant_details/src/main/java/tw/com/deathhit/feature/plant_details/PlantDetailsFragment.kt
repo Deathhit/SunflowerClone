@@ -10,7 +10,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ShareCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -67,6 +70,8 @@ class PlantDetailsFragment : Fragment() {
         with(binding.textViewDescription) {
             movementMethod = LinkMovementMethod.getInstance()
         }
+
+        configureEdgeToEdge()
 
         bindViewModelState()
     }
@@ -149,6 +154,28 @@ class PlantDetailsFragment : Fragment() {
                         }
                 }
             }
+        }
+    }
+
+    private fun configureEdgeToEdge() {
+        ViewCompat.setOnApplyWindowInsetsListener(requireView()) { root, windowInsets ->
+            val insets = windowInsets.getInsets(
+                WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout()
+            )
+
+            binding.nestedScrollView.updatePadding(
+                bottom = insets.bottom,
+                left = insets.left,
+                right = insets.right
+            )
+
+            binding.appBarLayout.updatePadding(
+                left = insets.left,
+                right = insets.right,
+                top = insets.top
+            )
+
+            WindowInsetsCompat.CONSUMED
         }
     }
 

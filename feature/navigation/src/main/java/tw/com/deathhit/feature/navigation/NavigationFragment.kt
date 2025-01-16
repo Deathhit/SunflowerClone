@@ -100,16 +100,16 @@ class NavigationFragment : Fragment() {
                 WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout()
             )
 
-            root.updatePadding(
-                left = insets.left,
-                right = insets.right,
-                top = insets.top
-            )
-
             binding.viewPager.updatePadding(
                 bottom = insets.bottom,
                 left = insets.left,
                 right = insets.right
+            )
+
+            root.updatePadding(
+                left = insets.left,
+                right = insets.right,
+                top = insets.top
             )
 
           WindowInsetsCompat.CONSUMED
