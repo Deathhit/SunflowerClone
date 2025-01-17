@@ -41,6 +41,7 @@ android {
 dependencies {
     //Coroutine
     implementation(libs.jetbrains.koltin.coroutine)
+    androidTestImplementation(libs.jetbrains.koltin.coroutine.test)
 
     //Retrofit
     implementation(libs.retrofit)

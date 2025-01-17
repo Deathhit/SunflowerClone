@@ -42,10 +42,12 @@ dependencies {
     implementation(project(":core:sunflower_clone_database"))
     implementation(project(":domain"))
 
-    //Coroutine-Test
+    //Coroutine
+    implementation(libs.jetbrains.koltin.coroutine)
     androidTestImplementation(libs.jetbrains.koltin.coroutine.test)
 
-    //Paging-Test
+    //Paging
+    implementation(libs.paging.runtime)
     androidTestImplementation(libs.paging.test)
 
     testImplementation(libs.junit)

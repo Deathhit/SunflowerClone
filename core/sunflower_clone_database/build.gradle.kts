@@ -45,14 +45,10 @@ android {
 dependencies {
     //Coroutine
     implementation(libs.jetbrains.koltin.coroutine)
-
-    //Coroutine-Test
     androidTestImplementation(libs.jetbrains.koltin.coroutine.test)
 
     //Paging
-    api(libs.paging.runtime)
-
-    //Paging-Test
+    implementation(libs.paging.runtime)
     androidTestImplementation(libs.paging.test)
 
     //Room
