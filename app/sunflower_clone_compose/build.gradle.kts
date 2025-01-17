@@ -65,15 +65,25 @@ dependencies {
     implementation(project(":feature:compose:navigation"))
     implementation(project(":feature:compose:plant_details"))
 
-    //Coroutine-Test
+    //Androidx KTX
+    implementation(libs.androidx.core.ktx)
+
+    //Coroutine
+    implementation(libs.jetbrains.koltin.coroutine)
     androidTestImplementation(libs.jetbrains.koltin.coroutine.test)
 
     //Hilt
     ksp(libs.hilt.compiler)
     implementation(libs.hilt)
 
+    //Hilt-Navigation-Compose
+    implementation(libs.hilt.navigation.compose)
+
     //Navigation-Compose
     implementation(libs.navigation.compose)
+
+    //View Model
+    implementation(libs.viewmodel.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

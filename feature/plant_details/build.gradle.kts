@@ -49,7 +49,12 @@ dependencies {
     implementation(project(":core:sunflower_clone_ui"))
     implementation(project(":domain"))
 
-    //Coroutine-Test
+    //Androidx KTX
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.fragment.ktx)
+
+    //Coroutine
+    implementation(libs.jetbrains.koltin.coroutine)
     androidTestImplementation(libs.jetbrains.koltin.coroutine.test)
 
     //Glide

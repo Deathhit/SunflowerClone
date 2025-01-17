@@ -52,12 +52,27 @@ dependencies {
     implementation(project(":feature:compose:garden_planting_list"))
     implementation(project(":feature:compose:plant_list"))
 
-    //Coroutine-Test
+    //Androidx KTX
+    implementation(libs.androidx.core.ktx)
+
+    //Coroutine
+    implementation(libs.jetbrains.koltin.coroutine)
     androidTestImplementation(libs.jetbrains.koltin.coroutine.test)
 
     //Hilt
     ksp(libs.hilt.compiler)
     implementation(libs.hilt)
+
+    //Hilt-Navigation-Compose
+    implementation(libs.hilt.navigation.compose)
+
+    //Paging
+    implementation(libs.paging.runtime)
+    implementation(libs.paging.compose)
+    androidTestImplementation(libs.paging.test)
+
+    //View Model
+    implementation(libs.viewmodel.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

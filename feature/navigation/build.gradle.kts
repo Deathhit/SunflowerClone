@@ -51,7 +51,12 @@ dependencies {
     implementation(project(":feature:garden_planting_list"))
     implementation(project(":feature:plant_list"))
 
-    //Coroutine-Test
+    //Androidx KTX
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.fragment.ktx)
+
+    //Coroutine
+    implementation(libs.jetbrains.koltin.coroutine)
     androidTestImplementation(libs.jetbrains.koltin.coroutine.test)
 
     //Hilt

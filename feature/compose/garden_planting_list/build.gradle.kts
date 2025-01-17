@@ -50,15 +50,27 @@ dependencies {
     implementation(project(":core:sunflower_clone_ui"))
     implementation(project(":domain"))
 
-    //Coroutine-Test
+    //Androidx KTX
+    implementation(libs.androidx.core.ktx)
+
+    //Coroutine
+    implementation(libs.jetbrains.koltin.coroutine)
     androidTestImplementation(libs.jetbrains.koltin.coroutine.test)
 
     //Hilt
     ksp(libs.hilt.compiler)
     implementation(libs.hilt)
 
-    //Paging-Test
+    //Hilt-Navigation-Compose
+    implementation(libs.hilt.navigation.compose)
+
+    //Paging
+    implementation(libs.paging.runtime)
+    implementation(libs.paging.compose)
     androidTestImplementation(libs.paging.test)
+
+    //View Model
+    implementation(libs.viewmodel.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

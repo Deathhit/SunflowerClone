@@ -64,7 +64,11 @@ dependencies {
     implementation(project(":feature:navigation"))
     implementation(project(":feature:plant_details"))
 
-    //Coroutine-Test
+    //Androidx KTX
+    implementation(libs.androidx.core.ktx)
+
+    //Coroutine
+    implementation(libs.jetbrains.koltin.coroutine)
     androidTestImplementation(libs.jetbrains.koltin.coroutine.test)
 
     //Hilt

@@ -68,32 +68,14 @@ dependencies {
     //Constraint Layout-Compose
     api(libs.constraintlayout.compose)
 
-    //Core KTX
-    api(libs.androidx.core.ktx)
-
-    //Fragment KTX
-    api(libs.androidx.fragment.ktx)
-
     //Glide-Compose
     api(libs.glide.compose)
-
-    //Hilt-Navigation-Compose
-    api(libs.hilt.navigation.compose)
 
     //Material Design
     api(libs.material)
 
-    //Paging
-    api(libs.paging.runtime)
-
-    //Paging-Compose
-    api(libs.paging.compose)
-
     //Recycler View
     api(libs.recyclerview)
-
-    //View Model-Compose
-    api(libs.viewmodel.compose)
 
     //View Pager 2
     api(libs.viewpager2)
