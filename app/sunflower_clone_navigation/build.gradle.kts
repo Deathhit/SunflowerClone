@@ -66,6 +66,7 @@ dependencies {
 
     //Androidx KTX
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.fragment.ktx)
 
     //Coroutine
     implementation(libs.jetbrains.koltin.coroutine)
