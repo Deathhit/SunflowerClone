@@ -26,6 +26,7 @@
         <item name="colorOnSurfaceVariant">@color/sunflowerCloneRed_onSurfaceVariant</item>
         <item name="colorOutline">@color/sunflowerCloneRed_outline</item>
         <item name="colorOutlineVariant">@color/sunflowerCloneRed_outlineVariant</item>
+        <item name="colorScrim">@color/sunflowerCloneRed_scrim</item>
         <item name="colorSurfaceInverse">@color/sunflowerCloneRed_inverseSurface</item>
         <item name="colorOnSurfaceInverse">@color/sunflowerCloneRed_inverseOnSurface</item>
         <item name="colorPrimaryInverse">@color/sunflowerCloneRed_inversePrimary</item>
@@ -76,6 +77,7 @@
         <item name="colorOnSurfaceVariant">@color/sunflowerCloneRed_onSurfaceVariant_mediumContrast</item>
         <item name="colorOutline">@color/sunflowerCloneRed_outline_mediumContrast</item>
         <item name="colorOutlineVariant">@color/sunflowerCloneRed_outlineVariant_mediumContrast</item>
+        <item name="colorScrim">@color/sunflowerCloneRed_scrim_mediumContrast</item>
         <item name="colorSurfaceInverse">@color/sunflowerCloneRed_inverseSurface_mediumContrast</item>
         <item name="colorOnSurfaceInverse">@color/sunflowerCloneRed_inverseOnSurface_mediumContrast</item>
         <item name="colorPrimaryInverse">@color/sunflowerCloneRed_inversePrimary_mediumContrast</item>
@@ -126,6 +128,7 @@
         <item name="colorOnSurfaceVariant">@color/sunflowerCloneRed_onSurfaceVariant_highContrast</item>
         <item name="colorOutline">@color/sunflowerCloneRed_outline_highContrast</item>
         <item name="colorOutlineVariant">@color/sunflowerCloneRed_outlineVariant_highContrast</item>
+        <item name="colorScrim">@color/sunflowerCloneRed_scrim_highContrast</item>
         <item name="colorSurfaceInverse">@color/sunflowerCloneRed_inverseSurface_highContrast</item>
         <item name="colorOnSurfaceInverse">@color/sunflowerCloneRed_inverseOnSurface_highContrast</item>
         <item name="colorPrimaryInverse">@color/sunflowerCloneRed_inversePrimary_highContrast</item>

@@ -27,6 +27,7 @@
         <item name="colorOnSurfaceVariant">@color/sunflowerCloneGreen_onSurfaceVariant</item>
         <item name="colorOutline">@color/sunflowerCloneGreen_outline</item>
         <item name="colorOutlineVariant">@color/sunflowerCloneGreen_outlineVariant</item>
+        <item name="colorScrim">@color/sunflowerCloneGreen_scrim</item>
         <item name="colorSurfaceInverse">@color/sunflowerCloneGreen_inverseSurface</item>
         <item name="colorOnSurfaceInverse">@color/sunflowerCloneGreen_inverseOnSurface</item>
         <item name="colorPrimaryInverse">@color/sunflowerCloneGreen_inversePrimary</item>
@@ -77,6 +78,7 @@
         <item name="colorOnSurfaceVariant">@color/sunflowerCloneGreen_onSurfaceVariant_mediumContrast</item>
         <item name="colorOutline">@color/sunflowerCloneGreen_outline_mediumContrast</item>
         <item name="colorOutlineVariant">@color/sunflowerCloneGreen_outlineVariant_mediumContrast</item>
+        <item name="colorScrim">@color/sunflowerCloneGreen_scrim_mediumContrast</item>
         <item name="colorSurfaceInverse">@color/sunflowerCloneGreen_inverseSurface_mediumContrast</item>
         <item name="colorOnSurfaceInverse">@color/sunflowerCloneGreen_inverseOnSurface_mediumContrast</item>
         <item name="colorPrimaryInverse">@color/sunflowerCloneGreen_inversePrimary_mediumContrast</item>
@@ -127,6 +129,7 @@
         <item name="colorOnSurfaceVariant">@color/sunflowerCloneGreen_onSurfaceVariant_highContrast</item>
         <item name="colorOutline">@color/sunflowerCloneGreen_outline_highContrast</item>
         <item name="colorOutlineVariant">@color/sunflowerCloneGreen_outlineVariant_highContrast</item>
+        <item name="colorScrim">@color/sunflowerCloneGreen_scrim_highContrast</item>
         <item name="colorSurfaceInverse">@color/sunflowerCloneGreen_inverseSurface_highContrast</item>
         <item name="colorOnSurfaceInverse">@color/sunflowerCloneGreen_inverseOnSurface_highContrast</item>
         <item name="colorPrimaryInverse">@color/sunflowerCloneGreen_inversePrimary_highContrast</item>

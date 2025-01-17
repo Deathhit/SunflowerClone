@@ -103,6 +103,7 @@ else
         onErrorContainer = Colors.onErrorContainer,
         outline = Colors.outline,
         outlineVariant = Colors.outlineVariant,
+        scrim = Colors.scrim,
         surfaceBright = Colors.surfaceBright,
         surfaceContainer = Colors.surfaceContainer,
         surfaceContainerHigh = Colors.surfaceContainerHigh,
@@ -158,6 +159,7 @@ object SunflowerCloneTheme {
         val onSurfaceVariant: Color @Composable @ReadOnlyComposable get() = colorAttribute(com.google.android.material.R.attr.colorOnSurfaceVariant)
         val outline: Color @Composable @ReadOnlyComposable get() = colorAttribute(com.google.android.material.R.attr.colorOutline)
         val outlineVariant: Color @Composable @ReadOnlyComposable get() = colorAttribute(com.google.android.material.R.attr.colorOutlineVariant)
+        val scrim: Color @Composable @ReadOnlyComposable get() = colorAttribute(R.attr.colorScrim)
         val inverseSurface: Color @Composable @ReadOnlyComposable get() = colorAttribute(com.google.android.material.R.attr.colorSurfaceInverse)
         val inverseOnSurface: Color @Composable @ReadOnlyComposable get() = colorAttribute(com.google.android.material.R.attr.colorOnSurfaceInverse)
         val inversePrimary: Color @Composable @ReadOnlyComposable get() = colorAttribute(com.google.android.material.R.attr.colorPrimaryInverse)
