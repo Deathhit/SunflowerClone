@@ -1,4 +1,4 @@
-package tw.com.deathhit.app.internal.sunflower_clone
+package tw.com.deathhit.app.internal.sunflower_clone_config
 
 import tw.com.deathhit.app.internal.sunflower_clone_config.model.PlantJson
 import tw.com.deathhit.core.sunflower_clone_database.entity.PlantEntity

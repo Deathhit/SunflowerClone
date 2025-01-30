@@ -1,7 +1,6 @@
 package tw.com.deathhit.app.internal.sunflower_clone_config
 
 import org.junit.Test
-import tw.com.deathhit.app.internal.sunflower_clone.toPlantEntity
 import tw.com.deathhit.app.internal.sunflower_clone_config.model.PlantJson
 import java.util.UUID
 import kotlin.random.Random
