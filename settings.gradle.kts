@@ -21,8 +21,10 @@ dependencyResolutionManagement {
 
 rootProject.name = "Sunflower Clone"
 include(":app:internal:sunflower_clone_config")
+include(":app:internal:sunflower_clone_kmp_config")
 include(":app:sunflower_clone")
 include(":app:sunflower_clone_compose")
+include(":app:sunflower_clone_kmp")
 include(":app:sunflower_clone_navigation")
 include(":core:sunflower_clone_database")
 include(":core:sunflower_clone_ui")
