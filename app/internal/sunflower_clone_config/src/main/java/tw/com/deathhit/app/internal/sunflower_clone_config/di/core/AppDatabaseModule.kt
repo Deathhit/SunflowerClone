@@ -9,7 +9,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import tw.com.deathhit.app.internal.sunflower_clone_config.SeedDatabaseWorker.Companion.scheduleSeedingDatabase
+import tw.com.deathhit.app.internal.sunflower_clone_config.SeedDataWorker.Companion.scheduleSeedingDatabase
 import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
 import javax.inject.Singleton
 

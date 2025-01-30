@@ -20,11 +20,12 @@ import tw.com.deathhit.app.internal.sunflower_clone_config.model.PlantJson
 import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
 
 @HiltWorker
-internal class SeedDatabaseWorker @AssistedInject constructor(
+internal class SeedDataWorker @AssistedInject constructor(
     @Assisted appContext: Context,
     @Assisted workerParams: WorkerParameters,
     private val sunflowerCloneDatabase: SunflowerCloneDatabase
 ) : CoroutineWorker(appContext, workerParams) {
+    //todo should use a repository method to seed the database instead
     override suspend fun doWork(): Result = withContext(Dispatchers.IO) {
         try {
             applicationContext.assets.open("plants_9eabcfec0e4b4af18f213dad403f3e47.json")
@@ -44,11 +45,11 @@ internal class SeedDatabaseWorker @AssistedInject constructor(
     }
 
     companion object {
-        private const val UNIQUE_WORK_NAME = "seed_database_bdda548fc3084f8097df36fb9735565e"
+        private const val UNIQUE_WORK_NAME = "seed_data_bdda548fc3084f8097df36fb9735565e"
 
         internal fun Context.scheduleSeedingDatabase() {
             val workManager = WorkManager.getInstance(this)
-            val workRequest = OneTimeWorkRequestBuilder<SeedDatabaseWorker>().apply {
+            val workRequest = OneTimeWorkRequestBuilder<SeedDataWorker>().apply {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
                     setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
             }.build()
