@@ -3,7 +3,7 @@ package tw.com.deathhit.core.sunflower_clone_ui.style
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Shapes
 import androidx.compose.ui.unit.dp
-
+//todo Deprecated: Will be replaced by widgets.
 val Shapes = Shapes(
     small = RoundedCornerShape(
         topStart = 0.dp,

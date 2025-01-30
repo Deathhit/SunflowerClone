@@ -5,7 +5,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
-
+//todo Deprecated: Will be replaced by widgets.
 val Typography = Typography(
     displaySmall = TextStyle(
         fontWeight = FontWeight.Normal,
