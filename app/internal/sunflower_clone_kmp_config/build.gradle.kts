@@ -1,8 +1,55 @@
-plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.google.dagger.hilt)
-    alias(libs.plugins.google.devtools.ksp)
-    alias(libs.plugins.jetbrains.kotlin.android)
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
+        plugins {
+            alias(libs.plugins.android.library)
+            alias(libs.plugins.google.dagger.hilt)
+            alias(libs.plugins.google.devtools.ksp)
+            alias(libs.plugins.jetbrains.kotlin.multiplatform)
+        }
+
+kotlin {
+    androidTarget {
+        compilerOptions {
+            jvmTarget = JvmTarget.fromTarget(rootProject.extra["kotlinJvmTarget"] as String)
+        }
+    }
+
+    sourceSets {
+        androidMain.dependencies {
+            //Gson
+            implementation(libs.gson)
+
+            //Hilt
+            implementation(libs.hilt)
+
+            //Hilt-Work Manager
+            api(libs.hilt.work)
+
+            //Work Manager
+            implementation(libs.work)
+        }
+
+        androidInstrumentedTest.dependencies {
+            //Coroutine
+            implementation(libs.jetbrains.koltin.coroutine.test)
+
+            implementation(libs.androidx.junit)
+            implementation(libs.androidx.espresso.core)
+        }
+
+        androidUnitTest.dependencies {
+            implementation(libs.junit)
+        }
+
+        commonMain.dependencies {
+            //Coroutine
+            implementation(libs.jetbrains.koltin.coroutine)
+        }
+
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+        }
+    }
 }
 
 android {
@@ -33,8 +80,10 @@ android {
         targetCompatibility = javaVersion
     }
 
-    kotlinOptions {
-        jvmTarget = rootProject.extra["kotlinJvmTarget"] as String
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
 }
 
@@ -46,24 +95,9 @@ dependencies {
     implementation(project(":data:plant"))
     implementation(project(":domain"))
 
-    //Coroutine-Test
-    androidTestImplementation(libs.jetbrains.koltin.coroutine.test)
-
-    //Gson
-    implementation(libs.gson)
-
     //Hilt
     ksp(libs.hilt.compiler)
-    implementation(libs.hilt)
 
     //Hilt-Work Manager
     ksp(libs.hilt.work.compiler)
-    api(libs.hilt.work)
-
-    //Work Manager
-    implementation(libs.work)
-
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 }
