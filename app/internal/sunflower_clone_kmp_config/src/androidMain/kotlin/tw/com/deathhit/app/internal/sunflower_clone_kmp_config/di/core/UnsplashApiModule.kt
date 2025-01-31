@@ -1,4 +1,4 @@
-package tw.com.deathhit.app.sunflower_clone_kmp_config.di.core
+package tw.com.deathhit.app.internal.sunflower_clone_kmp_config.di.core
 
 import android.content.Context
 import dagger.Module

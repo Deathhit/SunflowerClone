@@ -1,4 +1,4 @@
-package tw.com.deathhit.app.sunflower_clone_kmp_config.model
+package tw.com.deathhit.app.internal.sunflower_clone_kmp_config.model
 
 import androidx.annotation.Keep
 

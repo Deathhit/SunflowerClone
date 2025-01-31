@@ -1,4 +1,4 @@
-package tw.com.deathhit.app.sunflower_clone_kmp_config.di.data
+package tw.com.deathhit.app.internal.sunflower_clone_kmp_config.di.data
 
 import dagger.Module
 import dagger.Provides

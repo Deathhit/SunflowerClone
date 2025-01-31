@@ -1,4 +1,4 @@
-package tw.com.deathhit.app.sunflower_clone_kmp_config
+package tw.com.deathhit.app.internal.sunflower_clone_kmp_config
 
 import android.content.Context
 import android.os.Build
@@ -16,7 +16,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import tw.com.deathhit.app.sunflower_clone_kmp_config.model.PlantJson
+import tw.com.deathhit.app.internal.sunflower_clone_kmp_config.model.PlantJson
 import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
 
 @HiltWorker

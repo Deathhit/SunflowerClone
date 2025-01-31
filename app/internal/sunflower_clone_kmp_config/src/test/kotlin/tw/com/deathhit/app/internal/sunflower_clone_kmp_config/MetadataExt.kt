@@ -1,4 +1,4 @@
-package tw.com.deathhit.app.sunflower_clone_kmp_config
+package tw.com.deathhit.app.internal.sunflower_clone_kmp_config
 
 import android.content.Context
 import android.content.pm.PackageManager
