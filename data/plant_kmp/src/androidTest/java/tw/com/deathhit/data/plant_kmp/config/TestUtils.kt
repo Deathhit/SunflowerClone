@@ -1,0 +1,29 @@
+package tw.com.deathhit.data.plant_kmp.config
+
+import android.content.Context
+import androidx.room.Room
+import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
+import tw.com.deathhit.core.sunflower_clone_database.entity.PlantEntity
+import java.util.UUID
+import kotlin.random.Random
+
+fun buildAppDatabase(context: Context) =
+    Room.inMemoryDatabaseBuilder(context, SunflowerCloneDatabase::class.java).build()
+
+fun generatePlantEntities() = mutableListOf<PlantEntity>().apply {
+    for (i in 0..getRandomInt(from = 3, until = 10)) {
+        add(
+            PlantEntity(
+                description = getRandomStr(),
+                growZoneNumber = i,
+                imageUrl = getRandomStr(),
+                plantId = i.toString(),
+                plantName = getRandomStr(),
+                wateringIntervalDays = getRandomInt()
+            )
+        )
+    }
+}.toList()
+
+private fun getRandomInt(from: Int = 0, until: Int = Int.MAX_VALUE) = Random.nextInt(from, until)
+private fun getRandomStr() = UUID.randomUUID().toString()

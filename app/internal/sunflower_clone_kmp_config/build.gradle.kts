@@ -1,11 +1,11 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
-        plugins {
-            alias(libs.plugins.android.library)
-            alias(libs.plugins.google.dagger.hilt)
-            alias(libs.plugins.google.devtools.ksp)
-            alias(libs.plugins.jetbrains.kotlin.multiplatform)
-        }
+plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.google.dagger.hilt)
+    alias(libs.plugins.google.devtools.ksp)
+    alias(libs.plugins.jetbrains.kotlin.multiplatform)
+}
 
 kotlin {
     androidTarget {
@@ -88,11 +88,11 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:sunflower_clone_database"))
+    implementation(project(":core:sunflower_clone_database_kmp"))
     implementation(project(":core:unsplash_api"))
-    implementation(project(":data:garden_planting"))
-    implementation(project(":data:photo"))
-    implementation(project(":data:plant"))
+    implementation(project(":data:garden_planting_kmp"))
+    implementation(project(":data:photo_kmp"))
+    implementation(project(":data:plant_kmp"))
     implementation(project(":domain"))
 
     //Hilt
