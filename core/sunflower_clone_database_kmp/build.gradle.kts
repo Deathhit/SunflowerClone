@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.android.library)
+    alias(libs.plugins.cash.sqldelight)
     alias(libs.plugins.jetbrains.kotlin.multiplatform)
 }
 
@@ -14,7 +15,8 @@ kotlin {
 
     sourceSets {
         androidMain.dependencies {
-
+            //SQLDelight
+            implementation(libs.sqldelight.android.driver)
         }
 
         androidInstrumentedTest.dependencies {
@@ -32,10 +34,18 @@ kotlin {
         commonMain.dependencies {
             //Coroutine
             implementation(libs.jetbrains.koltin.coroutine)
+
+            //SQLDelight
+            implementation(libs.sqldelight.sqlite.driver)
         }
 
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+        }
+
+        nativeMain.dependencies {
+            //SQLDelight
+            implementation(libs.sqldelight.native.driver)
         }
     }
 }
@@ -77,4 +87,12 @@ android {
 
 dependencies {
 
+}
+
+sqldelight {
+    databases {
+        create("sunflower_clone_database_4f85b534525d4f24a1613a339cf87faf") {
+            packageName.set("tw.com.deathhit.core.sunflower_clone_database_kmp")
+        }
+    }
 }
