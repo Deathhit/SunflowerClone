@@ -15,13 +15,13 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppDatabaseModule {
+object SunflowerCloneDatabaseModule {
     @Provides
     @Singleton
     internal fun provideAppDatabase(@ApplicationContext context: Context) = Room.databaseBuilder(
         context,
         SunflowerCloneDatabase::class.java,
-        "app_database_3f86b669755d4f27a1613b339bd87def"
+        "sunflower_clone_database_3f86b669755d4f27a1613b339bd87def"
     ).addCallback(
         object : RoomDatabase.Callback() {
             override fun onCreate(db: SupportSQLiteDatabase) {
