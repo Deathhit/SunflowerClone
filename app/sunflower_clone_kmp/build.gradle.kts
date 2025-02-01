@@ -20,6 +20,7 @@ kotlin {
         androidMain.dependencies {
             //todo migrate to kmp modules
             implementation(project(":domain"))
+            //todo migrate to kmp modules
             implementation(project(":core:sunflower_clone_ui"))
             implementation(project(":feature:compose:gallery"))
             implementation(project(":feature:compose:navigation"))
