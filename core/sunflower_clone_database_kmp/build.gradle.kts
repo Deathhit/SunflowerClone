@@ -35,7 +35,12 @@ kotlin {
             //Coroutine
             implementation(libs.jetbrains.koltin.coroutine)
 
+            //Paging
+            implementation(libs.paging.common)
+
             //SQLDelight
+            implementation(libs.sqldelight.coroutine.ktx)
+            implementation(libs.sqldelight.paging3.ktx)
             implementation(libs.sqldelight.sqlite.driver)
         }
 
@@ -91,7 +96,7 @@ dependencies {
 
 sqldelight {
     databases {
-        create("sunflower_clone_database_4f85b534525d4f24a1613a339cf87faf") {
+        create("SunflowerCloneDatabase") {
             packageName.set("tw.com.deathhit.core.sunflower_clone_database_kmp")
         }
     }

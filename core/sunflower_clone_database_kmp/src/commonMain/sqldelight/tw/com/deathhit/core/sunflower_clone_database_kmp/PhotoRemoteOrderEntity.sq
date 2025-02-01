@@ -1,0 +1,10 @@
+CREATE TABLE PhotoRemoteOrderEntity (
+    photo_id TEXT PRIMARY KEY NOT NULL,
+    remote_order INTEGER NOT NULL,
+    FOREIGN KEY (photo_id) REFERENCES PhotoEntity(photo_id) ON DELETE CASCADE
+);
+
+upsert:
+INSERT OR REPLACE INTO
+PhotoRemoteOrderEntity(photo_id, remote_order)
+VALUES (?, ?);

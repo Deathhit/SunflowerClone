@@ -1,0 +1,13 @@
+CREATE TABLE PlantEntity (
+    plant_id TEXT PRIMARY KEY NOT NULL,
+    description TEXT NOT NULL,
+    grow_zone_number INTEGER NOT NULL,
+    image_url TEXT NOT NULL,
+    plant_name TEXT NOT NULL,
+    watering_interval_days INTEGER NOT NULL
+);
+
+upsert:
+INSERT OR REPLACE INTO
+PlantEntity(plant_id, description, grow_zone_number, image_url, plant_name, watering_interval_days)
+VALUES (?, ?, ?, ?, ?, ?);

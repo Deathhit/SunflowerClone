@@ -1,0 +1,19 @@
+CREATE VIEW PhotoItemView AS
+SELECT
+PhotoEntity.author_id AS author_id,
+PhotoEntity.author_name AS author_name,
+PhotoEntity.image_url AS image_url,
+PhotoEntity.photo_id AS photo_id,
+PhotoEntity.plant_name AS plant_name,
+PhotoRemoteOrderEntity.remote_order AS remote_order
+FROM PhotoEntity
+LEFT JOIN PhotoRemoteOrderEntity ON PhotoRemoteOrderEntity.photo_id = PhotoEntity.photo_id;
+
+count:
+SELECT count(*) FROM PhotoItemView;
+
+getEntitiesPagingSource:
+SELECT * FROM PhotoItemView
+WHERE :plant_name = plant_name
+ORDER BY remote_order ASC
+LIMIT :limit OFFSET :offset;

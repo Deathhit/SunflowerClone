@@ -1,0 +1,20 @@
+CREATE VIEW GardenPlantingItemView AS
+SELECT
+PlantEntity.description AS description,
+GardenPlantingEntity.garden_planting_id AS garden_planting_id,
+PlantEntity.grow_zone_number AS grow_zone_number,
+PlantEntity.image_url AS image_url,
+GardenPlantingEntity.plant_date AS plant_date,
+GardenPlantingEntity.plant_id AS plant_id,
+PlantEntity.plant_name AS plant_name,
+PlantEntity.watering_interval_days AS watering_interval_days
+FROM GardenPlantingEntity
+LEFT JOIN PlantEntity ON PlantEntity.plant_id = GardenPlantingEntity.plant_id;
+
+count:
+SELECT count(*) FROM GardenPlantingItemView;
+
+getEntitiesPagingSource:
+SELECT * FROM GardenPlantingItemView
+ORDER BY plant_date DESC
+LIMIT :limit OFFSET :offset;
