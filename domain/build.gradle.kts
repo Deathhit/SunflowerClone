@@ -1,4 +1,5 @@
 import org.gradle.internal.extensions.core.extra
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     id("java-library")
@@ -10,6 +11,12 @@ java {
 
     sourceCompatibility = javaVersion
     targetCompatibility = javaVersion
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = rootProject.extra["kotlinJvmTarget"] as JvmTarget
+    }
 }
 
 dependencies {

@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.dagger.hilt)
@@ -52,8 +54,10 @@ android {
         targetCompatibility = javaVersion
     }
 
-    kotlinOptions {
-        jvmTarget = rootProject.extra["kotlinJvmTarget"] as String
+    kotlin {
+        compilerOptions {
+            jvmTarget = rootProject.extra["kotlinJvmTarget"] as JvmTarget
+        }
     }
 }
 

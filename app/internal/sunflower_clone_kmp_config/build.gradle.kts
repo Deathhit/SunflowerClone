@@ -10,7 +10,7 @@ plugins {
 kotlin {
     androidTarget {
         compilerOptions {
-            jvmTarget = JvmTarget.fromTarget(rootProject.extra["kotlinJvmTarget"] as String)
+            jvmTarget = rootProject.extra["kotlinJvmTarget"] as JvmTarget
         }
     }
 

@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
     alias(libs.plugins.android.application) apply false
@@ -13,9 +15,9 @@ plugins {
 }
 
 // Shared configuration values.
-val compileSdk by extra(35)
+val compileSdk by extra(36)
 val javaVersion by extra(JavaVersion.VERSION_21)
-val kotlinJvmTarget by extra("21")
+val kotlinJvmTarget by extra(JvmTarget.JVM_21)
 val minSdk by extra(24)
 val versionCode by extra(1)
 val versionName by extra("1.0")

@@ -1,4 +1,6 @@
+
 import org.gradle.internal.extensions.core.extra
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.android.library)
@@ -38,8 +40,10 @@ android {
         targetCompatibility = javaVersion
     }
 
-    kotlinOptions {
-        jvmTarget = rootProject.extra["kotlinJvmTarget"] as String
+    kotlin {
+        compilerOptions {
+            jvmTarget = rootProject.extra["kotlinJvmTarget"] as JvmTarget
+        }
     }
 }
 
