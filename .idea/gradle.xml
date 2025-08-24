@@ -13,23 +13,19 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app/internal" />
             <option value="$PROJECT_DIR$/app/internal/sunflower_clone_config" />
-            <option value="$PROJECT_DIR$/app/internal/sunflower_clone_kmp_config" />
             <option value="$PROJECT_DIR$/app/sunflower_clone" />
             <option value="$PROJECT_DIR$/app/sunflower_clone_compose" />
-            <option value="$PROJECT_DIR$/app/sunflower_clone_kmp" />
             <option value="$PROJECT_DIR$/app/sunflower_clone_navigation" />
             <option value="$PROJECT_DIR$/core" />
-            <option value="$PROJECT_DIR$/core/sunflower_clone_database" />
-            <option value="$PROJECT_DIR$/core/sunflower_clone_database_kmp" />
+            <option value="$PROJECT_DIR$/core/sunflower_clone" />
+            <option value="$PROJECT_DIR$/core/sunflower_clone/app_database" />
             <option value="$PROJECT_DIR$/core/sunflower_clone_ui" />
-            <option value="$PROJECT_DIR$/core/unsplash_api" />
+            <option value="$PROJECT_DIR$/core/unsplash" />
+            <option value="$PROJECT_DIR$/core/unsplash/api_client" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/data/garden_planting" />
-            <option value="$PROJECT_DIR$/data/garden_planting_kmp" />
             <option value="$PROJECT_DIR$/data/photo" />
-            <option value="$PROJECT_DIR$/data/photo_kmp" />
             <option value="$PROJECT_DIR$/data/plant" />
-            <option value="$PROJECT_DIR$/data/plant_kmp" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/compose" />
@@ -45,7 +41,6 @@
             <option value="$PROJECT_DIR$/feature/plant_list" />
           </set>
         </option>
-        <option name="resolveExternalAnnotations" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

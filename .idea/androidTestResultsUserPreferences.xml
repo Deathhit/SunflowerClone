@@ -300,6 +300,7 @@
               <option name="preferredColumnWidths">
                 <map>
                   <entry key="Duration" value="90" />
+                  <entry key="Pixel" value="120" />
                   <entry key="Pixel_2_API_33" value="120" />
                   <entry key="Pixel_9_API_Baklava" value="120" />
                   <entry key="Tests" value="360" />

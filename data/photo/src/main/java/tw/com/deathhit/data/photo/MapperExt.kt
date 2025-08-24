@@ -1,35 +1,19 @@
 package tw.com.deathhit.data.photo
 
-import tw.com.deathhit.core.sunflower_clone_database.view.PhotoItemView
-import tw.com.deathhit.core.unsplash_api.protocol.model.PhotoApiEntity
-import tw.com.deathhit.data.photo.model.PhotoRemoteItems
+import tw.com.deathhit.core.sunflower_clone.app_database.entity.PhotoEntity
+import tw.com.deathhit.core.sunflower_clone.app_database.view.PhotoItemView
+import tw.com.deathhit.core.unsplash.api_client.protocol.model.PhotoApiEntity
 import tw.com.deathhit.domain.model.PhotoDO
 
-internal fun List<PhotoApiEntity>.toPhotoRemoteItemsList(
-    page: Int,
-    pageSize: Int,
+internal fun PhotoApiEntity.toPhotoEntity(
     plantName: String
-): List<PhotoRemoteItems> {
-    val offset = (page - 1) * pageSize
-
-    return mapIndexed { index, photo ->
-        with(photo) {
-            PhotoRemoteItems(
-                photoEntity = tw.com.deathhit.core.sunflower_clone_database.entity.PhotoEntity(
-                    authorId = user.username,
-                    authorName = user.name,
-                    imageUrl = urls.small,
-                    photoId = id,
-                    plantName = plantName
-                ),
-                photoRemoteOrderEntity = tw.com.deathhit.core.sunflower_clone_database.entity.PhotoRemoteOrderEntity(
-                    photoId = id,
-                    remoteOrder = index + offset
-                )
-            )
-        }
-    }
-}
+): PhotoEntity = PhotoEntity(
+    authorId = user.username,
+    authorName = user.name,
+    imageUrl = urls.small,
+    photoId = id,
+    plantName = plantName
+)
 
 internal fun PhotoItemView.toPhotoDO(attributionUrl: String) =
     PhotoDO(

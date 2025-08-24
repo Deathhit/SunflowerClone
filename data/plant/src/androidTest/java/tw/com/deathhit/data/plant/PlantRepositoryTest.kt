@@ -9,8 +9,8 @@ import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
-import tw.com.deathhit.core.sunflower_clone_database.entity.PlantEntity
+import tw.com.deathhit.core.sunflower_clone.app_database.SunflowerCloneDatabase
+import tw.com.deathhit.core.sunflower_clone.app_database.entity.PlantEntity
 import tw.com.deathhit.data.plant.config.buildAppDatabase
 import tw.com.deathhit.data.plant.config.generatePlantEntities
 import tw.com.deathhit.domain.model.PlantDO

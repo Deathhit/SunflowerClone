@@ -8,9 +8,8 @@ import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
-import tw.com.deathhit.core.sunflower_clone_database.entity.PhotoRemoteOrderEntity
-import tw.com.deathhit.core.unsplash_api.protocol.model.PhotoApiEntity
+import tw.com.deathhit.core.sunflower_clone.app_database.SunflowerCloneDatabase
+import tw.com.deathhit.core.unsplash.api_client.protocol.model.PhotoApiEntity
 import tw.com.deathhit.data.photo.config.TestUnsplashService
 import tw.com.deathhit.data.photo.config.buildAppDatabase
 import tw.com.deathhit.data.photo.config.generatePhotoEntities
@@ -21,7 +20,6 @@ class PhotoRepositoryTest {
     private lateinit var sunflowerCloneDatabase: SunflowerCloneDatabase
 
     private val photoDao get() = sunflowerCloneDatabase.photoDao()
-    private val photoRemoteOrderDao get() = sunflowerCloneDatabase.photoRemoteOrderDao()
 
     @Before
     fun setup() {
@@ -45,12 +43,12 @@ class PhotoRepositoryTest {
             })
 
         val photoEntities = generatePhotoEntities(plantName = plantName)
-        val photoRemoteOrderEntities = photoEntities.mapIndexed { index, photoEntity ->
-            PhotoRemoteOrderEntity(photoId = photoEntity.photoId, remoteOrder = index)
-        }
 
-        photoDao.upsert(photoEntities)
-        photoRemoteOrderDao.upsert(photoRemoteOrderEntities)
+        photoDao.upsertPhotoPage(
+            entities = photoEntities,
+            page = 1,
+            pageSize = photoEntities.size
+        )
         advanceUntilIdle()
 
         //When

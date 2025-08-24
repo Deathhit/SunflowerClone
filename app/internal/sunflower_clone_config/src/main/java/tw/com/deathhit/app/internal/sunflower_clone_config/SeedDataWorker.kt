@@ -17,7 +17,7 @@ import dagger.assisted.AssistedInject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import tw.com.deathhit.app.internal.sunflower_clone_config.model.PlantJson
-import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
+import tw.com.deathhit.core.sunflower_clone.app_database.SunflowerCloneDatabase
 
 @HiltWorker
 internal class SeedDataWorker @AssistedInject constructor(

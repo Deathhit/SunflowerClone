@@ -2,11 +2,11 @@ package tw.com.deathhit.data.photo.config
 
 import android.content.Context
 import androidx.room.Room
-import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
-import tw.com.deathhit.core.sunflower_clone_database.entity.PhotoEntity
-import tw.com.deathhit.core.unsplash_api.protocol.model.PhotoApiEntity
-import tw.com.deathhit.core.unsplash_api.protocol.model.PhotoUrlsApiEntity
-import tw.com.deathhit.core.unsplash_api.protocol.model.UserApiEntity
+import tw.com.deathhit.core.sunflower_clone.app_database.SunflowerCloneDatabase
+import tw.com.deathhit.core.sunflower_clone.app_database.entity.PhotoEntity
+import tw.com.deathhit.core.unsplash.api_client.protocol.model.PhotoApiEntity
+import tw.com.deathhit.core.unsplash.api_client.protocol.model.PhotoUrlsApiEntity
+import tw.com.deathhit.core.unsplash.api_client.protocol.model.UserApiEntity
 import java.util.UUID
 import kotlin.random.Random
 

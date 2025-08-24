@@ -2,8 +2,8 @@ package tw.com.deathhit.data.plant.config
 
 import android.content.Context
 import androidx.room.Room
-import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
-import tw.com.deathhit.core.sunflower_clone_database.entity.PlantEntity
+import tw.com.deathhit.core.sunflower_clone.app_database.SunflowerCloneDatabase
+import tw.com.deathhit.core.sunflower_clone.app_database.entity.PlantEntity
 import java.util.UUID
 import kotlin.random.Random
 

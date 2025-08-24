@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="database">
+    <output-path>$PROJECT_DIR$/core/sunflower_clone/database/build/libs</output-path>
+    <root id="archive" name="database.jar">
+      <element id="module-output" name="Sunflower_Clone.core.sunflower_clone.database.androidMain" />
+    </root>
+  </artifact>
+</component>

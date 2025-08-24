@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             LaunchedEffect(actions) {
                 actions.forEach { action ->
                     when (action) {
-                        MainActivityViewModel.State.Action.GoBack -> onBackPressedDispatcher.onBackPressed()
+                        MainActivityViewModel.State.Action.GoBack -> navController.popBackStack()
                         is MainActivityViewModel.State.Action.GoToScreen -> when (action.screen) {
                             is MainScreen.Gallery -> navController.navigate(
                                 galleryDestination.createLink(

@@ -4,22 +4,17 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
-import androidx.room.withTransaction
-import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
-import tw.com.deathhit.core.sunflower_clone_database.entity.PhotoRemoteKeysEntity
-import tw.com.deathhit.core.sunflower_clone_database.view.PhotoItemView
-import tw.com.deathhit.core.unsplash_api.UnsplashService
-import tw.com.deathhit.data.photo.model.PhotoRemoteItems
+import tw.com.deathhit.core.sunflower_clone.app_database.SunflowerCloneDatabase
+import tw.com.deathhit.core.sunflower_clone.app_database.view.PhotoItemView
+import tw.com.deathhit.core.unsplash.api_client.UnsplashService
 
 @OptIn(ExperimentalPagingApi::class)
 class PhotoRemoteMediator(
     private val plantName: String,
-    private val sunflowerCloneDatabase: SunflowerCloneDatabase,
+    sunflowerCloneDatabase: SunflowerCloneDatabase,
     private val unsplashService: UnsplashService
 ) : RemoteMediator<Int, PhotoItemView>() {
     private val photoDao = sunflowerCloneDatabase.photoDao()
-    private val photoRemoteKeysDao = sunflowerCloneDatabase.photoRemoteKeysDao()
-    private val photoRemoteOrderDao = sunflowerCloneDatabase.photoRemoteOrderDao()
 
     override suspend fun load(
         loadType: LoadType,
@@ -30,7 +25,7 @@ class PhotoRemoteMediator(
                 LoadType.REFRESH -> {
                     val remoteKeys = getRemoteKeysClosestToCurrentPosition(state)
 
-                    remoteKeys?.nextKey?.minus(1) ?: FIRST_PAGE
+                    remoteKeys?.nextKey?.minus(1) ?: 1
                 }
 
                 LoadType.PREPEND -> {
@@ -62,13 +57,14 @@ class PhotoRemoteMediator(
                 }
             }
 
+            if (loadType == LoadType.REFRESH)
+                photoDao.clear()
+
             // Suspending network load via Retrofit. This doesn't need to
             // be wrapped in a withContext(Dispatcher.IO) { ... } block
             // since Retrofit's Coroutine CallAdapter dispatches on a
             // worker thread.
             val itemList = getRemoteItems(page = loadKey, pageSize = state.config.pageSize)
-
-            saveRemoteItems(itemList = itemList, loadKey = loadKey, loadType = loadType)
 
             MediatorResult.Success(endOfPaginationReached = itemList.isEmpty())
         } catch (e: Throwable) {
@@ -76,24 +72,36 @@ class PhotoRemoteMediator(
         }
     }
 
-    private suspend fun getRemoteItems(page: Int, pageSize: Int): List<PhotoRemoteItems> =
-        unsplashService.searchPhotos(page = page, perPage = pageSize, query = plantName)
-            .toPhotoRemoteItemsList(page = page, pageSize = pageSize, plantName = plantName)
+    private suspend fun getRemoteItems(page: Int, pageSize: Int) =
+        unsplashService.searchPhotos(
+            page = page,
+            perPage = pageSize,
+            query = plantName
+        ).map {
+            it.toPhotoEntity(plantName = plantName)
+        }.also {
+            photoDao.upsertPhotoPage(
+                entities = it,
+                page = page,
+                pageSize = pageSize
+            )
+        }
 
     private suspend fun getRemoteKeysClosestToCurrentPosition(
         state: PagingState<Int, PhotoItemView>
     ) = with(state) {
         anchorPosition?.let { closestItemToPosition(it) }
             ?.let {
-                photoRemoteKeysDao.get(photoId = it.photoId)
+                photoDao.getRemoteKeys(photoId = it.photoId)
             }
     }
+
 
     private suspend fun getRemoteKeysForFirstItem(
         state: PagingState<Int, PhotoItemView>
     ) = with(state) {
         firstItemOrNull()?.let {
-            photoRemoteKeysDao.get(photoId = it.photoId)
+            photoDao.getRemoteKeys(photoId = it.photoId)
         }
     }
 
@@ -101,38 +109,7 @@ class PhotoRemoteMediator(
         state: PagingState<Int, PhotoItemView>
     ) = with(state) {
         lastItemOrNull()?.let {
-            photoRemoteKeysDao.get(photoId = it.photoId)
+            photoDao.getRemoteKeys(photoId = it.photoId)
         }
-    }
-
-    private suspend fun saveRemoteItems(
-        itemList: List<PhotoRemoteItems>,
-        loadKey: Int,
-        loadType: LoadType
-    ) {
-        val nextKey = loadKey + 1
-        val previousKey = if (loadKey == FIRST_PAGE) null else loadKey - 1
-
-        sunflowerCloneDatabase.withTransaction {
-            if (loadType == LoadType.REFRESH)
-                photoDao.clearByPlantName(plantName = plantName)
-
-            //Upsert the master entities.
-            photoDao.upsert(entities = itemList.map { it.photoEntity })
-
-            //Upsert the slave entities.
-            photoRemoteKeysDao.upsert(entities = itemList.map {
-                PhotoRemoteKeysEntity(
-                    nextKey = nextKey,
-                    photoId = it.photoEntity.photoId,
-                    previousKey = previousKey
-                )
-            })
-            photoRemoteOrderDao.upsert(entities = itemList.map { it.photoRemoteOrderEntity })
-        }
-    }
-
-    companion object {
-        private const val FIRST_PAGE = 1
     }
 }

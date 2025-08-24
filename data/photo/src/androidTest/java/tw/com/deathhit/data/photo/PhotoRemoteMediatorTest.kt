@@ -11,9 +11,9 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
-import tw.com.deathhit.core.sunflower_clone_database.view.PhotoItemView
-import tw.com.deathhit.core.unsplash_api.protocol.model.PhotoApiEntity
+import tw.com.deathhit.core.sunflower_clone.app_database.SunflowerCloneDatabase
+import tw.com.deathhit.core.sunflower_clone.app_database.view.PhotoItemView
+import tw.com.deathhit.core.unsplash.api_client.protocol.model.PhotoApiEntity
 import tw.com.deathhit.data.photo.config.TestUnsplashService
 import tw.com.deathhit.data.photo.config.buildAppDatabase
 import tw.com.deathhit.data.photo.config.generatePhotoApiEntities

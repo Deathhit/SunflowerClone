@@ -8,8 +8,8 @@ import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
-import tw.com.deathhit.core.sunflower_clone_database.entity.GardenPlantingEntity
+import tw.com.deathhit.core.sunflower_clone.app_database.SunflowerCloneDatabase
+import tw.com.deathhit.core.sunflower_clone.app_database.entity.GardenPlantingEntity
 import tw.com.deathhit.data.garden_planting.config.buildAppDatabase
 import tw.com.deathhit.data.garden_planting.config.generatePlantEntities
 
@@ -35,6 +35,7 @@ class GardenPlantingRepositoryTest {
 
         val gardenPlantingEntities = plantEntities.map {
             GardenPlantingEntity(
+                plantDate = System.currentTimeMillis(),
                 plantId = it.plantId
             )
         }

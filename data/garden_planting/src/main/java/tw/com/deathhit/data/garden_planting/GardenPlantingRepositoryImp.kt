@@ -6,8 +6,8 @@ import androidx.paging.PagingData
 import androidx.paging.map
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import tw.com.deathhit.core.sunflower_clone_database.SunflowerCloneDatabase
-import tw.com.deathhit.core.sunflower_clone_database.entity.GardenPlantingEntity
+import tw.com.deathhit.core.sunflower_clone.app_database.SunflowerCloneDatabase
+import tw.com.deathhit.core.sunflower_clone.app_database.entity.GardenPlantingEntity
 import tw.com.deathhit.domain.GardenPlantingRepository
 import tw.com.deathhit.domain.model.GardenPlantingDO
 
@@ -19,7 +19,7 @@ class GardenPlantingRepositoryImp(
 
     override suspend fun addGardenPlanting(plantId: String) {
         gardenPlantingDao.upsert(
-            listOf(GardenPlantingEntity(plantId = plantId))
+            listOf(GardenPlantingEntity(plantDate = System.currentTimeMillis(), plantId = plantId))
         )
     }
 

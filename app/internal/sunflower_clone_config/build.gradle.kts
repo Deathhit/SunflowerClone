@@ -43,8 +43,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:sunflower_clone_database"))
-    implementation(project(":core:unsplash_api"))
+    implementation(project(":core:sunflower_clone:app_database"))
+    implementation(project(":core:unsplash:api_client"))
     implementation(project(":data:garden_planting"))
     implementation(project(":data:photo"))
     implementation(project(":data:plant"))

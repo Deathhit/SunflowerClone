@@ -1,6 +1,6 @@
 package tw.com.deathhit.data.garden_planting
 
-import tw.com.deathhit.core.sunflower_clone_database.view.GardenPlantingItemView
+import tw.com.deathhit.core.sunflower_clone.app_database.view.GardenPlantingItemView
 import tw.com.deathhit.domain.model.GardenPlantingDO
 
 internal fun GardenPlantingItemView.toGardenPlantingDO() = GardenPlantingDO(

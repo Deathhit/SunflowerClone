@@ -43,7 +43,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:sunflower_clone_database"))
+    implementation(project(":core:sunflower_clone:app_database"))
     implementation(project(":domain"))
 
     //Coroutine
