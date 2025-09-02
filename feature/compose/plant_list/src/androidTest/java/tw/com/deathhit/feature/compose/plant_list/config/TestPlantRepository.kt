@@ -5,8 +5,8 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.testing.asPagingSourceFactory
 import kotlinx.coroutines.flow.Flow
-import tw.com.deathhit.domain.PlantRepository
-import tw.com.deathhit.domain.model.PlantDO
+import tw.com.deathhit.domain.sunflower_clone.PlantRepository
+import tw.com.deathhit.domain.sunflower_clone.model.PlantDO
 
 class TestPlantRepository : PlantRepository {
     private val list = generatePlantDOs()

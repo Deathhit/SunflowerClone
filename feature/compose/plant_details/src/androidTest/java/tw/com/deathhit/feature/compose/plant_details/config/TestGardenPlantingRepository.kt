@@ -2,8 +2,8 @@ package tw.com.deathhit.feature.compose.plant_details.config
 
 import androidx.paging.PagingData
 import kotlinx.coroutines.flow.Flow
-import tw.com.deathhit.domain.GardenPlantingRepository
-import tw.com.deathhit.domain.model.GardenPlantingDO
+import tw.com.deathhit.domain.sunflower_clone.GardenPlantingRepository
+import tw.com.deathhit.domain.sunflower_clone.model.GardenPlantingDO
 
 class TestGardenPlantingRepository : GardenPlantingRepository {
     val plantIds = mutableListOf<String>()

@@ -17,8 +17,8 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.parcelize.Parcelize
-import tw.com.deathhit.domain.GardenPlantingRepository
-import tw.com.deathhit.domain.PlantRepository
+import tw.com.deathhit.domain.sunflower_clone.GardenPlantingRepository
+import tw.com.deathhit.domain.sunflower_clone.PlantRepository
 import tw.com.deathhit.feature.plant_details.sealed.ToastType
 import javax.inject.Inject
 
@@ -45,7 +45,10 @@ class PlantDetailsViewModel @Inject constructor(
 
     fun addPlantToGarden() {
         viewModelScope.launch {
-            gardenPlantingRepository.addGardenPlanting(plantId = stateFlow.value.plantId)
+            gardenPlantingRepository.addGardenPlanting(
+                plantDate = System.currentTimeMillis(),
+                plantId = stateFlow.value.plantId
+            )
 
             state =
                 state.copy(actions = state.actions + State.Action.Toast(ToastType.AddedPlantToGarden))

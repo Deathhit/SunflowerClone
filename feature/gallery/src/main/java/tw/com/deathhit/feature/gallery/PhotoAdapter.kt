@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import tw.com.deathhit.domain.model.PhotoDO
+import tw.com.deathhit.domain.sunflower_clone.model.PhotoDO
 import tw.com.deathhit.feature.gallery.databinding.ItemPhotoBinding
 import tw.com.deathhit.feature.gallery.view_holder.PhotoViewHolder
 

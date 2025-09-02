@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="gallery">
+    <output-path>$PROJECT_DIR$/feature/sunflower_clone/gallery/build/libs</output-path>
+    <root id="archive" name="gallery.jar">
+      <element id="module-output" name="Sunflower_Clone.feature.sunflower_clone.gallery.androidMain" />
+    </root>
+  </artifact>
+</component>

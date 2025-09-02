@@ -5,8 +5,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import tw.com.deathhit.core.sunflower_clone.app_database.SunflowerCloneDatabase
-import tw.com.deathhit.data.plant.PlantRepositoryImp
-import tw.com.deathhit.domain.PlantRepository
+import tw.com.deathhit.data.sunflower_clone.plant.PlantRepositoryImp
+import tw.com.deathhit.domain.sunflower_clone.PlantRepository
 import javax.inject.Singleton
 
 @Module

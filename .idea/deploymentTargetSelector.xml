@@ -19,16 +19,13 @@
       <SelectionState runConfigName="app.sunflower_clone_compose">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="PlantItemCardPreview">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="NavigationPreview">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="app.sunflower_clone_kmp">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="All Tests">
+      <SelectionState runConfigName="Tests in 'tw.com.deathhit.data.sunflower_clone.photo'">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="Tests in 'tw.com.deathhit.data.sunflower_clone.plant'">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

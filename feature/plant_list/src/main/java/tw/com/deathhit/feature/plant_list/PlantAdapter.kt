@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import tw.com.deathhit.domain.model.PlantDO
+import tw.com.deathhit.domain.sunflower_clone.model.PlantDO
 import tw.com.deathhit.feature.plant_list.databinding.ItemPlantBinding
 import tw.com.deathhit.feature.plant_list.view_holder.PlantViewHolder
 

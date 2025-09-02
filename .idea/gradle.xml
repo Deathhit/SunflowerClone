@@ -23,10 +23,12 @@
             <option value="$PROJECT_DIR$/core/unsplash" />
             <option value="$PROJECT_DIR$/core/unsplash/api_client" />
             <option value="$PROJECT_DIR$/data" />
-            <option value="$PROJECT_DIR$/data/garden_planting" />
-            <option value="$PROJECT_DIR$/data/photo" />
-            <option value="$PROJECT_DIR$/data/plant" />
+            <option value="$PROJECT_DIR$/data/sunflower_clone" />
+            <option value="$PROJECT_DIR$/data/sunflower_clone/garden_planting" />
+            <option value="$PROJECT_DIR$/data/sunflower_clone/photo" />
+            <option value="$PROJECT_DIR$/data/sunflower_clone/plant" />
             <option value="$PROJECT_DIR$/domain" />
+            <option value="$PROJECT_DIR$/domain/sunflower_clone" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/compose" />
             <option value="$PROJECT_DIR$/feature/compose/gallery" />

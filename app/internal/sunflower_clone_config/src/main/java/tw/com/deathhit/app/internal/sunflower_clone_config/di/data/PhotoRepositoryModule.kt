@@ -6,8 +6,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import tw.com.deathhit.core.sunflower_clone.app_database.SunflowerCloneDatabase
 import tw.com.deathhit.core.unsplash.api_client.UnsplashService
-import tw.com.deathhit.data.photo.PhotoRepositoryImp
-import tw.com.deathhit.domain.PhotoRepository
+import tw.com.deathhit.data.sunflower_clone.photo.PhotoRepositoryImp
+import tw.com.deathhit.domain.sunflower_clone.PhotoRepository
 import javax.inject.Singleton
 
 @Module

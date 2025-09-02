@@ -5,8 +5,8 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.testing.asPagingSourceFactory
 import kotlinx.coroutines.flow.Flow
-import tw.com.deathhit.domain.PhotoRepository
-import tw.com.deathhit.domain.model.PhotoDO
+import tw.com.deathhit.domain.sunflower_clone.PhotoRepository
+import tw.com.deathhit.domain.sunflower_clone.model.PhotoDO
 
 class TestPhotoRepository : PhotoRepository {
     private val mutableMap: MutableMap<String, List<PhotoDO>> = mutableMapOf()

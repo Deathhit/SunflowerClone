@@ -64,7 +64,7 @@ android {
 dependencies {
     implementation(project(":app:internal:sunflower_clone_config"))
     implementation(project(":core:sunflower_clone_ui"))
-    implementation(project(":domain"))
+    implementation(project(":domain:sunflower_clone"))
     implementation(project(":feature:compose:gallery"))
     implementation(project(":feature:compose:navigation"))
     implementation(project(":feature:compose:plant_details"))

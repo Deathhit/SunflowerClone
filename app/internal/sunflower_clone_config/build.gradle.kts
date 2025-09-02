@@ -45,10 +45,10 @@ android {
 dependencies {
     implementation(project(":core:sunflower_clone:app_database"))
     implementation(project(":core:unsplash:api_client"))
-    implementation(project(":data:garden_planting"))
-    implementation(project(":data:photo"))
-    implementation(project(":data:plant"))
-    implementation(project(":domain"))
+    implementation(project(":data:sunflower_clone:garden_planting"))
+    implementation(project(":data:sunflower_clone:photo"))
+    implementation(project(":data:sunflower_clone:plant"))
+    implementation(project(":domain:sunflower_clone"))
 
     //Coroutine-Test
     androidTestImplementation(libs.jetbrains.koltin.coroutine.test)

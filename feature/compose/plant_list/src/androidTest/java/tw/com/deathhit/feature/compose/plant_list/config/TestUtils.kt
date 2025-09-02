@@ -1,6 +1,6 @@
 package tw.com.deathhit.feature.compose.plant_list.config
 
-import tw.com.deathhit.domain.model.PlantDO
+import tw.com.deathhit.domain.sunflower_clone.model.PlantDO
 import java.util.UUID
 import kotlin.random.Random
 

@@ -18,7 +18,7 @@ import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import kotlinx.coroutines.flow.flowOf
 import tw.com.deathhit.core.sunflower_clone_ui.SunflowerCloneTheme
-import tw.com.deathhit.domain.model.PlantDO
+import tw.com.deathhit.domain.sunflower_clone.model.PlantDO
 
 @Composable
 fun PlantListLayout(

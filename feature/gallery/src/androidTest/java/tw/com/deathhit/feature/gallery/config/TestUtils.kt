@@ -1,6 +1,6 @@
 package tw.com.deathhit.feature.gallery.config
 
-import tw.com.deathhit.domain.model.PhotoDO
+import tw.com.deathhit.domain.sunflower_clone.model.PhotoDO
 import java.util.UUID
 import kotlin.random.Random
 

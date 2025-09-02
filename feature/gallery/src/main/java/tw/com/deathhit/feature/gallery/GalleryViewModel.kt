@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
 import kotlinx.parcelize.Parcelize
-import tw.com.deathhit.domain.PhotoRepository
+import tw.com.deathhit.domain.sunflower_clone.PhotoRepository
 import javax.inject.Inject
 
 @OptIn(ExperimentalCoroutinesApi::class)

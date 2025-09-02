@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="garden_planting">
+    <output-path>$PROJECT_DIR$/data/sunflower_clone/garden_planting/build/libs</output-path>
+    <root id="archive" name="garden_planting.jar">
+      <element id="module-output" name="Sunflower_Clone.data.sunflower_clone.garden_planting.androidMain" />
+    </root>
+  </artifact>
+</component>

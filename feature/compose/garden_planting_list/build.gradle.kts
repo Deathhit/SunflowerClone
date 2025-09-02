@@ -52,7 +52,7 @@ android {
 
 dependencies {
     implementation(project(":core:sunflower_clone_ui"))
-    implementation(project(":domain"))
+    implementation(project(":domain:sunflower_clone"))
 
     //Androidx KTX
     implementation(libs.androidx.core.ktx)

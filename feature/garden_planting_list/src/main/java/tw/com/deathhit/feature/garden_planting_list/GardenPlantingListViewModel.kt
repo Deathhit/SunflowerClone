@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.parcelize.Parcelize
-import tw.com.deathhit.domain.GardenPlantingRepository
+import tw.com.deathhit.domain.sunflower_clone.GardenPlantingRepository
 import javax.inject.Inject
 
 @HiltViewModel
