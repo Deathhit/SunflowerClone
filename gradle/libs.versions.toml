@@ -1,7 +1,7 @@
 [versions]
-agp = "8.12.1"
+agp = "8.12.2"
 appcompat = "1.7.1"
-compose-bom = "2025.08.00"
+compose-bom = "2025.08.01"
 constraintlayout = "2.2.1"
 constraintlayout-compose = "1.1.1"
 core = "1.7.0"
@@ -9,8 +9,8 @@ coreKtx = "1.17.0"
 coroutine = "1.10.2"
 espressoCore = "3.7.0"
 fragmentKtx = "1.8.9"
-glide = "4.16.0"
-glide-compose = "1.0.0-beta01"
+glide = "5.0.4"
+glide-compose = "1.0.0-beta07"
 gson = "2.13.1"
 hilt = "2.57.1"
 hilt-integration = "1.2.0"
@@ -27,9 +27,8 @@ recyclerview = "1.4.0"
 retrofit = "3.0.0"
 room = "2.7.2"
 runner = "1.7.0"
-sqldelight = "2.1.0"
 sqlite = "2.5.2"
-viewmodel-compose = "2.9.2"
+viewmodel-compose = "2.9.3"
 viewpager2 = "1.1.0"
 work = "2.10.3"
 
@@ -84,12 +83,6 @@ room-compiler = { group = "androidx.room", name = "room-compiler", version.ref =
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-paging = { group = "androidx.room", name = "room-paging", version.ref = "room" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
-sqldelight-android-driver = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sqldelight" }
-sqldelight-coroutine-ktx = { group = "app.cash.sqldelight", name = "coroutines-extensions", version.ref = "sqldelight" }
-sqldelight-native-driver = { group = "app.cash.sqldelight", name = "native-driver", version.ref = "sqldelight" }
-sqldelight-paging3-ktx = { group = "app.cash.sqldelight", name = "androidx-paging3-extensions", version.ref = "sqldelight" }
-sqldelight-primitive-adapters = { group = "app.cash.sqldelight", name = "primitive-adapters", version.ref = "sqldelight" }
-sqldelight-sqlite-driver = { group = "app.cash.sqldelight", name = "sqlite-driver", version.ref = "sqldelight" }
 sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite"}
 viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "viewmodel-compose" }
 viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
@@ -101,7 +94,6 @@ android-kotlin-multiplatform-library = { id = "com.android.kotlin.multiplatform.
 android-library = { id = "com.android.library", version.ref = "agp" }
 android-lint = { id = "com.android.lint", version.ref = "agp" }
 androidx-room = { id = "androidx.room", version.ref = "room" }
-cash-sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 google-dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
